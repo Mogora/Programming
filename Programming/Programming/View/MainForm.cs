@@ -91,19 +91,24 @@ namespace Programming.View
             {
                 case Seasons.Winter:
                     this.BackColor = DefaultBackColor;
-                    MessageBox.Show("Бррр! Холодно!");
+                    MessageBox.Show("Бррр! Холодно! Куда бежать согреваться??");
                     break;
                 case Seasons.Spring:
                     this.BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 case Seasons.Summer:
                     this.BackColor = DefaultBackColor;
-                    MessageBox.Show("Ура! Солнце!");
+                    MessageBox.Show(" Ура! Солнце! Тепло!");
                     break;
                 case Seasons.Autumn:
                     this.BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
             }
+        }
+
+        private void EnumerationGroupBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
