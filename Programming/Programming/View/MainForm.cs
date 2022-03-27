@@ -12,7 +12,7 @@ namespace Programming.View
             InitializeComponent();
 
             Array typeValues = Enum.GetValues(typeof(Enums));
-            foreach (Enums value in typeValues)
+            foreach (Enums value in typeValues) 
             {
                 EnumsListBox.Items.Add(value);
             }
@@ -25,7 +25,7 @@ namespace Programming.View
             }
             SeasonsComboBox.SelectedIndex = 0;
         }
-
+          
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();

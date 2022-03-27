@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Programming.Model
+{
+    public class Flight
+    {
+        private string _departurePoint;
+        private string _destinationPoint;
+        private int _flightTime;
+
+        public Flight(string departurePoint, string destinationPoint, int flightTime)
+        {
+            DeparturePoint = departurePoint;
+            DestinationPoint = destinationPoint;
+            FlightTime = flightTime;
+        }
+
+        public string DeparturePoint { get; private set; }
+        public string DestinationPoint { get; private set; }
+        public int FlightTime { get; private set; }
+    }
+
+   
+}
