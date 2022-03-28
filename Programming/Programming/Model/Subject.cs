@@ -6,19 +6,34 @@ namespace Programming.Model
 {
     public class Subject
     {
-        private string _nameSubject;
+        private string _name;
         private int _mark;
         private string _teacher;
         
-        public Subject(string nameSubject, int mark, string teacher)
+        public Subject(string name, int mark, string teacher)
         {
-            NameSubject = nameSubject;
+            Name = name;
             Mark = mark;
             Teacher = teacher;
         }
 
-        public string NameSubject { get; private set; }
-        public int Mark { get; private set; }
-        public string Teacher { get; private set; }
+        public string Name { get; set; }
+
+        public int Mark
+        {
+            get
+            {
+                return _mark;
+            }
+            set
+            {
+                if (value < 0.0)
+                {
+                    throw new ArgumentException("Оценка не может быть отрицательной");
+                }
+                _mark = value;
+            }
+        }
+        public string Teacher { get; set; }
     }
 }

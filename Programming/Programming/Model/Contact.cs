@@ -8,16 +8,31 @@ namespace Programming.Model
     {
         private string _name;
         private string _surname;
-        private int _phoneNumber;
-        public Contact(string name, string surname, int phoneNumber)
+        private string _phoneNumber;
+        public Contact(string name, string surname, string phoneNumber)
         {
             Name = name;
             Surname = surname;
             PhoneNumber = phoneNumber;
         }
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-        public int PhoneNumber { get; private set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string PhoneNumber
+        {
+            get
+            {
+                return _phoneNumber;                
+            }
+            set
+            {
+                bool isSuccess = int.TryParse(value, out int finalnumber);
+                if (isSuccess == false)
+                {
+                    throw new ArgumentException("Номер должен состоять только из цифр");
+                }
+                _phoneNumber = value;
+            }
+        }    
     }
 }

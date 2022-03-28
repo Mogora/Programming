@@ -18,9 +18,22 @@ namespace Programming.Model
             TimeInMitutes = timeInMitutes;
             TimeInSeconds = timeInSeconds;
         }
-        public string Author { get; private set; }
-        public string Title { get; private set; }
-        public int TimeInMitutes { get; private set; }
+        public string Author { get; set; }
+        public string Title { get;  set; }
+        public int TimeInMitutes
+        {
+            get
+            {
+                return _timeMitutes;   
+            }
+            set
+            {
+                if(value < 0.0)
+                {
+                    throw new ArgumentException("Время не может быть отрицательным");
+                }
+            }
+        }
         public int TimeInSeconds { get; private set; }
     }
 }
