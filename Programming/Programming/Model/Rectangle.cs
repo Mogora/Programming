@@ -8,15 +8,44 @@ namespace Programming.Model
     {
         private float _lenght;
         private float _widht;
+        private string color;
 
-        public Rectangle(float lenght, float widht, string colour)
+        public Rectangle(float lenght, float widht, string color)
         {
             Lenght = lenght;
             Widht = widht;
-            Colour = colour;
+            Color = color;
         }
-        public float Lenght { get; }
-        public float Widht { get; private set; }
-        public string Colour { get; private set; }
+        public string Color { get; set; }
+        public float Lenght
+        {
+            get
+            {
+                return _lenght;
+            }
+            set
+            {
+                if(value < 0)
+                {
+                    throw new ArgumentException("Длина не может быть меньше 0");
+                }
+                _lenght = value;
+            }
+        }
+        public float Widht
+        {
+            get
+            {
+                return _widht;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Ширина не может быть меньше 0");
+                }
+                _widht = value;
+            }
+        }
     }
 }

@@ -17,9 +17,23 @@ namespace Programming.Model
             FlightTime = flightTime;
         }
 
-        public string DeparturePoint { get; private set; }
-        public string DestinationPoint { get; private set; }
-        public int FlightTime { get; private set; }
+        public string DeparturePoint { get; set; }
+        public string DestinationPoint { get; set; }
+        public int FlightTime
+        {
+            get
+            {
+                return _flightTime;
+            }
+            set
+            {
+                if (value < 0.0)
+                {
+                    throw new ArgumentException("Время полета не может быть отрицательным");
+                }
+                _flightTime = value;
+            }
+        }
     }
 
    
