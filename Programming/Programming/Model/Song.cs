@@ -32,8 +32,23 @@ namespace Programming.Model
                 {
                     throw new ArgumentException("Время не может быть отрицательным");
                 }
+                _timeMitutes = value;
             }
         }
-        public int TimeInSeconds { get; private set; }
+        public int TimeInSeconds
+        {
+            get
+            {
+                return _timeSeconds;
+            }
+            set
+            {
+                if (value < 0.0)
+                {
+                    throw new ArgumentException("Время не может быть отрицательным");
+                }
+                _timeSeconds = value;
+            }
+        }
     }
 }
