@@ -10,6 +10,10 @@ namespace Programming.Model
         private int _mark;
         private string _teacher;
         
+        public Subject()
+        {
+
+        }
         public Subject(string name, int mark, string teacher)
         {
             Name = name;

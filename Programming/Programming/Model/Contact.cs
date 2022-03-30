@@ -9,6 +9,11 @@ namespace Programming.Model
         private string _name;
         private string _surname;
         private string _phoneNumber;
+
+        public Contact()
+        {
+
+        }
         public Contact(string name, string surname, string phoneNumber)
         {
             Name = name;

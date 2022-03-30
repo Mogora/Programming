@@ -10,6 +10,11 @@ namespace Programming.Model
         private string _destinationPoint;
         private int _flightTime;
 
+        public Flight()
+        {
+
+        }
+
         public Flight(string departurePoint, string destinationPoint, int flightTime)
         {
             DeparturePoint = departurePoint;

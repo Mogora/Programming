@@ -11,6 +11,11 @@ namespace Programming.Model
         private int _timeMitutes;
         private int _timeSeconds;
 
+        public Song()
+        {
+
+        }
+
         public Song(string author, string title, int timeInMitutes, int timeInSeconds)
         {
             Author = author;

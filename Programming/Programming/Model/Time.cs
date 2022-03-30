@@ -9,6 +9,11 @@ namespace Programming.Model
         private int _hours;
         private int _minutes;
         private int _seconds;
+
+        public Time()
+        {
+
+        }
         public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;

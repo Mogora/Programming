@@ -10,6 +10,11 @@ namespace Programming.Model
         private float _widht;
         private string color;
 
+        public Rectangle()
+        {
+
+        }
+
         public Rectangle(float lenght, float widht, string color)
         {
             Lenght = lenght;

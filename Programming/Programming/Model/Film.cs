@@ -12,6 +12,10 @@ namespace Programming.Model
         private string _genre;
         private float _rating;
 
+        public Film()
+        {
+
+        }
         public Film(string nameFilm, int movieTime, int releaseYear, string genre, float rating)
         {
             NameFilm = nameFilm;
