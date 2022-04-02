@@ -6,27 +6,26 @@ namespace Programming.Model
 {
     public class Rectangle
     {
-        private float _lenght;
-        private float _widht;
-        private string color;
-
+        private float _length;
+        private float _width;
+       
         public Rectangle()
         {
 
         }
 
-        public Rectangle(float lenght, float widht, string color)
+        public Rectangle(float length, float width, string color)
         {
-            Lenght = lenght;
-            Widht = widht;
+            Length = length;
+            Width = width;
             Color = color;
         }
         public string Color { get; set; }
-        public float Lenght
+        public float Length
         {
             get
             {
-                return _lenght;
+                return _length;
             }
             set
             {
@@ -34,14 +33,14 @@ namespace Programming.Model
                 {
                     throw new ArgumentException("Длина не может быть меньше 0");
                 }
-                _lenght = value;
+                _length = value;
             }
         }
-        public float Widht
+        public float Width
         {
             get
             {
-                return _widht;
+                return _width;
             }
             set
             {
@@ -49,7 +48,7 @@ namespace Programming.Model
                 {
                     throw new ArgumentException("Ширина не может быть меньше 0");
                 }
-                _widht = value;
+                _width = value;
             }
         }
     }

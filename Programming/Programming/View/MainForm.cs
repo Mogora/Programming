@@ -2,15 +2,22 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Rectangle = Programming.Model.Rectangle;
+using System.Collections.Generic;
+
+
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        private Rectangle[] _rectangles;
+        private Rectangle _currentRectangle;
+        int count = 5;
+        private Random _randomValues;
         public MainForm()
         {
             InitializeComponent();
-
             Array typeValues = Enum.GetValues(typeof(Enums));
             foreach (Enums value in typeValues) 
             {
@@ -24,6 +31,24 @@ namespace Programming.View
                 SeasonsComboBox.Items.Add(value);
             }
             SeasonsComboBox.SelectedIndex = 0;
+
+            _randomValues = new Random();
+            _rectangles = GenerateRectangles();
+            RectanglesListBox.SelectedIndex = 0;
+        }
+        private Rectangle[] GenerateRectangles()
+        {
+            Rectangle[] rectangles = new Rectangle[count];
+            var colors = Enum.GetValues(typeof(Colors));
+            for (int i = 0; i < count; i++)
+            {
+                _currentRectangle = new Rectangle();
+                _currentRectangle.Width = _randomValues.Next(1, 1001);
+                _currentRectangle.Length = _randomValues.Next(1, 1001);
+                rectangles[i] = _currentRectangle;
+                RectanglesListBox.Items.Add($"Rectangle {i + 1}");
+            }
+            return rectangles;
         }
           
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,6 +132,11 @@ namespace Programming.View
         }
 
         private void EnumerationGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
