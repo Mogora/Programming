@@ -5,16 +5,18 @@ using System.Windows.Forms;
 using Rectangle = Programming.Model.Rectangle;
 using System.Collections.Generic;
 
-
-
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        private const int Count = 5;
+
         private Rectangle[] _rectangles;
+        
         private Rectangle _currentRectangle;
-        int count = 5;
+        
         private Random _randomValues;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -38,9 +40,9 @@ namespace Programming.View
         }
         private Rectangle[] GenerateRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[count];
+            Rectangle[] rectangles = new Rectangle[Count];
             var colors = Enum.GetValues(typeof(Colors));
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 _currentRectangle = new Rectangle();
                 _currentRectangle.Width = _randomValues.Next(1, 1001);
@@ -129,16 +131,6 @@ namespace Programming.View
                     this.BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
             }
-        }
-
-        private void EnumerationGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
