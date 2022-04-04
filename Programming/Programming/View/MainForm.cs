@@ -147,8 +147,7 @@ namespace Programming.View
                     break;
             }
         }
-
-        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RectanglesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[selectedIndexRectangle];
@@ -156,6 +155,7 @@ namespace Programming.View
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
         }
+
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -197,7 +197,7 @@ namespace Programming.View
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
-        }      
+        }       
     }
 }
 
