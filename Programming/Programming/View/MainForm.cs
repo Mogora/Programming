@@ -15,7 +15,7 @@ namespace Programming.View
         
         private Rectangle _currentRectangle;
         
-        private Random _randomValues;
+        private Random _random;
         
         public MainForm()
         {
@@ -34,7 +34,7 @@ namespace Programming.View
             }
             SeasonsComboBox.SelectedIndex = 0;
 
-            _randomValues = new Random();
+            _random = new Random();
             _rectangles = GenerateRectangles();
             RectanglesListBox.SelectedIndex = 0;
         }
@@ -45,14 +45,29 @@ namespace Programming.View
             for (int i = 0; i < Count; i++)
             {
                 _currentRectangle = new Rectangle();
-                _currentRectangle.Width = _randomValues.Next(1, 1001);
-                _currentRectangle.Length = _randomValues.Next(1, 1001);
+                _currentRectangle.Width = _random.Next(1, 1001);
+                _currentRectangle.Length = _random.Next(1, 1001);
+                _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
                 rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
             return rectangles;
         }
-          
+        private int FindRectangleWithMaxWidth(Rectangle[] restangles)
+        {
+            int maxWidthIndex = 0;
+            float maxWidthRestangle = 0;
+            for (int i = 0; i < Count; i++)
+            {
+                if (restangles[i].Width > maxWidthRestangle)
+                {
+                    maxWidthRestangle = restangles[i].Width;
+                    maxWidthIndex = i;
+                }
+            }
+            return maxWidthIndex;
+        }
+
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
@@ -142,9 +157,47 @@ namespace Programming.View
             ColorTextBox.Text = _currentRectangle.Color;
         }
 
-        private void RectangleListBox_TextChanged(object sender, EventArgs e)
+        private void LengthRectangle_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string currentLength = LengthTextBox.Text;
+                float lengthRectangleValue = float.Parse(currentLength);
+                _currentRectangle.Length = lengthRectangleValue;
+            }
+            catch
+            {
+                LengthTextBox.BackColor = Color.LightPink;
+                return;
+            }
+            LengthTextBox.BackColor = Color.White;
+        }
 
+        private void WidthhRectangle_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string currentWidth = WidthTextBox.Text;
+                float widthRectangleValue = float.Parse(currentWidth);
+                _currentRectangle.Width = widthRectangleValue;
+            }
+            catch
+            {
+                LengthTextBox.BackColor = Color.LightPink;
+                return;
+            }
+            WidthTextBox.BackColor = Color.White;
+        }
+        private void ColorRectangle_TextChanged(object sender, EventArgs e)
+        {
+            string colorRectangleValue = ColorTextBox.Text;
+            _currentRectangle.Color = colorRectangleValue;
+        }
+
+        private void FindRectangleButton_Click(object sender, EventArgs e)
+        {
+            int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
+            RectanglesListBox.SelectedIndex = findMaxWidthIndex;
         }
     }
 }

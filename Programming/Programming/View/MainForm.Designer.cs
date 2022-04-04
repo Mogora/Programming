@@ -48,7 +48,7 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FindRectangleButton = new System.Windows.Forms.Button();
             this.ColorLabel = new System.Windows.Forms.Label();
             this.WidhtLabel = new System.Windows.Forms.Label();
             this.LenghtLabel = new System.Windows.Forms.Label();
@@ -257,7 +257,7 @@
             // 
             // RectanglesGroupBox
             // 
-            this.RectanglesGroupBox.Controls.Add(this.button1);
+            this.RectanglesGroupBox.Controls.Add(this.FindRectangleButton);
             this.RectanglesGroupBox.Controls.Add(this.ColorLabel);
             this.RectanglesGroupBox.Controls.Add(this.WidhtLabel);
             this.RectanglesGroupBox.Controls.Add(this.LenghtLabel);
@@ -272,14 +272,15 @@
             this.RectanglesGroupBox.TabStop = false;
             this.RectanglesGroupBox.Text = "Rectangles";
             // 
-            // button1
+            // FindRectangleButton
             // 
-            this.button1.Location = new System.Drawing.Point(432, 508);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 39);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Find";
-            this.button1.UseVisualStyleBackColor = true;
+            this.FindRectangleButton.Location = new System.Drawing.Point(432, 508);
+            this.FindRectangleButton.Name = "FindRectangleButton";
+            this.FindRectangleButton.Size = new System.Drawing.Size(210, 39);
+            this.FindRectangleButton.TabIndex = 7;
+            this.FindRectangleButton.Text = "Find";
+            this.FindRectangleButton.UseVisualStyleBackColor = true;
+            this.FindRectangleButton.Click += new System.EventHandler(this.FindRectangleButton_Click);
             // 
             // ColorLabel
             // 
@@ -390,7 +391,7 @@
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.ListBox RectanglesListBox;
         private System.Windows.Forms.TextBox LengthTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FindRectangleButton;
         private System.Windows.Forms.Label ColorLabel;
         private System.Windows.Forms.Label WidhtLabel;
         private System.Windows.Forms.Label LenghtLabel;
