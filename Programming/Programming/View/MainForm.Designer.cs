@@ -52,9 +52,9 @@
             this.ColorLabel = new System.Windows.Forms.Label();
             this.WidhtLabel = new System.Windows.Forms.Label();
             this.LenghtLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ColorTextBox = new System.Windows.Forms.TextBox();
+            this.WidthTextBox = new System.Windows.Forms.TextBox();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.EnumsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -261,9 +261,9 @@
             this.RectanglesGroupBox.Controls.Add(this.ColorLabel);
             this.RectanglesGroupBox.Controls.Add(this.WidhtLabel);
             this.RectanglesGroupBox.Controls.Add(this.LenghtLabel);
-            this.RectanglesGroupBox.Controls.Add(this.textBox3);
-            this.RectanglesGroupBox.Controls.Add(this.textBox2);
-            this.RectanglesGroupBox.Controls.Add(this.textBox1);
+            this.RectanglesGroupBox.Controls.Add(this.ColorTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.WidthTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.LengthTextBox);
             this.RectanglesGroupBox.Controls.Add(this.RectanglesListBox);
             this.RectanglesGroupBox.Location = new System.Drawing.Point(5, 11);
             this.RectanglesGroupBox.Name = "RectanglesGroupBox";
@@ -311,26 +311,26 @@
             this.LenghtLabel.TabIndex = 4;
             this.LenghtLabel.Text = "Length:";
             // 
-            // textBox3
+            // ColorTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(432, 196);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 27);
-            this.textBox3.TabIndex = 3;
+            this.ColorTextBox.Location = new System.Drawing.Point(432, 196);
+            this.ColorTextBox.Name = "ColorTextBox";
+            this.ColorTextBox.Size = new System.Drawing.Size(210, 27);
+            this.ColorTextBox.TabIndex = 3;
             // 
-            // textBox2
+            // WidthTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(432, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 27);
-            this.textBox2.TabIndex = 2;
+            this.WidthTextBox.Location = new System.Drawing.Point(432, 135);
+            this.WidthTextBox.Name = "WidthTextBox";
+            this.WidthTextBox.Size = new System.Drawing.Size(210, 27);
+            this.WidthTextBox.TabIndex = 2;
             // 
-            // textBox1
+            // LengthTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(432, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 27);
-            this.textBox1.TabIndex = 1;
+            this.LengthTextBox.Location = new System.Drawing.Point(432, 74);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(210, 27);
+            this.LengthTextBox.TabIndex = 1;
             // 
             // RectanglesListBox
             // 
@@ -389,12 +389,12 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.ListBox RectanglesListBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LengthTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label ColorLabel;
         private System.Windows.Forms.Label WidhtLabel;
         private System.Windows.Forms.Label LenghtLabel;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ColorTextBox;
+        private System.Windows.Forms.TextBox WidthTextBox;
     }
 }

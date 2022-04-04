@@ -132,6 +132,20 @@ namespace Programming.View
                     break;
             }
         }
+
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndexRectangle];
+            LengthTextBox.Text = _currentRectangle.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString();
+            ColorTextBox.Text = _currentRectangle.Color;
+        }
+
+        private void RectangleListBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
