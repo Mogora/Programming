@@ -4,34 +4,34 @@ using System.Text;
 
 namespace Programming.Model
 {
-    public class Film
+    public class Movie
     {
-        private string _nameFilm;
-        private int _movieTime;
+        private string _nameMovie;
+        private int _timeMovie;
         private int _releaseYear;
         private string _genre;
         private float _rating;
 
-        public Film()
+        public Movie()
         {
 
         }
-        public Film(string nameFilm, int movieTime, int releaseYear, string genre, float rating)
+        public Movie(string nameMovie, int timeMovie, int releaseYear, string genre, float rating)
         {
-            NameFilm = nameFilm;
-            MovieTime = movieTime;
+            NameMovie = nameMovie;
+            MovieTime = timeMovie;
             ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
         }
-        public string NameFilm { get; set; }
+        public string NameMovie { get; set; }
         public string Genre { get; set; }
         
         public int MovieTime
         {
             get
             {
-                return _movieTime;
+                return _timeMovie;
             }
             set
             {
@@ -39,7 +39,7 @@ namespace Programming.Model
                 {
                     throw new AggregateException("Продолжительность фильма не может быть отрицательной");
                 }
-                _movieTime = value;
+                _timeMovie = value;
             }
         }
         public int ReleaseYear
