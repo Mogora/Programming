@@ -48,7 +48,7 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.ClassestabPage = new System.Windows.Forms.TabPage();
             this.MoviesGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FindMovieButton_Click = new System.Windows.Forms.Button();
             this.GenreTextBox = new System.Windows.Forms.TextBox();
             this.ReleaseYearTextBox = new System.Windows.Forms.TextBox();
             this.RatingTextBox = new System.Windows.Forms.TextBox();
@@ -268,7 +268,7 @@
             // 
             // MoviesGroupBox
             // 
-            this.MoviesGroupBox.Controls.Add(this.button1);
+            this.MoviesGroupBox.Controls.Add(this.FindMovieButton_Click);
             this.MoviesGroupBox.Controls.Add(this.GenreTextBox);
             this.MoviesGroupBox.Controls.Add(this.ReleaseYearTextBox);
             this.MoviesGroupBox.Controls.Add(this.RatingTextBox);
@@ -283,15 +283,16 @@
             this.MoviesGroupBox.TabStop = false;
             this.MoviesGroupBox.Text = "Movies";
             // 
-            // button1
+            // FindMovieButton_Click
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(216, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 39);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Find";
-            this.button1.UseVisualStyleBackColor = true;
+            this.FindMovieButton_Click.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FindMovieButton_Click.Location = new System.Drawing.Point(216, 488);
+            this.FindMovieButton_Click.Name = "FindMovieButton_Click";
+            this.FindMovieButton_Click.Size = new System.Drawing.Size(152, 39);
+            this.FindMovieButton_Click.TabIndex = 7;
+            this.FindMovieButton_Click.Text = "Find";
+            this.FindMovieButton_Click.UseVisualStyleBackColor = true;
+            this.FindMovieButton_Click.Click += new System.EventHandler(this.FindMovieButton_Click_Click);
             // 
             // GenreTextBox
             // 
@@ -512,7 +513,7 @@
         private System.Windows.Forms.Label GenreLabel;
         private System.Windows.Forms.Label ReleaseYearLabel;
         private System.Windows.Forms.Label RatingLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FindMovieButton_Click;
         private System.Windows.Forms.TextBox GenreTextBox;
         private System.Windows.Forms.TextBox ReleaseYearTextBox;
     }

@@ -70,7 +70,7 @@ namespace Programming.View
             for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
-                _currentMovie.Rating = _random.Next(101)%10;
+                _currentMovie.Rating = _random.Next(101) / 10;
                 _currentMovie.ReleaseYear = _random.Next(1900, 2022);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 movies[i] = _currentMovie;
@@ -91,6 +91,20 @@ namespace Programming.View
                 }
             }
             return maxWidthIndex;
+        }
+        private int FindMovieWithMaxRating (Movie [] movies)
+        {
+            int maxRatingIndex = 0;
+            float maxRatingMovie = 0;
+            for (int i = 0; i < ElementsCount; i++)
+            {
+                if (movies[i].Rating > maxRatingMovie)
+                {
+                    maxRatingMovie = movies[i].Rating;
+                    maxRatingIndex = i;
+                }
+            }
+            return maxRatingIndex;
         }
           
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -270,7 +284,11 @@ namespace Programming.View
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
         }
 
-     
+        private void FindMovieButton_Click_Click(object sender, EventArgs e)
+        {
+            int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
+            MoviesListBox.SelectedIndex = findMaxRatingIndex;
+        }
     }
 }
 
