@@ -70,7 +70,7 @@ namespace Programming.View
             for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
-                _currentMovie.Rating = _random.Next(1, 10);
+                _currentMovie.Rating = _random.Next(101)%10;
                 _currentMovie.ReleaseYear = _random.Next(1900, 2022);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 movies[i] = _currentMovie;
@@ -176,7 +176,7 @@ namespace Programming.View
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[selectedIndexRectangle];
-            LengthTextBox.Text = _currentRectangle.ToString();
+            LengthTextBox.Text = _currentRectangle.Length.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
         }
@@ -185,8 +185,8 @@ namespace Programming.View
         {
             int selectedIndexMovie = MoviesListBox.SelectedIndex;
             _currentMovie = _movies[selectedIndexMovie];
-            RatingTextBox.Text = _currentRectangle.ToString();
-            ReleaseYearTextBox.Text = _currentRectangle.ToString();
+            RatingTextBox.Text = _currentMovie.Rating.ToString();
+            ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
             GenreTextBox.Text = _currentMovie.Genre;
         }
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
@@ -258,13 +258,19 @@ namespace Programming.View
             ReleaseYearTextBox.BackColor = Color.White;
         }
 
+        private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string genreMovieValue = GenreTextBox.Text;
+            _currentMovie.Genre = genreMovieValue;
+        }
+
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
         }
 
-        
+     
     }
 }
 

@@ -299,6 +299,7 @@
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(152, 27);
             this.GenreTextBox.TabIndex = 6;
+            this.GenreTextBox.TextChanged += new System.EventHandler(this.GenreTextBox_TextChanged);
             // 
             // ReleaseYearTextBox
             // 
