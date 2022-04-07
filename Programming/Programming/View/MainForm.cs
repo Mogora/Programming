@@ -242,6 +242,21 @@ namespace Programming.View
             RatingTextBox.BackColor = Color.White;
         }
 
+        private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string currentReleaseYear = ReleaseYearTextBox.Text;
+                int releaseYearMovieValue = int.Parse(currentReleaseYear);
+                _currentMovie.ReleaseYear = releaseYearMovieValue;
+            }
+            catch
+            {
+                ReleaseYearTextBox.BackColor = Color.LightPink;
+                return;
+            }
+            ReleaseYearTextBox.BackColor = Color.White;
+        }
 
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
@@ -249,7 +264,7 @@ namespace Programming.View
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
         }
 
-       
+        
     }
 }
 

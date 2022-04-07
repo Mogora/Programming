@@ -306,6 +306,7 @@
             this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
             this.ReleaseYearTextBox.Size = new System.Drawing.Size(152, 27);
             this.ReleaseYearTextBox.TabIndex = 5;
+            this.ReleaseYearTextBox.TextChanged += new System.EventHandler(this.ReleaseYearTextBox_TextChanged);
             // 
             // RatingTextBox
             // 
