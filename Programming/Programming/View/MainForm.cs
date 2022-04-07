@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Rectangle;
 using System.Collections.Generic;
+using Movie = Programming.Model.Movie;
 
 namespace Programming.View
 {
@@ -16,6 +17,10 @@ namespace Programming.View
         private Rectangle _currentRectangle;
         
         private Random _random;
+
+        private Movie[] _movies;
+
+        private Movie _currentMovie;
  
         public MainForm()
         {
@@ -35,8 +40,12 @@ namespace Programming.View
             SeasonsComboBox.SelectedIndex = 0;
 
             _random = new Random();
+
             _rectangles = GenerateRectangles();
             RectanglesListBox.SelectedIndex = 0;
+
+            _movies = GenerateMovies();
+            MoviesListBox.SelectedIndex = 0;
         }
         private Rectangle[] GenerateRectangles()
         {
@@ -52,6 +61,22 @@ namespace Programming.View
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
             return rectangles;
+        }
+        
+        private Movie [] GenerateMovies ()
+        {
+            Movie[] movies = new Movie[ElementsCount];
+            var genres = Enum.GetValues(typeof(Genre));
+            for (int i = 0; i < ElementsCount; i++)
+            {
+                _currentMovie = new Movie();
+                _currentMovie.Rating = _random.Next(1, 10);
+                _currentMovie.ReleaseYear = _random.Next(1900, 2022);
+                _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
+                movies[i] = _currentMovie;
+                MoviesListBox.Items.Add($"Movie {i + 1}");
+            }
+            return movies;
         }
         private int FindRectangleWithMaxWidth (Rectangle[] restangles)
         {
@@ -156,6 +181,14 @@ namespace Programming.View
             ColorTextBox.Text = _currentRectangle.Color;
         }
 
+        private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexMovie = MoviesListBox.SelectedIndex;
+            _currentMovie = _movies[selectedIndexMovie];
+            RatingTextBox.Text = _currentRectangle.ToString();
+            ReleaseYearTextBox.Text = _currentRectangle.ToString();
+            GenreTextBox.Text = _currentMovie.Genre;
+        }
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -193,11 +226,30 @@ namespace Programming.View
             _currentRectangle.Color = colorRectangleValue;
         }
 
+        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string currentRating = RatingTextBox.Text;
+                float ratingMovieValue = float.Parse(currentRating);
+                _currentMovie.Rating = ratingMovieValue;
+            }
+            catch
+            {
+                RatingTextBox.BackColor = Color.LightPink;
+                return;
+            }
+            RatingTextBox.BackColor = Color.White;
+        }
+
+
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
-        }       
+        }
+
+       
     }
 }
 
