@@ -7,7 +7,9 @@ namespace Programming.Model
     public class Flight
     {
         private string _departurePoint;
+
         private string _destinationPoint;
+
         private int _flightTime;
 
         public Flight()
@@ -23,7 +25,9 @@ namespace Programming.Model
         }
 
         public string DeparturePoint { get; set; }
+
         public string DestinationPoint { get; set; }
+
         public int FlightTime
         {
             get

@@ -7,13 +7,16 @@ namespace Programming.Model
     public class Contact
     {
         private string _name;
+
         private string _surname;
+
         private string _phoneNumber;
 
         public Contact()
         {
 
         }
+
         public Contact(string name, string surname, string phoneNumber)
         {
             Name = name;
@@ -22,7 +25,9 @@ namespace Programming.Model
         }
 
         public string Name { get; set; }
+
         public string Surname { get; set; }
+
         public string PhoneNumber
         {
             get
@@ -32,7 +37,7 @@ namespace Programming.Model
             set
             {
                 bool isSuccess = int.TryParse(value, out int finalnumber);
-                if (isSuccess == false)
+                if (!isSuccess)
                 {
                     throw new ArgumentException("Номер должен состоять только из цифр");
                 }

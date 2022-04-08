@@ -12,6 +12,10 @@ namespace Programming.View
     {
         private const int ElementsCount = 5;
 
+        private Color ErrorColor = Color.LightPink;
+
+        private Color CorrectColor = Color.White;
+
         private Rectangle[] _rectangles;
             
         private Rectangle _currentRectangle;
@@ -41,31 +45,28 @@ namespace Programming.View
 
             _random = new Random();
 
-            _rectangles = GenerateRectangles();
-            RectanglesListBox.SelectedIndex = 0;
+            GenerateRectangles();
 
-            _movies = GenerateMovies();
-            MoviesListBox.SelectedIndex = 0;
+            GenerateMovies();           
         }
-        private Rectangle[] GenerateRectangles()
-        {
-            Rectangle[] rectangles = new Rectangle[ElementsCount];
+        private void GenerateRectangles()
+        {          
+            _rectangles = new Rectangle[ElementsCount];
             var colors = Enum.GetValues(typeof(Colors));
             for (int i = 0; i < ElementsCount; i++)
-            {
+            {              
                 _currentRectangle = new Rectangle();
                 _currentRectangle.Width = _random.Next(1, 1001);
                 _currentRectangle.Length = _random.Next(1, 1001);
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-                rectangles[i] = _currentRectangle;
+                _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
-            }
-            return rectangles;
-        }
-        
-        private Movie [] GenerateMovies ()
+            }4sa5555555555555555555555555555555555552
+            RectanglesListBox.SelectedIndex = 0;
+        }        
+        private void GenerateMovies ()
         {
-            Movie[] movies = new Movie[ElementsCount];
+            _movies = new Movie[ElementsCount];
             var genres = Enum.GetValues(typeof(Genre));
             for (int i = 0; i < ElementsCount; i++)
             {
@@ -73,12 +74,14 @@ namespace Programming.View
                 _currentMovie.Rating = _random.Next(101) / 10;
                 _currentMovie.ReleaseYear = _random.Next(1900, 2022);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
-                movies[i] = _currentMovie;
+                _currentMovie.MovieTime = _random.Next(1,1001);
+                _currentMovie.Name = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
+                _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
-            return movies;
+            MoviesListBox.SelectedIndex = 0;
         }
-        private int FindRectangleWithMaxWidth (Rectangle[] restangles)
+        private int FindRectangleWithMaxWidth(Rectangle[] restangles)
         {
             int maxWidthIndex = 0;
             float maxWidthRestangle = 0;
@@ -92,7 +95,7 @@ namespace Programming.View
             }
             return maxWidthIndex;
         }
-        private int FindMovieWithMaxRating (Movie [] movies)
+        private int FindMovieWithMaxRating(Movie [] movies)
         {
             int maxRatingIndex = 0;
             float maxRatingMovie = 0;
@@ -202,6 +205,8 @@ namespace Programming.View
             RatingTextBox.Text = _currentMovie.Rating.ToString();
             ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
             GenreTextBox.Text = _currentMovie.Genre;
+            NameTextBox.Text = _currentMovie.Name;
+            MovieTimeTextBox.Text = _currentMovie.MovieTime.ToString();
         }
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -213,10 +218,10 @@ namespace Programming.View
             }
             catch
             {
-                LengthTextBox.BackColor = Color.LightPink;
+                LengthTextBox.BackColor = ErrorColor;
                 return;
             }
-            LengthTextBox.BackColor = Color.White;
+            LengthTextBox.BackColor = CorrectColor;
         }
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -228,10 +233,10 @@ namespace Programming.View
             }
             catch
             {
-                WidthTextBox.BackColor = Color.LightPink;
+                WidthTextBox.BackColor = ErrorColor;
                 return;
             }
-            WidthTextBox.BackColor = Color.White;
+            WidthTextBox.BackColor = CorrectColor;
         }
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
@@ -250,10 +255,10 @@ namespace Programming.View
             }
             catch
             {
-                RatingTextBox.BackColor = Color.LightPink;
+                RatingTextBox.BackColor = ErrorColor;
                 return;
             }
-            RatingTextBox.BackColor = Color.White;
+            RatingTextBox.BackColor = CorrectColor;
         }
 
         private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
@@ -266,10 +271,10 @@ namespace Programming.View
             }
             catch
             {
-                ReleaseYearTextBox.BackColor = Color.LightPink;
+                ReleaseYearTextBox.BackColor = ErrorColor;
                 return;
             }
-            ReleaseYearTextBox.BackColor = Color.White;
+            ReleaseYearTextBox.BackColor = CorrectColor;
         }
 
         private void GenreTextBox_TextChanged(object sender, EventArgs e)
@@ -288,6 +293,12 @@ namespace Programming.View
         {
             int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
             MoviesListBox.SelectedIndex = findMaxRatingIndex;
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string nameValue = NameTextBox.Text;
+            _currentMovie.Name = nameValue;
         }
     }
 }

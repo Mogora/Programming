@@ -7,6 +7,7 @@ namespace Programming.Model
     public class Rectangle
     {
         private float _length;
+
         private float _width;
        
         public Rectangle()
@@ -21,6 +22,7 @@ namespace Programming.Model
             Color = color;
         }
         public string Color { get; set; }
+
         public float Length
         {
             get

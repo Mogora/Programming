@@ -6,8 +6,8 @@ namespace Programming.Model
 {
     public class Movie
     {
-        private string _nameMovie;
-        private int _timeMovie;
+        private string _name;
+        private int _movietime;
         private int _releaseYear;
         private string _genre;
         private float _rating;
@@ -16,22 +16,22 @@ namespace Programming.Model
         {
 
         }
-        public Movie(string nameMovie, int timeMovie, int releaseYear, string genre, float rating)
+        public Movie(string name, int movietime, int releaseYear, string genre, float rating)
         {
-            NameMovie = nameMovie;
-            MovieTime = timeMovie;
+            Name = name;
+            MovieTime = movietime;
             ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
         }
-        public string NameMovie { get; set; }
+        public string Name { get; set; }
         public string Genre { get; set; }
         
         public int MovieTime
         {
             get
             {
-                return _timeMovie;
+                return _movietime;
             }
             set
             {
@@ -39,7 +39,7 @@ namespace Programming.Model
                 {
                     throw new AggregateException("Продолжительность фильма не может быть отрицательной");
                 }
-                _timeMovie = value;
+                _movietime = value;
             }
         }
         public int ReleaseYear

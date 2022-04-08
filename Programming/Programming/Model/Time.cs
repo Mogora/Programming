@@ -7,7 +7,9 @@ namespace Programming.Model
     public class Time
     {
         private int _hours;
+
         private int _minutes;
+
         private int _seconds;
 
         public Time()
@@ -32,6 +34,10 @@ namespace Programming.Model
                 {
                     throw new ArgumentException("Количество часов не может быть отрицательным");
                 }
+                if(value > 23)
+                {
+                    throw new ArgumentException("Количество часов не может превышать значение 23");
+                }
                 _hours = value;
             }
         }
@@ -47,6 +53,10 @@ namespace Programming.Model
                 {
                     throw new ArgumentException("Количество минут не может быть отрицательным");
                 }
+                if (value > 60)
+                {
+                    throw new ArgumentException("Количество минут не может превышать значение 60");
+                }
                 _minutes = value;
             }
         }
@@ -61,6 +71,10 @@ namespace Programming.Model
                 if (value < 0.0)
                 {
                     throw new ArgumentException("Количество секунд не может быть отрицательным");
+                }
+                if (value > 60)
+                {
+                    throw new ArgumentException("Количество секунд не может превышать значение 60");
                 }
                 _seconds = value;
             }
