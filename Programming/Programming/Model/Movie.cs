@@ -47,10 +47,7 @@ namespace Programming.Model
             }
             set
             {
-                if(value < 1900 || value > 2022)
-                {
-                    throw new ArgumentException("Год выпуска фильма должен быть не раннее 1900 и не позже 2022 года");
-                }
+                Validator.AssertValueInRange(nameof(ReleaseYear), value, 1900, 2022);
                 _releaseYear = value;
             }
         }
@@ -62,6 +59,7 @@ namespace Programming.Model
             }
             set
             {
+                Validator.AssertValueInRange(nameof(Rating), value, 0, 10);
                 if (value < 0 || value > 10)
                 {
                     throw new ArgumentException("Оценка в рейтинге не может быть меньше 0 или больше 10");

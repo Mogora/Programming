@@ -30,14 +30,7 @@ namespace Programming.Model
             }
             set
             {
-                if(value < 0)
-                {
-                    Validator.AssertOnPositiveValue(nameof(Hours), value);
-                }
-                if(value > 23)
-                {
-                    throw new ArgumentException("Количество часов не может превышать значение 23");
-                }
+                Validator.AssertValueInRange(nameof(Hours), value, 0, 59);
                 _hours = value;
             }
         }
@@ -49,14 +42,7 @@ namespace Programming.Model
             }
             set
             {
-                if (value < 0.0)
-                {
-                    Validator.AssertOnPositiveValue(nameof(Minutes), value);
-                }
-                if (value > 60)
-                {
-                    throw new ArgumentException("Количество минут не может превышать значение 60");
-                }
+                Validator.AssertValueInRange(nameof(Minutes), value, 0, 59);
                 _minutes = value;
             }
         }
@@ -68,14 +54,7 @@ namespace Programming.Model
             }
             set
             {
-                if (value < 0.0)
-                {
-                    Validator.AssertOnPositiveValue(nameof(Seconds), value);
-                }
-                if (value > 60)
-                {
-                    throw new ArgumentException("Количество секунд не может превышать значение 60");
-                }
+                Validator.AssertValueInRange(nameof(Seconds), value, 0, 59);
                 _seconds = value;
             }
         }
