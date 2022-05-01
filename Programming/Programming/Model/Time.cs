@@ -32,7 +32,7 @@ namespace Programming.Model
             {
                 if(value < 0)
                 {
-                    _hours = AssertStringContainsOnlyLetters(nameof(Hours), value);
+                    Validator.AssertOnPositiveValue(nameof(Hours), value);
                 }
                 if(value > 23)
                 {
@@ -51,7 +51,7 @@ namespace Programming.Model
             {
                 if (value < 0.0)
                 {
-                    throw new ArgumentException("Количество минут не может быть отрицательным");
+                    Validator.AssertOnPositiveValue(nameof(Minutes), value);
                 }
                 if (value > 60)
                 {
@@ -70,7 +70,7 @@ namespace Programming.Model
             {
                 if (value < 0.0)
                 {
-                    throw new ArgumentException("Количество секунд не может быть отрицательным");
+                    Validator.AssertOnPositiveValue(nameof(Seconds), value);
                 }
                 if (value > 60)
                 {
