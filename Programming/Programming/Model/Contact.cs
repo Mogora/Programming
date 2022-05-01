@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Programming.Model
 {
@@ -24,9 +25,29 @@ namespace Programming.Model
             PhoneNumber = phoneNumber;
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = AssertStringContainsOnlyLetters(nameof(Name), value);
+            }
+        }
 
-        public string Surname { get; set; }
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
+            }
+        }
 
         public string PhoneNumber
         {
@@ -43,6 +64,15 @@ namespace Programming.Model
                 }
                 _phoneNumber = value;
             }
-        }    
+        } 
+        
+        public string AssertStringContainsOnlyLetters(string nameProperty, string value)
+        {
+            if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+            {
+                throw new System.ArgumentException($"Значение {nameProperty} должно состоять только из букв английского алфавита");
+            }
+            return value;
+        }
     }
 }

@@ -61,7 +61,7 @@ namespace Programming.View
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
                 _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
-            }4sa5555555555555555555555555555555555552
+            }
             RectanglesListBox.SelectedIndex = 0;
         }        
         private void GenerateMovies ()

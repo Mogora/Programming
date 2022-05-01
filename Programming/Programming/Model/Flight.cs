@@ -36,14 +36,9 @@ namespace Programming.Model
             }
             set
             {
-                if (value < 0.0)
-                {
-                    throw new ArgumentException("Время полета не может быть отрицательным");
-                }
+                Validator.AssertOnPositiveValue(nameof(FlightTime), value);
                 _flightTime = value;
             }
         }
-    }
-
-   
+    } 
 }

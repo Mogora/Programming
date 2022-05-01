@@ -35,10 +35,7 @@ namespace Programming.Model
             }
             set
             {
-                if (value < 0.0)
-                {
-                    throw new ArgumentException("Время не может быть отрицательным");
-                }
+                Validator.AssertOnPositiveValue(nameof(TimeInSeconds), value);
                 _timeSeconds = value;
             }
         }

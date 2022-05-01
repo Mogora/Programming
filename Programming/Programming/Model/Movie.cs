@@ -35,10 +35,7 @@ namespace Programming.Model
             }
             set
             {
-                if(value < 0.0)
-                {
-                    throw new AggregateException("Продолжительность фильма не может быть отрицательной");
-                }
+                Validator.AssertOnPositiveValue(nameof(MovieTime), value);
                 _movietime = value;
             }
         }

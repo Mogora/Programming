@@ -30,9 +30,9 @@ namespace Programming.Model
             }
             set
             {
-                if(value < 0.0)
+                if(value < 0)
                 {
-                    throw new ArgumentException("Количество часов не может быть отрицательным");
+                    _hours = AssertStringContainsOnlyLetters(nameof(Hours), value);
                 }
                 if(value > 23)
                 {

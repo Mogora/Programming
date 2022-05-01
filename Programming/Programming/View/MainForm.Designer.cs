@@ -195,7 +195,7 @@
             // 
             // IntValueTextBox
             // 
-            this.IntValueTextBox.Location = new System.Drawing.Point(335, 63);
+            this.IntValueTextBox.Location = new System.Drawing.Point(332, 63);
             this.IntValueTextBox.Name = "IntValueTextBox";
             this.IntValueTextBox.ReadOnly = true;
             this.IntValueTextBox.Size = new System.Drawing.Size(91, 27);
