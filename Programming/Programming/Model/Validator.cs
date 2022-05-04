@@ -8,15 +8,15 @@ namespace Programming.Model
     {
         public static void AssertOnPositiveValue(string nameProperty, int value)
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 throw new ArgumentException($"Значение {nameProperty} не должно быть отрицательным");
             }
         }
 
-        public static void AssertOnPositiveValue(string nameProperty, float value)
+        public static void AssertOnPositiveValue(string nameProperty, double value)
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 throw new ArgumentException($"Значение {nameProperty} не должно быть отрицательным");
             }
@@ -30,7 +30,7 @@ namespace Programming.Model
             }
          }
 
-        public static void AssertValueInRange(string nameProperty, float value, int min, int max)
+        public static void AssertValueInRange(string nameProperty, double value, int min, int max)
         {
             if (value < min || value > max)
             {
@@ -38,5 +38,12 @@ namespace Programming.Model
             }
         }
 
+        public static void AssertValueInRange(string nameProperty, double value, double min, double max)
+        {
+            if (value < min || value > max)
+            {
+                throw new ArgumentException($"Значение {nameProperty} не должно быть меньше {min} и превышать {max} ");
+            }
+        }
     }
 }

@@ -4,38 +4,38 @@ using System.Text;
 
 namespace Programming.Model
 {
-    class Point2D
+    public class Point2D
     {
-        private float _x;
+        private int _x;
 
-        private float _y;
+        private int _y;
 
-        public Point2D ()
+        public Point2D (int x, int y)
         {
             X = _x;
             Y = _y;
         }
 
-        public float X
+        public int X
         {
             get
             {
                 return _x;
             }
-            set
+            private set
             {
                 Validator.AssertOnPositiveValue(nameof(X), value);
                 _x = value;
             }      
         }
 
-        public float Y
+        public int Y
         {
             get
             {
                 return _y;
             }
-            set
+            private set
             {
                 Validator.AssertOnPositiveValue(nameof(Y), value);
                 _y = value;

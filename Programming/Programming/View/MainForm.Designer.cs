@@ -61,6 +61,10 @@
             this.RatingLabel = new System.Windows.Forms.Label();
             this.MoviesListBox = new System.Windows.Forms.ListBox();
             this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
+            this.RectangleYLabel = new System.Windows.Forms.Label();
+            this.RectangleYTextBox = new System.Windows.Forms.TextBox();
+            this.RectangleXLabel = new System.Windows.Forms.Label();
+            this.RectangleXTextBox = new System.Windows.Forms.TextBox();
             this.FindRectangleButton = new System.Windows.Forms.Button();
             this.ColorLabel = new System.Windows.Forms.Label();
             this.WidhtLabel = new System.Windows.Forms.Label();
@@ -403,6 +407,10 @@
             // 
             // RectanglesGroupBox
             // 
+            this.RectanglesGroupBox.Controls.Add(this.RectangleYLabel);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleYTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleXLabel);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleXTextBox);
             this.RectanglesGroupBox.Controls.Add(this.FindRectangleButton);
             this.RectanglesGroupBox.Controls.Add(this.ColorLabel);
             this.RectanglesGroupBox.Controls.Add(this.WidhtLabel);
@@ -417,6 +425,42 @@
             this.RectanglesGroupBox.TabIndex = 0;
             this.RectanglesGroupBox.TabStop = false;
             this.RectanglesGroupBox.Text = "Rectangles";
+            // 
+            // RectangleYLabel
+            // 
+            this.RectangleYLabel.AutoSize = true;
+            this.RectangleYLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RectangleYLabel.Location = new System.Drawing.Point(217, 290);
+            this.RectangleYLabel.Name = "RectangleYLabel";
+            this.RectangleYLabel.Size = new System.Drawing.Size(20, 20);
+            this.RectangleYLabel.TabIndex = 11;
+            this.RectangleYLabel.Text = "Y:";
+            // 
+            // RectangleYTextBox
+            // 
+            this.RectangleYTextBox.Location = new System.Drawing.Point(216, 313);
+            this.RectangleYTextBox.Name = "RectangleYTextBox";
+            this.RectangleYTextBox.ReadOnly = true;
+            this.RectangleYTextBox.Size = new System.Drawing.Size(152, 27);
+            this.RectangleYTextBox.TabIndex = 10;
+            // 
+            // RectangleXLabel
+            // 
+            this.RectangleXLabel.AutoSize = true;
+            this.RectangleXLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RectangleXLabel.Location = new System.Drawing.Point(216, 226);
+            this.RectangleXLabel.Name = "RectangleXLabel";
+            this.RectangleXLabel.Size = new System.Drawing.Size(21, 20);
+            this.RectangleXLabel.TabIndex = 9;
+            this.RectangleXLabel.Text = "X:";
+            // 
+            // RectangleXTextBox
+            // 
+            this.RectangleXTextBox.Location = new System.Drawing.Point(216, 249);
+            this.RectangleXTextBox.Name = "RectangleXTextBox";
+            this.RectangleXTextBox.ReadOnly = true;
+            this.RectangleXTextBox.Size = new System.Drawing.Size(152, 27);
+            this.RectangleXTextBox.TabIndex = 8;
             // 
             // FindRectangleButton
             // 
@@ -563,5 +607,9 @@
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label MovieTimeLabel;
         private System.Windows.Forms.TextBox MovieTimeTextBox;
+        private System.Windows.Forms.Label RectangleYLabel;
+        private System.Windows.Forms.TextBox RectangleYTextBox;
+        private System.Windows.Forms.Label RectangleXLabel;
+        private System.Windows.Forms.TextBox RectangleXTextBox;
     }
 }

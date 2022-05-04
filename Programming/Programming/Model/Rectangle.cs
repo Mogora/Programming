@@ -6,24 +6,27 @@ namespace Programming.Model
 {
     public class Rectangle
     {
-        private float _length;
+        private double _length;
 
-        private float _width;
+        private double _width;
        
         public Rectangle()
         {
 
         }
 
-        public Rectangle(float length, float width, string color)
+        public Rectangle (double length, double width, string color, Point2D center)
         {
             Length = length;
             Width = width;
             Color = color;
+            Center = center;
         }
         public string Color { get; set; }
 
-        public float Length
+        public Point2D Center { get; set; }
+
+        public double Length
         {
             get
             {
@@ -35,7 +38,7 @@ namespace Programming.Model
                 _length = value;
             }
         }
-        public float Width
+        public double Width
         {
             get
             {

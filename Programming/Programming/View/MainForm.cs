@@ -59,6 +59,7 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 1001);
                 _currentRectangle.Length = _random.Next(1, 1001);
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+                _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
                 _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
@@ -84,7 +85,7 @@ namespace Programming.View
         private int FindRectangleWithMaxWidth(Rectangle[] restangles)
         {
             int maxWidthIndex = 0;
-            float maxWidthRestangle = 0;
+            double maxWidthRestangle = 0;
             for (int i = 0; i < ElementsCount; i++)
             {
                 if (restangles[i].Width > maxWidthRestangle)
@@ -196,6 +197,8 @@ namespace Programming.View
             LengthTextBox.Text = _currentRectangle.Length.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
+            RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
+            RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
