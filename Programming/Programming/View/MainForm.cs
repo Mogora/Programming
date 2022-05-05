@@ -199,6 +199,7 @@ namespace Programming.View
             ColorTextBox.Text = _currentRectangle.Color;
             RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
             RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
+            IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)

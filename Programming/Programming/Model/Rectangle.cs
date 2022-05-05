@@ -33,6 +33,14 @@ namespace Programming.Model
 
         public Point2D Center { get; set; }
 
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
         public static int AllRectanglesCount
         {
             get
