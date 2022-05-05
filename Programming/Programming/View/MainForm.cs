@@ -75,7 +75,7 @@ namespace Programming.View
                 _currentMovie.Rating = _random.Next(101) / 10;
                 _currentMovie.ReleaseYear = _random.Next(1900, 2022);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
-                _currentMovie.MovieTime = _random.Next(1,1001);
+                _currentMovie.MovieTime = _random.Next(40, 200);
                 _currentMovie.Name = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");

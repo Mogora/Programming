@@ -17,15 +17,15 @@ namespace Programming.Model
         public Rectangle()
         {
             _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
-        public Rectangle (double length, double width, string color, Point2D center, int allRectanglesCount)
+        public Rectangle (double length, double width, string color, Point2D center)
         {
             Length = length;
             Width = width;
             Color = color;
             Center = center;
-            AllRectanglesCount = allRectanglesCount;
             _allRectanglesCount++;
             _id = _allRectanglesCount;
         }
