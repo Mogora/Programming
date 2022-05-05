@@ -9,22 +9,39 @@ namespace Programming.Model
         private double _length;
 
         private double _width;
-       
+
+        private static int _allRectanglesCount;
+
+        private int _id;
+
         public Rectangle()
         {
-
+            _allRectanglesCount++;
         }
 
-        public Rectangle (double length, double width, string color, Point2D center)
+        public Rectangle (double length, double width, string color, Point2D center, int allRectanglesCount)
         {
             Length = length;
             Width = width;
             Color = color;
             Center = center;
+            AllRectanglesCount = allRectanglesCount;
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
         public string Color { get; set; }
 
         public Point2D Center { get; set; }
+
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+            set { }
+        }
+            
 
         public double Length
         {

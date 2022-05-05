@@ -46,6 +46,14 @@ namespace Programming.Model
                 _innerRadius = value;
             }
         }
+
+        public double Area
+        {
+            get
+            {
+                return Math.PI * (_outerRadius * _outerRadius - _innerRadius * _innerRadius);
+            }
+        }
     }
 
 
