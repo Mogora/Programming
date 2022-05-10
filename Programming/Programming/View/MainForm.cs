@@ -61,7 +61,7 @@ namespace Programming.View
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
                 _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
                 _rectangles[i] = _currentRectangle;
-                RectanglesListBox.Items.Add($"Rectangle {i + 1}");
+                RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             }
             RectanglesListBox.SelectedIndex = 0;
         }        
@@ -304,6 +304,8 @@ namespace Programming.View
             string nameValue = NameTextBox.Text;
             _currentMovie.Name = nameValue;
         }
+
+       
     }
 }
 

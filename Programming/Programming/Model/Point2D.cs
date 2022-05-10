@@ -12,8 +12,8 @@ namespace Programming.Model
 
         public Point2D (int x, int y)
         {
-            X = _x;
-            Y = _y;
+            X = x;
+            Y = y;
         }
 
         public int X
