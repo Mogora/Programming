@@ -16,12 +16,14 @@ namespace Programming.Model
         {
 
         }
+
         public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;
             Minutes = minutes;
             Seconds = seconds;
         }
+
         public int Hours
         {
             get
@@ -30,10 +32,11 @@ namespace Programming.Model
             }
             set
             {
-                Validator.AssertValueInRange(nameof(Hours), value, 0, 59);
+                Validator.AssertValueInRange(nameof(Hours), value, 0, 23);
                 _hours = value;
             }
         }
+
         public int Minutes
         {
             get
@@ -46,6 +49,7 @@ namespace Programming.Model
                 _minutes = value;
             }
         }
+
         public int Seconds
         {
             get

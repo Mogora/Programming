@@ -29,6 +29,7 @@ namespace Programming.Model
             _allRectanglesCount++;
             _id = _allRectanglesCount;
         }
+
         public string Color { get; set; }
 
         public Point2D Center { get; set; }
@@ -50,7 +51,6 @@ namespace Programming.Model
             set { }
         }
             
-
         public double Length
         {
             get
@@ -63,6 +63,7 @@ namespace Programming.Model
                 _length = value;
             }
         }
+
         public double Width
         {
             get

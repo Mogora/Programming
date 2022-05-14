@@ -24,7 +24,9 @@ namespace Programming.Model
             Genre = genre;
             Rating = rating;
         }
+
         public string Name { get; set; }
+
         public string Genre { get; set; }
         
         public int MovieTime

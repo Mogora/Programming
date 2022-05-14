@@ -14,6 +14,7 @@ namespace Programming.Model
         {
 
         }
+
         public Subject(string name, int mark, string teacher)
         {
             Name = name;
@@ -38,6 +39,7 @@ namespace Programming.Model
                 _mark = value;
             }
         }
+
         public string Teacher { get; set; }
     }
 }

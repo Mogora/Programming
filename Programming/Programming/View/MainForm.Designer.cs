@@ -313,6 +313,7 @@
             this.MovieTimeTextBox.Name = "MovieTimeTextBox";
             this.MovieTimeTextBox.Size = new System.Drawing.Size(152, 27);
             this.MovieTimeTextBox.TabIndex = 10;
+            this.MovieTimeTextBox.TextChanged += new System.EventHandler(this.MovieTimeTextBox_TextChanged);
             // 
             // NameLabel
             // 

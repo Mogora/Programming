@@ -12,9 +12,9 @@ namespace Programming.View
     {
         private const int ElementsCount = 5;
 
-        private Color ErrorColor = Color.LightPink;
+        private readonly Color ErrorColor = Color.LightPink;
 
-        private Color CorrectColor = Color.White;
+        private readonly Color CorrectColor = Color.White;
 
         private Rectangle[] _rectangles;
             
@@ -49,6 +49,7 @@ namespace Programming.View
 
             GenerateMovies();           
         }
+
         private void GenerateRectangles()
         {          
             _rectangles = new Rectangle[ElementsCount];
@@ -64,7 +65,8 @@ namespace Programming.View
                 RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             }
             RectanglesListBox.SelectedIndex = 0;
-        }        
+        }    
+        
         private void GenerateMovies ()
         {
             _movies = new Movie[ElementsCount];
@@ -82,6 +84,7 @@ namespace Programming.View
             }
             MoviesListBox.SelectedIndex = 0;
         }
+
         private int FindRectangleWithMaxWidth(Rectangle[] restangles)
         {
             int maxWidthIndex = 0;
@@ -96,6 +99,7 @@ namespace Programming.View
             }
             return maxWidthIndex;
         }
+
         private int FindMovieWithMaxRating(Movie [] movies)
         {
             int maxRatingIndex = 0;
@@ -190,6 +194,7 @@ namespace Programming.View
                     break;
             }
         }
+
         private void RectanglesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
@@ -212,6 +217,7 @@ namespace Programming.View
             NameTextBox.Text = _currentMovie.Name;
             MovieTimeTextBox.Text = _currentMovie.MovieTime.ToString();
         }
+
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -227,6 +233,7 @@ namespace Programming.View
             }
             LengthTextBox.BackColor = CorrectColor;
         }
+
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -305,7 +312,21 @@ namespace Programming.View
             _currentMovie.Name = nameValue;
         }
 
-       
+        private void MovieTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string currentMovieTime = MovieTimeTextBox.Text;
+                int movieTimeValue = int.Parse(currentMovieTime);
+                _currentMovie.MovieTime = movieTimeValue;
+            }
+            catch
+            {
+                MovieTimeTextBox.BackColor = ErrorColor;
+                return;
+            }
+            MovieTimeTextBox.BackColor = CorrectColor;
+        }
     }
 }
 

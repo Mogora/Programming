@@ -57,7 +57,7 @@ namespace Programming.Model
             }
             set
             {
-                bool isSuccess = int.TryParse(value, out int finalnumber);
+                bool isSuccess = int.TryParse(value, out int finalNumber);
                 if (!isSuccess)
                 {
                     throw new ArgumentException("Номер должен состоять только из цифр");
