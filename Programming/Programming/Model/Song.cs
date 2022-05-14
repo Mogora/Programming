@@ -23,6 +23,7 @@ namespace Programming.Model
             Title = title;
             TimeInSeconds = timeInSeconds;
         }
+
         public string Author { get; set; }
 
         public string Title { get;  set; }

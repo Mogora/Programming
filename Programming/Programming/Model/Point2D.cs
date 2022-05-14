@@ -41,6 +41,5 @@ namespace Programming.Model
                 _y = value;
             }
         }
-
     }
 }

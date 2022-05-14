@@ -16,6 +16,7 @@ namespace Programming.Model
         {
 
         }
+
         public Movie(string name, int movietime, int releaseYear, string genre, float rating)
         {
             Name = name;
@@ -41,6 +42,7 @@ namespace Programming.Model
                 _movietime = value;
             }
         }
+
         public int ReleaseYear
         {
             get
@@ -53,6 +55,7 @@ namespace Programming.Model
                 _releaseYear = value;
             }
         }
+
         public float Rating
         {
             get
@@ -69,6 +72,5 @@ namespace Programming.Model
                 _rating = value;
             }
         }
-
     }
 }
