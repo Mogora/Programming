@@ -16,8 +16,8 @@ namespace Programming.View
 
         private readonly Color CorrectColor = Color.White;
 
-        private Rectangle[] _rectangles;
-            
+        private List<Rectangle> _rectangles = new List<Rectangle>();
+
         private Rectangle _currentRectangle;
         
         private Random _random;
@@ -25,6 +25,7 @@ namespace Programming.View
         private Movie[] _movies;
 
         private Movie _currentMovie;
+
  
         public MainForm()
         {
@@ -45,27 +46,10 @@ namespace Programming.View
 
             _random = new Random();
 
-            GenerateRectangles();
+            _rectangles = new List<Rectangle>();
 
             GenerateMovies();           
         }
-
-        private void GenerateRectangles()
-        {          
-            _rectangles = new Rectangle[ElementsCount];
-            var colors = Enum.GetValues(typeof(Colors));
-            for (int i = 0; i < ElementsCount; i++)
-            {              
-                _currentRectangle = new Rectangle();
-                _currentRectangle.Width = _random.Next(1, 1001);
-                _currentRectangle.Length = _random.Next(1, 1001);
-                _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-                _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
-                _rectangles[i] = _currentRectangle;
-                RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
-            }
-            RectanglesListBox.SelectedIndex = 0;
-        }    
         
         private void GenerateMovies ()
         {
@@ -85,7 +69,7 @@ namespace Programming.View
             MoviesListBox.SelectedIndex = 0;
         }
 
-        private int FindRectangleWithMaxWidth(Rectangle[] restangles)
+        private int FindRectangleWithMaxWidth(List<Rectangle>restangles)
         {
             int maxWidthIndex = 0;
             double maxWidthRestangle = 0;
@@ -327,6 +311,30 @@ namespace Programming.View
             }
             MovieTimeTextBox.BackColor = CorrectColor;
         }
+
+        private void AddRectangleButton_Click(object sender, EventArgs e)
+        {
+            var colors = Enum.GetValues(typeof(Colors));
+            _currentRectangle = new Rectangle();
+            _currentRectangle.Width = _random.Next(1, 101);
+            _currentRectangle.Length = _random.Next(1, 101);
+            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
+            _rectangles.Add(_currentRectangle);
+            RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
+            Rectangles2ListBox.Items.Add($"{_currentRectangle.Id}: (X: {_currentRectangle.Center.X}; Y: {_currentRectangle.Center.Y}; W: {_currentRectangle.Width}; L: {_currentRectangle.Length})");
+        }
+
+        private void RemoveRectangleButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
-}
+}   
 
