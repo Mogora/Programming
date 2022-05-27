@@ -327,7 +327,18 @@ namespace Programming.View
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
         {
+            int index = Rectangles2ListBox.SelectedIndex;
+            if (index == -1) return;
+            _rectangles.RemoveAt(index);
+            RectanglesListBox.Items.Clear();
+            Rectangles2ListBox.Items.Clear();
 
+            foreach (var rectangle in _rectangles)
+            {
+                RectanglesListBox.Items.Add($"Rectangle {rectangle.Id}");
+                Rectangles2ListBox.Items.Add($"{rectangle.Id}: (X: {rectangle.Center.X}; Y: {rectangle.Center.Y}; W: {rectangle.Width}; L: {rectangle.Length})");
+                RectanglesListBox.SelectedIndex = 0;
+            }
         }
 
         private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
