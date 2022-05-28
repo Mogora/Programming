@@ -181,14 +181,17 @@ namespace Programming.View
 
         private void RectanglesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
-            _currentRectangle = _rectangles[selectedIndexRectangle];
-            LengthTextBox.Text = _currentRectangle.Length.ToString();
-            WidthTextBox.Text = _currentRectangle.Width.ToString();
-            ColorTextBox.Text = _currentRectangle.Color;
-            RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
-            RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
-            IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+            if (RectanglesListBox.SelectedIndex != -1)
+            {
+                int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
+                _currentRectangle = _rectangles[selectedIndexRectangle];
+                LengthTextBox.Text = _currentRectangle.Length.ToString();
+                WidthTextBox.Text = _currentRectangle.Width.ToString();
+                ColorTextBox.Text = _currentRectangle.Color;
+                RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
+                RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
+                IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+            }
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -343,9 +346,26 @@ namespace Programming.View
 
         private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Rectangles2ListBox.SelectedItem == null)
+            {
+                return;
+            }
+
+            int index = Rectangles2ListBox.SelectedIndex;
+            _currentRectangle = _rectangles[index];
             
-            
+
+
         }
+
+        private void RectangleX2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Rectangles2ListBox.SelectedIndex == -1) return;
+            
+           
+        }
+
+     
     }
 }   
 

@@ -76,16 +76,16 @@
             this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
-            this.Lenght2Label = new System.Windows.Forms.Label();
-            this.Widht2Label = new System.Windows.Forms.Label();
+            this.Length2Label = new System.Windows.Forms.Label();
+            this.Width2Label = new System.Windows.Forms.Label();
             this.RectangleY2Label = new System.Windows.Forms.Label();
             this.RectangleX2Label = new System.Windows.Forms.Label();
             this.IdRectangle2Label = new System.Windows.Forms.Label();
-            this.Lenght2TextBox = new System.Windows.Forms.TextBox();
-            this.Widht2TextBox = new System.Windows.Forms.TextBox();
+            this.Length2TextBox = new System.Windows.Forms.TextBox();
+            this.Width2TextBox = new System.Windows.Forms.TextBox();
             this.RectangleY2TextBox = new System.Windows.Forms.TextBox();
             this.RectangleX2TextBox = new System.Windows.Forms.TextBox();
-            this.IdRectangle2TextBox = new System.Windows.Forms.TextBox();
+            this.Id2RectangleTextBox = new System.Windows.Forms.TextBox();
             this.SelectedRectangleLabel = new System.Windows.Forms.Label();
             this.RemoveRectangleButton = new System.Windows.Forms.Button();
             this.AddRectangleButton = new System.Windows.Forms.Button();
@@ -581,16 +581,16 @@
             // 
             // RectanglesTabPage
             // 
-            this.RectanglesTabPage.Controls.Add(this.Lenght2Label);
-            this.RectanglesTabPage.Controls.Add(this.Widht2Label);
+            this.RectanglesTabPage.Controls.Add(this.Length2Label);
+            this.RectanglesTabPage.Controls.Add(this.Width2Label);
             this.RectanglesTabPage.Controls.Add(this.RectangleY2Label);
             this.RectanglesTabPage.Controls.Add(this.RectangleX2Label);
             this.RectanglesTabPage.Controls.Add(this.IdRectangle2Label);
-            this.RectanglesTabPage.Controls.Add(this.Lenght2TextBox);
-            this.RectanglesTabPage.Controls.Add(this.Widht2TextBox);
+            this.RectanglesTabPage.Controls.Add(this.Length2TextBox);
+            this.RectanglesTabPage.Controls.Add(this.Width2TextBox);
             this.RectanglesTabPage.Controls.Add(this.RectangleY2TextBox);
             this.RectanglesTabPage.Controls.Add(this.RectangleX2TextBox);
-            this.RectanglesTabPage.Controls.Add(this.IdRectangle2TextBox);
+            this.RectanglesTabPage.Controls.Add(this.Id2RectangleTextBox);
             this.RectanglesTabPage.Controls.Add(this.SelectedRectangleLabel);
             this.RectanglesTabPage.Controls.Add(this.RemoveRectangleButton);
             this.RectanglesTabPage.Controls.Add(this.AddRectangleButton);
@@ -604,23 +604,23 @@
             this.RectanglesTabPage.Text = " Rectangles";
             this.RectanglesTabPage.UseVisualStyleBackColor = true;
             // 
-            // Lenght2Label
+            // Length2Label
             // 
-            this.Lenght2Label.AutoSize = true;
-            this.Lenght2Label.Location = new System.Drawing.Point(22, 486);
-            this.Lenght2Label.Name = "Lenght2Label";
-            this.Lenght2Label.Size = new System.Drawing.Size(57, 20);
-            this.Lenght2Label.TabIndex = 15;
-            this.Lenght2Label.Text = "Lenght:";
+            this.Length2Label.AutoSize = true;
+            this.Length2Label.Location = new System.Drawing.Point(22, 486);
+            this.Length2Label.Name = "Length2Label";
+            this.Length2Label.Size = new System.Drawing.Size(57, 20);
+            this.Length2Label.TabIndex = 15;
+            this.Length2Label.Text = "Length:";
             // 
-            // Widht2Label
+            // Width2Label
             // 
-            this.Widht2Label.AutoSize = true;
-            this.Widht2Label.Location = new System.Drawing.Point(22, 453);
-            this.Widht2Label.Name = "Widht2Label";
-            this.Widht2Label.Size = new System.Drawing.Size(52, 20);
-            this.Widht2Label.TabIndex = 14;
-            this.Widht2Label.Text = "Widht:";
+            this.Width2Label.AutoSize = true;
+            this.Width2Label.Location = new System.Drawing.Point(22, 453);
+            this.Width2Label.Name = "Width2Label";
+            this.Width2Label.Size = new System.Drawing.Size(52, 20);
+            this.Width2Label.TabIndex = 14;
+            this.Width2Label.Text = "Width:";
             // 
             // RectangleY2Label
             // 
@@ -649,19 +649,19 @@
             this.IdRectangle2Label.TabIndex = 11;
             this.IdRectangle2Label.Text = "Id:";
             // 
-            // Lenght2TextBox
+            // Length2TextBox
             // 
-            this.Lenght2TextBox.Location = new System.Drawing.Point(92, 479);
-            this.Lenght2TextBox.Name = "Lenght2TextBox";
-            this.Lenght2TextBox.Size = new System.Drawing.Size(152, 27);
-            this.Lenght2TextBox.TabIndex = 10;
+            this.Length2TextBox.Location = new System.Drawing.Point(92, 479);
+            this.Length2TextBox.Name = "Length2TextBox";
+            this.Length2TextBox.Size = new System.Drawing.Size(152, 27);
+            this.Length2TextBox.TabIndex = 10;
             // 
-            // Widht2TextBox
+            // Width2TextBox
             // 
-            this.Widht2TextBox.Location = new System.Drawing.Point(92, 446);
-            this.Widht2TextBox.Name = "Widht2TextBox";
-            this.Widht2TextBox.Size = new System.Drawing.Size(152, 27);
-            this.Widht2TextBox.TabIndex = 9;
+            this.Width2TextBox.Location = new System.Drawing.Point(92, 446);
+            this.Width2TextBox.Name = "Width2TextBox";
+            this.Width2TextBox.Size = new System.Drawing.Size(152, 27);
+            this.Width2TextBox.TabIndex = 9;
             // 
             // RectangleY2TextBox
             // 
@@ -676,13 +676,14 @@
             this.RectangleX2TextBox.Name = "RectangleX2TextBox";
             this.RectangleX2TextBox.Size = new System.Drawing.Size(152, 27);
             this.RectangleX2TextBox.TabIndex = 7;
+            this.RectangleX2TextBox.TextChanged += new System.EventHandler(this.RectangleX2TextBox_TextChanged);
             // 
-            // IdRectangle2TextBox
+            // Id2RectangleTextBox
             // 
-            this.IdRectangle2TextBox.Location = new System.Drawing.Point(92, 347);
-            this.IdRectangle2TextBox.Name = "IdRectangle2TextBox";
-            this.IdRectangle2TextBox.Size = new System.Drawing.Size(152, 27);
-            this.IdRectangle2TextBox.TabIndex = 6;
+            this.Id2RectangleTextBox.Location = new System.Drawing.Point(92, 347);
+            this.Id2RectangleTextBox.Name = "Id2RectangleTextBox";
+            this.Id2RectangleTextBox.Size = new System.Drawing.Size(152, 27);
+            this.Id2RectangleTextBox.TabIndex = 6;
             // 
             // SelectedRectangleLabel
             // 
@@ -826,13 +827,13 @@
         private System.Windows.Forms.Button RemoveRectangleButton;
         private System.Windows.Forms.Button AddRectangleButton;
         private System.Windows.Forms.Label IdRectangle2Label;
-        private System.Windows.Forms.TextBox Lenght2TextBox;
-        private System.Windows.Forms.TextBox Widht2TextBox;
+        private System.Windows.Forms.TextBox Length2TextBox;
+        private System.Windows.Forms.TextBox Width2TextBox;
         private System.Windows.Forms.TextBox RectangleY2TextBox;
         private System.Windows.Forms.TextBox RectangleX2TextBox;
-        private System.Windows.Forms.TextBox IdRectangle2TextBox;
-        private System.Windows.Forms.Label Lenght2Label;
-        private System.Windows.Forms.Label Widht2Label;
+        private System.Windows.Forms.TextBox Id2RectangleTextBox;
+        private System.Windows.Forms.Label Length2Label;
+        private System.Windows.Forms.Label Width2Label;
         private System.Windows.Forms.Label RectangleY2Label;
         private System.Windows.Forms.Label RectangleX2Label;
     }
