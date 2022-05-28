@@ -655,6 +655,7 @@
             this.Length2TextBox.Name = "Length2TextBox";
             this.Length2TextBox.Size = new System.Drawing.Size(152, 27);
             this.Length2TextBox.TabIndex = 10;
+            this.Length2TextBox.TextChanged += new System.EventHandler(this.Length2TextBox_TextChanged);
             // 
             // Width2TextBox
             // 
@@ -662,6 +663,7 @@
             this.Width2TextBox.Name = "Width2TextBox";
             this.Width2TextBox.Size = new System.Drawing.Size(152, 27);
             this.Width2TextBox.TabIndex = 9;
+            this.Width2TextBox.TextChanged += new System.EventHandler(this.Width2TextBox_TextChanged);
             // 
             // RectangleY2TextBox
             // 
@@ -669,6 +671,7 @@
             this.RectangleY2TextBox.Name = "RectangleY2TextBox";
             this.RectangleY2TextBox.Size = new System.Drawing.Size(152, 27);
             this.RectangleY2TextBox.TabIndex = 8;
+            this.RectangleY2TextBox.TextChanged += new System.EventHandler(this.RectangleY2TextBox_TextChanged);
             // 
             // RectangleX2TextBox
             // 
@@ -682,6 +685,7 @@
             // 
             this.Id2RectangleTextBox.Location = new System.Drawing.Point(92, 347);
             this.Id2RectangleTextBox.Name = "Id2RectangleTextBox";
+            this.Id2RectangleTextBox.ReadOnly = true;
             this.Id2RectangleTextBox.Size = new System.Drawing.Size(152, 27);
             this.Id2RectangleTextBox.TabIndex = 6;
             // 

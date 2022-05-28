@@ -346,26 +346,99 @@ namespace Programming.View
 
         private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedItem == null)
+
+            if (Rectangles2ListBox.SelectedIndex != -1)
             {
-                return;
+                int indexSelectedRectangle = Rectangles2ListBox.SelectedIndex;
+                _currentRectangle = _rectangles[indexSelectedRectangle];
+                Length2TextBox.Text = _currentRectangle.Length.ToString();
+                Width2TextBox.Text = _currentRectangle.Width.ToString();
+                RectangleX2TextBox.Text = _currentRectangle.Center.X.ToString();
+                RectangleY2TextBox.Text = _currentRectangle.Center.Y.ToString();
+                Id2RectangleTextBox.Text = _currentRectangle.Id.ToString();
             }
 
-            int index = Rectangles2ListBox.SelectedIndex;
-            _currentRectangle = _rectangles[index];
-            
 
 
         }
 
         private void RectangleX2TextBox_TextChanged(object sender, EventArgs e)
         {
+
             if (Rectangles2ListBox.SelectedIndex == -1) return;
-            
-           
+
+            try
+            {
+                string xRectangleValue = RectangleX2TextBox.Text;
+                int rectangleX = int.Parse(xRectangleValue);
+                _currentRectangle.Center.X = rectangleX;
+            }
+
+            catch
+            {
+                RectangleX2TextBox.BackColor = ErrorColor;
+                return;
+            }
+            RectangleX2TextBox.BackColor = CorrectColor;
+
         }
 
-     
+        private void RectangleY2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Rectangles2ListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string yRectangleValue = RectangleY2TextBox.Text;
+                int rectangleY = int.Parse(yRectangleValue);
+                _currentRectangle.Center.Y = rectangleY;
+            }
+
+            catch
+            {
+                RectangleY2TextBox.BackColor = ErrorColor;
+                return;
+            }
+            RectangleY2TextBox.BackColor = CorrectColor;
+        }
+
+        private void Width2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Rectangles2ListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string widthRectangleValue = RectangleX2TextBox.Text;
+                int rectangleWidth = int.Parse(widthRectangleValue);
+                _currentRectangle.Width = rectangleWidth;
+            }
+
+            catch
+            {
+                Width2TextBox.BackColor = ErrorColor;
+                return;
+            }
+            Width2TextBox.BackColor = CorrectColor;
+        }
+
+        private void Length2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Rectangles2ListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string lengthRectangleValue = RectangleX2TextBox.Text;
+                int rectangleLength = int.Parse(lengthRectangleValue);
+                _currentRectangle.Length = rectangleLength;
+            }
+
+            catch
+            {
+                Length2TextBox.BackColor = ErrorColor;
+                return;
+            }
+            Length2TextBox.BackColor = CorrectColor;
+        }
     }
 }   
 
