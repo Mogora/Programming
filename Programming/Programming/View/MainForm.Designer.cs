@@ -89,7 +89,7 @@
             this.SelectedRectangleLabel = new System.Windows.Forms.Label();
             this.RemoveRectangleButton = new System.Windows.Forms.Button();
             this.AddRectangleButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.CanvasPanel = new System.Windows.Forms.Panel();
             this.RectanglesLabel = new System.Windows.Forms.Label();
             this.Rectangles2ListBox = new System.Windows.Forms.ListBox();
             this.EnumsTabPage.SuspendLayout();
@@ -594,7 +594,7 @@
             this.RectanglesTabPage.Controls.Add(this.SelectedRectangleLabel);
             this.RectanglesTabPage.Controls.Add(this.RemoveRectangleButton);
             this.RectanglesTabPage.Controls.Add(this.AddRectangleButton);
-            this.RectanglesTabPage.Controls.Add(this.panel1);
+            this.RectanglesTabPage.Controls.Add(this.CanvasPanel);
             this.RectanglesTabPage.Controls.Add(this.RectanglesLabel);
             this.RectanglesTabPage.Controls.Add(this.Rectangles2ListBox);
             this.RectanglesTabPage.Location = new System.Drawing.Point(4, 29);
@@ -718,13 +718,13 @@
             this.AddRectangleButton.UseVisualStyleBackColor = true;
             this.AddRectangleButton.Click += new System.EventHandler(this.AddRectangleButton_Click);
             // 
-            // panel1
+            // CanvasPanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(435, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 556);
-            this.panel1.TabIndex = 2;
+            this.CanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CanvasPanel.Location = new System.Drawing.Point(435, 11);
+            this.CanvasPanel.Name = "CanvasPanel";
+            this.CanvasPanel.Size = new System.Drawing.Size(425, 556);
+            this.CanvasPanel.TabIndex = 2;
             // 
             // RectanglesLabel
             // 
@@ -824,7 +824,7 @@
         private System.Windows.Forms.Label IdRectangleLabel;
         private System.Windows.Forms.TextBox IdRectangleTextBox;
         private System.Windows.Forms.TabPage RectanglesTabPage;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel CanvasPanel;
         private System.Windows.Forms.Label RectanglesLabel;
         private System.Windows.Forms.ListBox Rectangles2ListBox;
         private System.Windows.Forms.Label SelectedRectangleLabel;

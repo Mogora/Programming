@@ -16,9 +16,9 @@ namespace Programming.View
 
         private readonly Color CorrectColor = Color.White;
 
-        private readonly System.Drawing.Color unIntersects = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+        private readonly Color _inContact = Color.FromArgb(127, 255, 127, 127);
 
-        private readonly System.Drawing.Color Intersects = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+        private readonly Color _unContact = Color.FromArgb(127, 127, 255, 127);
 
         private List<Rectangle> _rectangles = new List<Rectangle>();
 
@@ -83,7 +83,7 @@ namespace Programming.View
             rectanglePanel.Width = _currentRectangle.Width;
             rectanglePanel.Height = _currentRectangle.Length;
             rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
-            //rectanglePanel.BackColor = _unContact;
+            rectanglePanel.BackColor = _unContact;
 
             return rectanglePanel;
         }
@@ -231,7 +231,7 @@ namespace Programming.View
             try
             {
                 string currentLength = LengthTextBox.Text;
-                float lengthRectangleValue = float.Parse(currentLength);
+                int lengthRectangleValue = int.Parse(currentLength);
                 _currentRectangle.Length = lengthRectangleValue;
             }
             catch
@@ -247,7 +247,7 @@ namespace Programming.View
             try
             {
                 string currentWidth = WidthTextBox.Text;
-                float widthRectangleValue = float.Parse(currentWidth);
+                int widthRectangleValue = int.Parse(currentWidth);
                 _currentRectangle.Width = widthRectangleValue;
             }
             catch
@@ -349,15 +349,13 @@ namespace Programming.View
             Rectangles2ListBox.Items.Add($"{_currentRectangle.Id}: (X: {_currentRectangle.Center.X}; Y: {_currentRectangle.Center.Y}; W: {_currentRectangle.Width}; L: {_currentRectangle.Length})");
 
             Panel rectanglePanel = new Panel();
-            _currentRectangle = new Rectangle();
-            _currentRectangle.Width = _random.Next(1, 101);
-            _currentRectangle.Length = _random.Next(1, 101);
-            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
-            rectanglePanel.BackColor = unIntersects;
+            rectanglePanel.Width = _currentRectangle.Width;
+            rectanglePanel.Height = _currentRectangle.Length;
+            rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            rectanglePanel.BackColor = _unContact;
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
-            FindCollisions();
+
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
@@ -472,6 +470,8 @@ namespace Programming.View
             }
             Length2TextBox.BackColor = CorrectColor;
         }
+
+        
     }
 }   
 
