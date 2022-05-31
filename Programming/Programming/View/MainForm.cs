@@ -16,7 +16,13 @@ namespace Programming.View
 
         private readonly Color CorrectColor = Color.White;
 
+        private readonly System.Drawing.Color unIntersects = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+
+        private readonly System.Drawing.Color Intersects = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+
         private List<Rectangle> _rectangles = new List<Rectangle>();
+
+        private List<Panel> _rectanglePanels = new List<Panel>();
 
         private Rectangle _currentRectangle;
         
@@ -48,6 +54,8 @@ namespace Programming.View
 
             _rectangles = new List<Rectangle>();
 
+            _rectanglePanels = new List<Panel>();
+
             GenerateMovies();           
         }
         
@@ -67,6 +75,17 @@ namespace Programming.View
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
             MoviesListBox.SelectedIndex = 0;
+        }
+
+        private Panel InitPanel()
+        {
+            Panel rectanglePanel = new Panel();
+            rectanglePanel.Width = _currentRectangle.Width;
+            rectanglePanel.Height = _currentRectangle.Length;
+            rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            //rectanglePanel.BackColor = _unContact;
+
+            return rectanglePanel;
         }
 
         private int FindRectangleWithMaxWidth(List<Rectangle>restangles)
@@ -98,7 +117,9 @@ namespace Programming.View
             }
             return maxRatingIndex;
         }
-          
+
+        
+
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
@@ -326,6 +347,17 @@ namespace Programming.View
             _rectangles.Add(_currentRectangle);
             RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             Rectangles2ListBox.Items.Add($"{_currentRectangle.Id}: (X: {_currentRectangle.Center.X}; Y: {_currentRectangle.Center.Y}; W: {_currentRectangle.Width}; L: {_currentRectangle.Length})");
+
+            Panel rectanglePanel = new Panel();
+            _currentRectangle = new Rectangle();
+            _currentRectangle.Width = _random.Next(1, 101);
+            _currentRectangle.Length = _random.Next(1, 101);
+            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
+            rectanglePanel.BackColor = unIntersects;
+            _rectanglePanels.Add(rectanglePanel);
+            CanvasPanel.Controls.Add(rectanglePanel);
+            FindCollisions();
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
@@ -430,6 +462,7 @@ namespace Programming.View
                 string lengthRectangleValue = RectangleX2TextBox.Text;
                 int rectangleLength = int.Parse(lengthRectangleValue);
                 _currentRectangle.Length = rectangleLength;
+                
             }
 
             catch
