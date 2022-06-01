@@ -40,6 +40,10 @@ namespace Programming.Model
             {
                 return _id;
             }
+            set
+            {
+                _id = value;
+            }
         }
 
         public static int AllRectanglesCount
