@@ -443,8 +443,7 @@ namespace Programming.View
             if (index == -1) return;
             _rectangles.RemoveAt(index);
             CanvasPanel.Controls.RemoveAt(index);
-            RectanglesListBox.Items.Clear();
-            Rectangles2ListBox.Items.Clear();
+            ClearRectangleInfo();
 
             foreach (var rectangle in _rectangles)
             {
