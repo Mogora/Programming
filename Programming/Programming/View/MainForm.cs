@@ -122,7 +122,28 @@ namespace Programming.View
             }
         }
 
-
+        private void ClearRectangleInfo()
+        {
+            Rectangles2ListBox.Items.Clear();
+            Id2RectangleTextBox.Clear();
+            RectangleX2TextBox.Clear();
+            RectangleY2TextBox.Clear();
+            Width2TextBox.Clear();
+            Length2TextBox.Clear();
+            RectangleX2TextBox.BackColor = CorrectColor;
+            RectangleY2TextBox.BackColor = CorrectColor;
+            Width2TextBox.BackColor = CorrectColor;
+            Length2TextBox.BackColor = CorrectColor;
+            Rectangles2ListBox.Items.Clear();
+            ColorTextBox.Clear();
+            IdRectangleTextBox.Clear();
+            RectangleXTextBox.Clear();
+            RectangleYTextBox.Clear();
+            WidthTextBox.Clear();
+            LengthTextBox.Clear();
+            WidthTextBox.BackColor = CorrectColor;
+            LengthTextBox.BackColor = CorrectColor;
+        }
 
         private int FindRectangleWithMaxWidth(List<Rectangle> restangles)
         {

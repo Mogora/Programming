@@ -21,6 +21,7 @@ namespace Programming.Model
             Width = rectangle.Width;
             Color = rectangle.Color;
             Center = new Point2D(rectangle.Center.X, rectangle.Center.Y);
+            
         }
 
         public Rectangle (int length, int width, string color, Point2D center)
@@ -35,6 +36,8 @@ namespace Programming.Model
 
         public Rectangle()
         {
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
         public string Color { get; set; }
