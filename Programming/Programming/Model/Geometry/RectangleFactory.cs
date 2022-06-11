@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Color = Programming.Model.Colors;
+using Color = Programming.Model.Enums.Colors;
 
-namespace Programming.Model
+namespace Programming.Model.Geometry
 {
     public class RectangleFactory
     {

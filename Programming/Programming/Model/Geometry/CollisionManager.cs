@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Programming.Geometry
+namespace Programming.Model.Geometry
 {
     public static class CollisionManager
     {

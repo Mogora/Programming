@@ -2,9 +2,11 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Rectangle = Programming.Model.Rectangle;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 using System.Collections.Generic;
-using Movie = Programming.Model.Movie;
+using Movie = Programming.Model.Classes.Movie;
+using Programming.Model.Enums;
+using Programming.Model.Classes;
 
 namespace Programming.View
 {
@@ -186,7 +188,7 @@ namespace Programming.View
             {
                 for (int j = i + 1; j < _rectangles.Count; j++)
                 {
-                    if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                    if (Model.Geometry.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
                         CanvasPanel.Controls[i].BackColor = _inContact;
                         CanvasPanel.Controls[j].BackColor = _inContact;
@@ -413,7 +415,7 @@ namespace Programming.View
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var rectangle = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
+            var rectangle = Model.Geometry.RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(rectangle);
             RectanglesListBox.Items.Add($"Rectangle {rectangle.Id}");
             Rectangles2ListBox.Items.Add(RectangleParameters(rectangle));

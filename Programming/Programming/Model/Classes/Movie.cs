@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     public class Movie
     {
