@@ -547,9 +547,7 @@ namespace Programming.View
                 _currentRectangle.Length = rectangleLength;
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
-            $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
-            $" W: {_currentRectangle.Width};" + $" L: {_currentRectangle.Length})";
+                Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
             }
             catch
             {
