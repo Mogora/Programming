@@ -413,20 +413,10 @@ namespace Programming.View
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var colors = Enum.GetValues(typeof(Colors));
-            _currentRectangle = new Rectangle();
-            var rectangle = _currentRectangle;
-            rectangle.Width = _random.Next(10, 110);
-            rectangle.Length = _random.Next(10, 110);
-            rectangle.Center = new Point2D(_random.Next(0, CanvasPanel.Width - rectangle.Width),
-                _random.Next(0, CanvasPanel.Height - rectangle.Length));
-            rectangle.Color = colors.GetValue
-                    (_random.Next(0, colors.Length)).ToString();
+            var rectangle = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(rectangle);
             RectanglesListBox.Items.Add($"Rectangle {rectangle.Id}");
-            Rectangles2ListBox.Items.Add($"{rectangle.Id}: " +
-            $"(X: {rectangle.Center.X};" + $" Y: {rectangle.Center.Y};" +
-            $" W: {rectangle.Width};" + $" L: {rectangle.Length})");
+            Rectangles2ListBox.Items.Add(RectangleParameters(rectangle));
 
             Panel rectanglePanel = new Panel();
             rectanglePanel.Width = rectangle.Width;
@@ -481,9 +471,7 @@ namespace Programming.View
                 _currentRectangle.Center.X = rectangleX;
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
-                $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
-                $" W: {_currentRectangle.Width};" + $" L: {_currentRectangle.Length})";
+                Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
             }
             catch
             {
@@ -503,9 +491,7 @@ namespace Programming.View
                 _currentRectangle.Center.Y = rectangleY;
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
-            $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
-            $" W: {_currentRectangle.Width};" + $" L: {_currentRectangle.Length})";
+                Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
             }
             catch
             {
@@ -525,9 +511,7 @@ namespace Programming.View
                 _currentRectangle.Width = rectangleWidth;
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
-            $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
-            $" W: {_currentRectangle.Width};" + $" L: {_currentRectangle.Length})";
+                Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
             }
             catch
             {
