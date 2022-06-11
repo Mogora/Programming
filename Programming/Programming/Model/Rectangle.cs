@@ -14,10 +14,13 @@ namespace Programming.Model
 
         private int _id;
 
-        public Rectangle()
+        public Rectangle(Rectangle rectangle)
         {
-            _allRectanglesCount++;
-            _id = _allRectanglesCount;
+            Id = rectangle.Id;
+            Length = rectangle.Length;
+            Width = rectangle.Width;
+            Color = rectangle.Color;
+            Center = new Point2D(rectangle.Center.X, rectangle.Center.Y);
         }
 
         public Rectangle (int length, int width, string color, Point2D center)
@@ -28,6 +31,10 @@ namespace Programming.Model
             Center = center;
             _allRectanglesCount++;
             _id = _allRectanglesCount;
+        }
+
+        public Rectangle()
+        {
         }
 
         public string Color { get; set; }
