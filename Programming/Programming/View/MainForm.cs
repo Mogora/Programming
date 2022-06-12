@@ -327,6 +327,7 @@ namespace Programming.View
             }
             MovieTimeTextBox.BackColor = CorrectColor;
         }
+        int a = 1;
     }
 }
 
