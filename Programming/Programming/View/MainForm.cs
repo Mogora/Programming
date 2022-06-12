@@ -6,7 +6,7 @@ using Rectangle = Programming.Model.Geometry.Rectangle;
 using System.Collections.Generic;
 using Movie = Programming.Model.Classes.Movie;
 using Programming.Model.Enums;
-using Programming.Model.Classes;
+
 
 namespace Programming.View
 {
