@@ -275,7 +275,7 @@
             this.ClassestabPage.Controls.Add(this.RectanglesGroupBox);
             this.ClassestabPage.Location = new System.Drawing.Point(4, 29);
             this.ClassestabPage.Name = "ClassestabPage";
-            this.ClassestabPage.Size = new System.Drawing.Size(886, 625);
+            this.ClassestabPage.Size = new System.Drawing.Size(868, 578);
             this.ClassestabPage.TabIndex = 1;
             this.ClassestabPage.Text = "Classes";
             this.ClassestabPage.UseVisualStyleBackColor = true;

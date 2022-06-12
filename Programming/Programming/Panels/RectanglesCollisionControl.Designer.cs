@@ -82,6 +82,7 @@ namespace Programming.Panels
             this.Rectangles2ListBox.Size = new System.Drawing.Size(414, 204);
             this.Rectangles2ListBox.TabIndex = 0;
             this.Rectangles2ListBox.Click += new System.EventHandler(this.Rectangles2ListBox_SelectedIndexChanged);
+            this.Rectangles2ListBox.SelectedIndexChanged += new System.EventHandler(this.Rectangles2ListBox_SelectedIndexChanged);
             // 
             // CanvasPanel
             // 
@@ -98,6 +99,7 @@ namespace Programming.Panels
             this.Length2TextBox.Size = new System.Drawing.Size(152, 27);
             this.Length2TextBox.TabIndex = 10;
             this.Length2TextBox.Click += new System.EventHandler(this.Length2TextBox_TextChanged);
+            this.Length2TextBox.TextChanged += new System.EventHandler(this.Length2TextBox_TextChanged);
             // 
             // Length2Label
             // 
@@ -153,6 +155,7 @@ namespace Programming.Panels
             this.Width2TextBox.Size = new System.Drawing.Size(152, 27);
             this.Width2TextBox.TabIndex = 9;
             this.Width2TextBox.Click += new System.EventHandler(this.Width2TextBox_TextChanged);
+            this.Width2TextBox.TextChanged += new System.EventHandler(this.Width2TextBox_TextChanged);
             // 
             // SelectedRectangleLabel
             // 
@@ -197,6 +200,7 @@ namespace Programming.Panels
             this.RectangleX2TextBox.Size = new System.Drawing.Size(152, 27);
             this.RectangleX2TextBox.TabIndex = 7;
             this.RectangleX2TextBox.Click += new System.EventHandler(this.RectangleX2TextBox_TextChanged);
+            this.RectangleX2TextBox.TextChanged += new System.EventHandler(this.RectangleX2TextBox_TextChanged);
             // 
             // RectangleY2TextBox
             // 
@@ -205,6 +209,7 @@ namespace Programming.Panels
             this.RectangleY2TextBox.Size = new System.Drawing.Size(152, 27);
             this.RectangleY2TextBox.TabIndex = 8;
             this.RectangleY2TextBox.Click += new System.EventHandler(this.RectangleY2TextBox_TextChanged);
+            this.RectangleY2TextBox.TextChanged += new System.EventHandler(this.RectangleY2TextBox_TextChanged);
             // 
             // RectanglesCollisionControl
             // 

@@ -327,14 +327,6 @@ namespace Programming.View
             }
             MovieTimeTextBox.BackColor = CorrectColor;
         }
-
-        
-
-       
-
-        
-
-        
     }
 }
 
