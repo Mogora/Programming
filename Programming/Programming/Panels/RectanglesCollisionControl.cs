@@ -41,7 +41,6 @@ namespace Programming.Panels
             {
                 CanvasPanel.Controls[k].BackColor = _unContact;
             }
-
             for (int i = 0; i < _rectangles.Count - 1; i++)
             {
                 for (int j = i + 1; j < _rectangles.Count; j++)
