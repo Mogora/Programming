@@ -1,5 +1,5 @@
 ﻿
-namespace Programming.Panels
+namespace Programming.View.Panels
 {
     partial class RectanglesCollisionControl
     {

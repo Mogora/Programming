@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
 
 
-namespace Programming.Panels
+namespace Programming.View.Panels
 {
     public partial class RectanglesCollisionControl : UserControl
     {
