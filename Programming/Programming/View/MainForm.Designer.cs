@@ -76,7 +76,7 @@
             this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
-            this.rectanglesCollisionControl1 = new Programming.Panels.RectanglesCollisionControl();
+            this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
             this.EnumsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
             this.WeekdayParsingGroupBox.SuspendLayout();
