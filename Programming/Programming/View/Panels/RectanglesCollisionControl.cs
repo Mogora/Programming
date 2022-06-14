@@ -6,20 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
+using Programming.Model.Classes;
 
 
 namespace Programming.View.Panels
 {
     public partial class RectanglesCollisionControl : UserControl
     {
-        private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
-
-        private readonly System.Drawing.Color CorrectColor = System.Drawing.Color.White;
-
-        private readonly Color _inContact = Color.FromArgb(127, 255, 127, 127);
-
-        private readonly Color _unContact = Color.FromArgb(127, 127, 255, 127);
-
         private List<Rectangle> _rectangles;
 
         private List<Panel> _rectanglePanels;
@@ -39,7 +32,7 @@ namespace Programming.View.Panels
         {
             for (int k = 0; k < _rectangles.Count; k++)
             {
-                CanvasPanel.Controls[k].BackColor = _unContact;
+                CanvasPanel.Controls[k].BackColor = AppColors.CollisionColor;
             }
             for (int i = 0; i < _rectangles.Count - 1; i++)
             {
@@ -47,8 +40,8 @@ namespace Programming.View.Panels
                 {
                     if (Model.Geometry.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = _inContact;
-                        CanvasPanel.Controls[j].BackColor = _inContact;
+                        CanvasPanel.Controls[i].BackColor = AppColors.CollisionColor;
+                        CanvasPanel.Controls[j].BackColor = AppColors.CollisionColor;
                     }
                 }
             }
@@ -108,10 +101,10 @@ namespace Programming.View.Panels
             RectangleY2TextBox.Clear();
             Width2TextBox.Clear();
             Length2TextBox.Clear();
-            RectangleX2TextBox.BackColor = CorrectColor;
-            RectangleY2TextBox.BackColor = CorrectColor;
-            Width2TextBox.BackColor = CorrectColor;
-            Length2TextBox.BackColor = CorrectColor;
+            RectangleX2TextBox.BackColor = AppColors.CorrectColor;
+            RectangleY2TextBox.BackColor = AppColors.CorrectColor;
+            Width2TextBox.BackColor = AppColors.CorrectColor;
+            Length2TextBox.BackColor = AppColors.CorrectColor;
             Rectangles2ListBox.Items.Clear();
         }
 
@@ -125,7 +118,7 @@ namespace Programming.View.Panels
             rectanglePanel.Width = rectangle.Width;
             rectanglePanel.Height = rectangle.Length;
             rectanglePanel.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
-            rectanglePanel.BackColor = _unContact;
+            rectanglePanel.BackColor = AppColors.CollisionColor;
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
         }
@@ -177,10 +170,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                RectangleX2TextBox.BackColor = ErrorColor;
+                RectangleX2TextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleX2TextBox.BackColor = CorrectColor;
+            RectangleX2TextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectangleY2TextBox_TextChanged(object sender, EventArgs e)
@@ -197,10 +190,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                RectangleY2TextBox.BackColor = ErrorColor;
+                RectangleY2TextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleY2TextBox.BackColor = CorrectColor;
+            RectangleY2TextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void Width2TextBox_TextChanged(object sender, EventArgs e)
@@ -217,10 +210,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                Width2TextBox.BackColor = ErrorColor;
+                Width2TextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            Width2TextBox.BackColor = CorrectColor;
+            Width2TextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void Length2TextBox_TextChanged(object sender, EventArgs e)
@@ -237,10 +230,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                Length2TextBox.BackColor = ErrorColor;
+                Length2TextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            Length2TextBox.BackColor = CorrectColor;
+            Length2TextBox.BackColor = AppColors.CorrectColor;
         }
     }   
 }

@@ -6,6 +6,7 @@ using Rectangle = Programming.Model.Geometry.Rectangle;
 using System.Collections.Generic;
 using Movie = Programming.Model.Classes.Movie;
 using Programming.Model.Enums;
+using Programming.Model.Classes;
 
 
 namespace Programming.View.Panels
@@ -13,10 +14,6 @@ namespace Programming.View.Panels
     public partial class MoviesControl : UserControl
     {
         private const int ElementsCount = 5;
-
-        private readonly Color ErrorColor = Color.LightPink;
-
-        private readonly Color CorrectColor = Color.White;
 
         private Movie[] _movies;
 
@@ -94,10 +91,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                RatingTextBox.BackColor = ErrorColor;
+                RatingTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RatingTextBox.BackColor = CorrectColor;
+            RatingTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void MovieTimeTextBox_TextChanged(object sender, EventArgs e)
@@ -110,10 +107,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                MovieTimeTextBox.BackColor = ErrorColor;
+                MovieTimeTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieTimeTextBox.BackColor = CorrectColor;
+            MovieTimeTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void GenreTextBox_TextChanged(object sender, EventArgs e)
@@ -132,10 +129,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                ReleaseYearTextBox.BackColor = ErrorColor;
+                ReleaseYearTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            ReleaseYearTextBox.BackColor = CorrectColor;
+            ReleaseYearTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void FindMovieButton_Click_Click(object sender, EventArgs e)

@@ -6,6 +6,7 @@ using Rectangle = Programming.Model.Geometry.Rectangle;
 using System.Collections.Generic;
 using Movie = Programming.Model.Classes.Movie;
 using Programming.Model.Enums;
+using Programming.Model.Classes;
 
 
 namespace Programming.View.Panels
@@ -13,10 +14,6 @@ namespace Programming.View.Panels
     public partial class RectangleControl : UserControl
     {
         private const int ElementsCount = 5;
-
-        private readonly Color ErrorColor = Color.LightPink;
-
-        private readonly Color CorrectColor = Color.White;
 
         private Rectangle[] _rectangles;
 
@@ -83,10 +80,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                LengthTextBox.BackColor = ErrorColor;
+                LengthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            LengthTextBox.BackColor = CorrectColor;
+            LengthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
@@ -99,10 +96,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                WidthTextBox.BackColor = ErrorColor;
+                WidthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            WidthTextBox.BackColor = CorrectColor;
+            WidthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
