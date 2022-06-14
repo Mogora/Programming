@@ -47,26 +47,10 @@ namespace Programming.View
 
             _rectanglePanels = new List<Panel>();
 
-            GenerateMovies();
+            
         }
 
-        private void GenerateMovies()
-        {
-            _movies = new Movie[ElementsCount];
-            var genres = Enum.GetValues(typeof(Genre));
-            for (int i = 0; i < ElementsCount; i++)
-            {
-                _currentMovie = new Movie();
-                _currentMovie.Rating = _random.Next(101) / 10;
-                _currentMovie.ReleaseYear = _random.Next(1900, 2022);
-                _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
-                _currentMovie.MovieTime = _random.Next(40, 200);
-                _currentMovie.Name = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
-                _movies[i] = _currentMovie;
-                MoviesListBox.Items.Add($"Movie {i + 1}");
-            }
-            MoviesListBox.SelectedIndex = 0;
-        }
+       
 
         
 
@@ -125,16 +109,16 @@ namespace Programming.View
         //    }
         //}
 
-        private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedIndexMovie = MoviesListBox.SelectedIndex;
-            _currentMovie = _movies[selectedIndexMovie];
-            RatingTextBox.Text = _currentMovie.Rating.ToString();
-            ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
-            GenreTextBox.Text = _currentMovie.Genre;
-            NameTextBox.Text = _currentMovie.Name;
-            MovieTimeTextBox.Text = _currentMovie.MovieTime.ToString();
-        }
+        //private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    int selectedIndexMovie = MoviesListBox.SelectedIndex;
+        //    _currentMovie = _movies[selectedIndexMovie];
+        //    RatingTextBox.Text = _currentMovie.Rating.ToString();
+        //    ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
+        //    GenreTextBox.Text = _currentMovie.Genre;
+        //    NameTextBox.Text = _currentMovie.Name;
+        //    MovieTimeTextBox.Text = _currentMovie.MovieTime.ToString();
+        //}
 
         //private void LengthTextBox_TextChanged(object sender, EventArgs e)
         //{
@@ -174,43 +158,43 @@ namespace Programming.View
         //    _currentRectangle.Color = colorRectangleValue;
         //}
 
-        private void RatingTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string currentRating = RatingTextBox.Text;
-                float ratingMovieValue = float.Parse(currentRating);
-                _currentMovie.Rating = ratingMovieValue;
-            }
-            catch
-            {
-                RatingTextBox.BackColor = ErrorColor;
-                return;
-            }
-            RatingTextBox.BackColor = CorrectColor;
-        }
+        //private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string currentRating = RatingTextBox.Text;
+        //        float ratingMovieValue = float.Parse(currentRating);
+        //        _currentMovie.Rating = ratingMovieValue;
+        //    }
+        //    catch
+        //    {
+        //        RatingTextBox.BackColor = ErrorColor;
+        //        return;
+        //    }
+        //    RatingTextBox.BackColor = CorrectColor;
+        //}
 
-        private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string currentReleaseYear = ReleaseYearTextBox.Text;
-                int releaseYearMovieValue = int.Parse(currentReleaseYear);
-                _currentMovie.ReleaseYear = releaseYearMovieValue;
-            }
-            catch
-            {
-                ReleaseYearTextBox.BackColor = ErrorColor;
-                return;
-            }
-            ReleaseYearTextBox.BackColor = CorrectColor;
-        }
+        //private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string currentReleaseYear = ReleaseYearTextBox.Text;
+        //        int releaseYearMovieValue = int.Parse(currentReleaseYear);
+        //        _currentMovie.ReleaseYear = releaseYearMovieValue;
+        //    }
+        //    catch
+        //    {
+        //        ReleaseYearTextBox.BackColor = ErrorColor;
+        //        return;
+        //    }
+        //    ReleaseYearTextBox.BackColor = CorrectColor;
+        //}
 
-        private void GenreTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string genreMovieValue = GenreTextBox.Text;
-            _currentMovie.Genre = genreMovieValue;
-        }
+        //private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    string genreMovieValue = GenreTextBox.Text;
+        //    _currentMovie.Genre = genreMovieValue;
+        //}
 
         //private void FindRectangleButton_Click(object sender, EventArgs e)
         //{
@@ -218,33 +202,33 @@ namespace Programming.View
         //    RectanglesListBox.SelectedIndex = findMaxWidthIndex;
         //}
 
-        private void FindMovieButton_Click_Click(object sender, EventArgs e)
-        {
-            int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
-            MoviesListBox.SelectedIndex = findMaxRatingIndex;
-        }
+        //private void FindMovieButton_Click_Click(object sender, EventArgs e)
+        //{
+        //    int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
+        //    MoviesListBox.SelectedIndex = findMaxRatingIndex;
+        //}
 
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string nameValue = NameTextBox.Text;
-            _currentMovie.Name = nameValue;
-        }
+        //private void NameTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    string nameValue = NameTextBox.Text;
+        //    _currentMovie.Name = nameValue;
+        //}
 
-        private void MovieTimeTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string currentMovieTime = MovieTimeTextBox.Text;
-                int movieTimeValue = int.Parse(currentMovieTime);
-                _currentMovie.MovieTime = movieTimeValue;
-            }
-            catch
-            {
-                MovieTimeTextBox.BackColor = ErrorColor;
-                return;
-            }
-            MovieTimeTextBox.BackColor = CorrectColor;
-        }
+        //private void MovieTimeTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string currentMovieTime = MovieTimeTextBox.Text;
+        //        int movieTimeValue = int.Parse(currentMovieTime);
+        //        _currentMovie.MovieTime = movieTimeValue;
+        //    }
+        //    catch
+        //    {
+        //        MovieTimeTextBox.BackColor = ErrorColor;
+        //        return;
+        //    }
+        //    MovieTimeTextBox.BackColor = CorrectColor;
+        //}
         
     }
 }
