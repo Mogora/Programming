@@ -34,7 +34,6 @@ namespace Programming.View.Panels
         private Rectangle[] GenerateRectangles()
         {
             Rectangle[] rectangles = new Rectangle[ElementsCount];
-            var colors = Enum.GetValues(typeof(Color));
             for (int i = 0; i < ElementsCount; i++)
             {
                 _currentRectangle = Model.Geometry.RectangleFactory.Randomize();
