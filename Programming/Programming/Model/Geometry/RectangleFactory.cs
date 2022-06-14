@@ -23,6 +23,18 @@ namespace Programming.Model.Geometry
 
             return rectangle;
         }
+
+        public static Rectangle Randomize()
+        {
+            var colors = Enum.GetValues(typeof(Color));
+            Rectangle rectangle = new Rectangle();
+            rectangle.Center = new Point2D(_random.Next(Margin, 500), _random.Next(Margin, 500));
+            rectangle.Width = _random.Next(1, 1001);
+            rectangle.Length = _random.Next(1, 1001);
+            rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+
+            return rectangle;
+        }
     }
 }
 
