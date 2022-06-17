@@ -50,8 +50,9 @@ namespace Programming.View.Panels
         {
             for (int k = 0; k < _rectangles.Count; k++)
             {
-                CanvasPanel.Controls[k].BackColor = AppColors.CollisionColor;
+                CanvasPanel.Controls[k].BackColor = AppColors.NotCollisionColor;
             }
+
             for (int i = 0; i < _rectangles.Count - 1; i++)
             {
                 for (int j = i + 1; j < _rectangles.Count; j++)
