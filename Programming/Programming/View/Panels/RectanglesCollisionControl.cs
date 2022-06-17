@@ -50,7 +50,7 @@ namespace Programming.View.Panels
         {
             for (int k = 0; k < _rectangles.Count; k++)
             {
-                CanvasPanel.Controls[k].BackColor = AppColors.NotCollisionColor;
+                CanvasPanel.Controls[k].BackColor = AppColors.UnContact;
             }
 
             for (int i = 0; i < _rectangles.Count - 1; i++)
@@ -59,8 +59,8 @@ namespace Programming.View.Panels
                 {
                     if (Model.Geometry.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = AppColors.CollisionColor;
-                        CanvasPanel.Controls[j].BackColor = AppColors.CollisionColor;
+                        CanvasPanel.Controls[i].BackColor = AppColors.InContact;
+                        CanvasPanel.Controls[j].BackColor = AppColors.InContact;
                     }
                 }
             }
@@ -149,7 +149,7 @@ namespace Programming.View.Panels
             rectanglePanel.Width = rectangle.Width;
             rectanglePanel.Height = rectangle.Length;
             rectanglePanel.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
-            rectanglePanel.BackColor = AppColors.CollisionColor;
+            rectanglePanel.BackColor = AppColors.UnContact;
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
         }
