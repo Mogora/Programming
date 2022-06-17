@@ -4,19 +4,40 @@ using System.Text;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о времени.
+    /// </summary>
     public class Time
     {
+        /// <summary>
+        /// Количество часов.
+        /// </summary>
         private int _hours;
 
+        /// <summary>
+        /// Количество минут.
+        /// </summary>
         private int _minutes;
 
+        /// <summary>
+        /// Количество секунд.
+        /// </summary>
         private int _seconds;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Time"/>.
+        /// </summary>
         public Time()
         {
 
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Time"/>.
+        /// </summary>
+        /// <param name="hours"> Количество часов. Должно быть положительным и в промежутку от 0 до 23. </param>
+        /// <param name="minutes">  Количество минут. Должно быть положительным и в промежутку от 0 до 59. </param>
+        /// <param name="seconds"> Количество секунд. Должно быть положительным и в промежутку от 0 до 59. </param>
         public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;
@@ -24,6 +45,9 @@ namespace Programming.Model.Classes
             Seconds = seconds;
         }
 
+        /// <summary>
+        /// Возвращает и создает количество часов. Должно быть положительным и в промежутку от 0 до 23.
+        /// </summary>
         public int Hours
         {
             get
@@ -37,6 +61,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и создает количество минут. Должно быть положительным и в промежутку от 0 до 59.
+        /// </summary>
         public int Minutes
         {
             get
@@ -50,6 +77,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и создает количество секунд. Должно быть положительным и в промежутку от 0 до 59.
+        /// </summary>
         public int Seconds
         {
             get

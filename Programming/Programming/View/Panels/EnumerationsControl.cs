@@ -9,9 +9,15 @@ using Programming.Model.Enums;
 
 
 namespace Programming.View.Panels
-{
+{   
+    /// <summary>
+    /// Реализация представления перечислений.
+    /// </summary>
     public partial class EnumerationsControl : UserControl
     {
+        /// <summary>
+        /// Создает экземпляр класса <see cref="EnumerationsControl"/>.
+        /// </summary>
         public EnumerationsControl()
         {
             InitializeComponent();

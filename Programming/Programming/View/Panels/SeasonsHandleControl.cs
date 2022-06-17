@@ -9,8 +9,14 @@ using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    ///  Реализация изменения цвета фона главного окна.
+    /// </summary>
     public partial class SeasonsHandleControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="SeasonHandleControl"/>.
+        /// </summary>
         public SeasonsHandleControl()
         {
             InitializeComponent();

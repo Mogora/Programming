@@ -11,14 +11,29 @@ using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Реализация представления прямоугольников.
+    /// </summary>
     public partial class RectanglesCollisionControl : UserControl
     {
+        /// <summary>
+        /// Коллекция прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectangles;
 
+        /// <summary>
+        /// Коллекция отоброжаемых прямоугольников.
+        /// </summary>
         private List<Panel> _rectanglePanels;
 
+        /// <summary>
+        /// Выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="RectanglesCollisionControl"/>.
+        /// </summary>
         public RectanglesCollisionControl()
         {
             InitializeComponent();
@@ -28,6 +43,9 @@ namespace Programming.View.Panels
             _rectanglePanels = new List<Panel>();
         }
 
+        /// <summary>
+        /// Находит пересекающиеся прямоугольники и перекрашивает их.
+        /// </summary>
         private void FindCollisions()
         {
             for (int k = 0; k < _rectangles.Count; k++)
@@ -47,6 +65,11 @@ namespace Programming.View.Panels
             }
         }
 
+        /// <summary>
+        /// На значения прямоугольника задаются параметры.
+        /// </summary>
+        /// <param name="rectangle"> Прямоугольник. </param>
+        /// <returns> Возвращает форматированный текс. </returns>
         private string RectangleParameters(Rectangle rectangle)
         {
             return $"{rectangle.Id}: " +
@@ -64,6 +87,10 @@ namespace Programming.View.Panels
             control.Height = rectangle.Length;
         }
 
+        /// <summary>
+        /// Обновляет информацию о прямоугольнике в списке. 
+        /// </summary>
+        /// <param name="rectangle"> Прямоугольник. </param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             if (rectangle != null)
@@ -93,6 +120,9 @@ namespace Programming.View.Panels
             }
         }
 
+        /// <summary>
+        /// Очищает информациюю о прямоугольниках из списка и текстовых полей.
+        /// </summary>
         private void ClearRectangleInfo()
         {
             Rectangles2ListBox.Items.Clear();

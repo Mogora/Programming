@@ -5,19 +5,40 @@ using System.Text.RegularExpressions;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о контактных данных человека.
+    /// </summary>
     public class Contact
     {
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
         private string _name;
 
+        /// <summary>
+        /// Фамилия контакта.
+        /// </summary>
         private string _surname;
 
+        /// <summary>
+        /// Номер телефона.
+        /// </summary>
         private string _phoneNumber;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
         public Contact()
         {
 
         }
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
+        /// <param name="name"> Имя контакта. Должна состоять только из букв английского алфавита.</param>
+        /// <param name="surname"> Фамилия контакта. Должна состоять только из букв английского алфавита.</param>
+        /// <param name="phoneNumber"> Номер телефона. Должен состоять только из цифр. Количество символолов должно быть равно 11. </param>
         public Contact(string name, string surname, string phoneNumber)
         {
             Name = name;
@@ -25,6 +46,9 @@ namespace Programming.Model.Classes
             PhoneNumber = phoneNumber;
         }
 
+        /// <summary>
+        /// Возвращает и задаёт имя контакта. Должна состоять только из букв английского алфавита.
+        /// </summary>
         public string Name
         {
             get
@@ -37,6 +61,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт фамилию контакта. Должна состоять только из букв английского алфавита.
+        /// </summary>
         public string Surname
         {
             get
@@ -49,6 +76,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт номер телефона контакта. Должен состоять только из цифр. Количество символолов должно быть равно 11.
+        /// </summary>
         public string PhoneNumber
         {
             get

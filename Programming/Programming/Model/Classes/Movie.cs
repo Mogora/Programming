@@ -4,19 +4,52 @@ using System.Text;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о фильме.
+    /// </summary>
     public class Movie
     {
+        /// <summary>
+        /// Название фильма.
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Продолжительность фильма в минутах.
+        /// </summary>
         private int _movietime;
+
+        /// <summary>
+        /// Год выпуска фильма. Должен быть в промежутке от 1900 до 2022.
+        /// </summary>
         private int _releaseYear;
+
+        /// <summary>
+        /// Жанр фильма.
+        /// </summary>
         private string _genre;
+
+        /// <summary>
+        /// Рейтинг фильма. Должен быть в промежутке от 0 до 10.
+        /// </summary>
         private float _rating;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Movie"/>.
+        /// </summary>
         public Movie()
         {
 
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Movie"/>.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="movietime"></param>
+        /// <param name="releaseYear"> Год выпуска фильма. Должен быть в промежутке от 1900 до 2022. </param>
+        /// <param name="genre"> Жанр фильма. </param>
+        /// <param name="rating"> Рейтинг фильма. Должен быть в промежутке от 0 до 10. </param>
         public Movie(string name, int movietime, int releaseYear, string genre, float rating)
         {
             Name = name;
@@ -26,10 +59,19 @@ namespace Programming.Model.Classes
             Rating = rating;
         }
 
+        /// <summary>
+        /// Возвращает и задает название фильма.
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает жанр фильма.
+        /// </summary>
         public string Genre { get; set; }
-        
+
+        /// <summary>
+        /// Возвращает и задает время фильма в минутах.  Должно быть положительным числом.
+        /// </summary>
         public int MovieTime
         {
             get
@@ -43,6 +85,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает год релиза фильма. Должен быть в промежутке от 1900 до 2022.
+        /// </summary>
         public int ReleaseYear
         {
             get
@@ -56,6 +101,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает рейтинг фильма. Должен быть в промежутке от 0 до 10.
+        /// </summary>
         public float Rating
         {
             get

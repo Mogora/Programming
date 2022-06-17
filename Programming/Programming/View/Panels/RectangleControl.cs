@@ -11,13 +11,29 @@ using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Реализация представления прямоугольников, релизуемых программой.
+    /// </summary>
     public partial class RectangleControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов в массиве.
+        /// </summary>
         private const int ElementsCount = 5;
 
+        /// <summary>
+        /// Массив прямоугольников.
+        /// </summary>
         private Rectangle[] _rectangles;
 
+        /// <summary>
+        /// Текущий прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="RectangleControl"/>.
+        /// </summary>
         public RectangleControl()
         {
             InitializeComponent();
@@ -28,6 +44,10 @@ namespace Programming.View.Panels
 
         }
 
+        /// <summary>
+        /// Создает массив прямоугольников.
+        /// </summary>
+        /// <returns> Возвращает массив прямоугольников. </returns>
         private Rectangle[] GenerateRectangles()
         {
             Rectangle[] rectangles = new Rectangle[ElementsCount];
@@ -40,6 +60,11 @@ namespace Programming.View.Panels
             return rectangles;
         }
 
+        /// <summary>
+        /// Находит прямоугольник с наибольшей шириной.
+        /// </summary>
+        /// <param name="rectangles"> Массив прямоугольников. </param>
+        /// <returns> Возвращает индекс прямоугольника с наибольшей шириной. </returns>
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             int maxWidthIndex = 0;
