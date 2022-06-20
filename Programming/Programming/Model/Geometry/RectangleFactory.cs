@@ -30,10 +30,9 @@ namespace Programming.Model.Geometry
             Rectangle rectangle = new Rectangle();
             rectangle.Width = _random.Next(10, 110);
             rectangle.Length = _random.Next(10, 110);
-            rectangle.Center = new Point2D(_random.Next(Margin, widthCanvas - rectangle.Width),
-                _random.Next(Margin, lengthCanvas - rectangle.Length));
+            rectangle.Center = new Point2D(_random.Next(Margin, widthCanvas - rectangle.Width - Margin),
+                                           _random.Next(Margin, lengthCanvas - rectangle.Length - Margin));
             rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-
             return rectangle;
         }
     }
