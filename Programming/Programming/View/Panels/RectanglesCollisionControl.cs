@@ -77,14 +77,6 @@ namespace Programming.View.Panels
                    $" H: {rectangle.Length})";
         }
 
-        private void UpdatePanel(Rectangle rectangle, int index)
-        {
-            var control = CanvasPanel.Controls[index];
-            control.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
-            control.Width = rectangle.Width;
-            control.Height = rectangle.Length;
-        }
-
         /// <summary>
         /// Обновляет информацию в списке.
         /// </summary>
@@ -116,25 +108,26 @@ namespace Programming.View.Panels
             Rectangles2ListBox.Items.Clear();
         }
 
+        private Panel CreatePanel()
+        {
+            Panel panel = new Panel();
+            panel.Width = _currentRectangle.Width;
+            panel.Height = _currentRectangle.Length;
+            panel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            panel.BackColor = AppColors.UnCollisions;
+
+            return panel;
+        }
+
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var rectangle = Model.Geometry.RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
-            _rectangles.Add(rectangle);
-            Rectangles2ListBox.Items.Add(RectangleParameters(rectangle));
+            _currentRectangle = Model.Geometry.RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
+            _rectangles.Add(_currentRectangle);
+            Rectangles2ListBox.Items.Add(RectangleParameters(_currentRectangle));
 
-            Panel rectanglePanel = new Panel
-            {
-                Width = rectangle.Width,
-                Height = rectangle.Length,
-                Location = new Point(rectangle.Center.X, rectangle.Center.Y),
-                BackColor = AppColors.UnCollisions
-            };
-
+            Panel rectanglePanel = CreatePanel();
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
-
-            Rectangles2ListBox.SelectedIndex = _rectangles.Count - 1;
-
             FindCollisions();
         }
 
@@ -182,6 +175,8 @@ namespace Programming.View.Panels
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
+                CanvasPanel.Controls[Rectangles2ListBox.SelectedIndex].Location =
+                    new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
             }
             catch
             {
@@ -202,6 +197,8 @@ namespace Programming.View.Panels
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
+                CanvasPanel.Controls[Rectangles2ListBox.SelectedIndex].Location =
+                     new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
             }
             catch
             {
@@ -222,6 +219,7 @@ namespace Programming.View.Panels
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
+                CanvasPanel.Controls[Rectangles2ListBox.SelectedIndex].Width = _currentRectangle.Width;
             }
             catch
             {
@@ -242,6 +240,7 @@ namespace Programming.View.Panels
                 UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = RectangleParameters(_currentRectangle);
+                CanvasPanel.Controls[Rectangles2ListBox.SelectedIndex].Height = _currentRectangle.Length;
             }
             catch
             {
