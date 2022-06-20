@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о песне.
@@ -53,7 +49,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Возвращает и задает название песни.
         /// </summary>
-        public string Title { get;  set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Возвращает и задаёт продолжительность песни в секундах. Должно быть положительным числом.

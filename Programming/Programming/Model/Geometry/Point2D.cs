@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Programming.Model.Geometry
+﻿namespace Programming.Model.Geometry
 {
     /// <summary>
     /// Хранит данные о координатах центра геометрической фигуры.
@@ -24,7 +20,7 @@ namespace Programming.Model.Geometry
         /// </summary>
         /// <param name="x"> Координата х. Должна быть положительным числом. </param>
         /// <param name="y"> Координата y. Должна быть положительным числом. </param>
-        public Point2D (int x, int y)
+        public Point2D(int x, int y)
         {
             X = x;
             Y = y;
@@ -43,7 +39,7 @@ namespace Programming.Model.Geometry
             {
                 Validator.AssertOnPositiveValue(nameof(X), value);
                 _x = value;
-            }      
+            }
         }
 
         /// <summary>

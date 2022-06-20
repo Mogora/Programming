@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Programming.Model.Classes;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
-using Programming.Model.Classes;
 
 
 namespace Programming.View.Panels
@@ -50,7 +47,7 @@ namespace Programming.View.Panels
         {
             for (int k = 0; k < _rectangles.Count; k++)
             {
-                CanvasPanel.Controls[k].BackColor = AppColors.UnContact;
+                CanvasPanel.Controls[k].BackColor = AppColors.UnCollisions;
             }
 
             for (int i = 0; i < _rectangles.Count - 1; i++)
@@ -59,8 +56,8 @@ namespace Programming.View.Panels
                 {
                     if (Model.Geometry.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = AppColors.InContact;
-                        CanvasPanel.Controls[j].BackColor = AppColors.InContact;
+                        CanvasPanel.Controls[i].BackColor = AppColors.InCollisions;
+                        CanvasPanel.Controls[j].BackColor = AppColors.InCollisions;
                     }
                 }
             }
@@ -89,36 +86,16 @@ namespace Programming.View.Panels
         }
 
         /// <summary>
-        /// Обновляет информацию о прямоугольнике в списке. 
+        /// Обновляет информацию в списке.
         /// </summary>
-        /// <param name="rectangle"> Прямоугольник. </param>
+        /// <param name="rectangle">Прямоугольник.</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
-            if (rectangle != null)
-            {
-                var copyRectangle = new Rectangle(rectangle);
-                var oldRectangle = _rectangles[Rectangles2ListBox.SelectedIndex];
+            int index = Rectangles2ListBox.FindString(rectangle.Id.ToString());
 
-                var halfDifferenceWidth = Math.Abs(oldRectangle.Width - copyRectangle.Width) / 2;
-                var halfDifferenceLength = Math.Abs(oldRectangle.Length - copyRectangle.Length) / 2;
+            if (index == -1) return;
 
-                if (copyRectangle.Center.X == oldRectangle.Center.X && copyRectangle.Center.Y == oldRectangle.Center.Y)
-                {
-                    copyRectangle.Center.X = oldRectangle.Width >= copyRectangle.Width
-                        ? oldRectangle.Center.X + halfDifferenceWidth
-                        : oldRectangle.Center.X - halfDifferenceWidth;
-
-                    copyRectangle.Center.Y = oldRectangle.Length >= copyRectangle.Length
-                        ? oldRectangle.Center.Y + halfDifferenceLength
-                        : oldRectangle.Center.Y - halfDifferenceLength;
-                }
-
-                var index = _rectangles.FindIndex(r => r.Id == copyRectangle.Id);
-                _rectangles[index] = copyRectangle;
-
-                UpdatePanel(copyRectangle, index);
-                FindCollisions();
-            }
+            Rectangles2ListBox.Items[index] = RectangleParameters(rectangle);
         }
 
         /// <summary>
@@ -145,13 +122,20 @@ namespace Programming.View.Panels
             _rectangles.Add(rectangle);
             Rectangles2ListBox.Items.Add(RectangleParameters(rectangle));
 
-            Panel rectanglePanel = new Panel();
-            rectanglePanel.Width = rectangle.Width;
-            rectanglePanel.Height = rectangle.Length;
-            rectanglePanel.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
-            rectanglePanel.BackColor = AppColors.UnContact;
+            Panel rectanglePanel = new Panel
+            {
+                Width = rectangle.Width,
+                Height = rectangle.Length,
+                Location = new Point(rectangle.Center.X, rectangle.Center.Y),
+                BackColor = AppColors.UnCollisions
+            };
+
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
+
+            Rectangles2ListBox.SelectedIndex = _rectangles.Count - 1;
+
+            FindCollisions();
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
@@ -167,6 +151,7 @@ namespace Programming.View.Panels
                 Rectangles2ListBox.Items.Add($"Rectangle {rectangle.Id}");
                 Rectangles2ListBox.SelectedIndex = 0;
             }
+
             FindCollisions();
         }
 
@@ -176,7 +161,6 @@ namespace Programming.View.Panels
             {
                 int indexSelectedRectangle = Rectangles2ListBox.SelectedIndex;
                 _currentRectangle = _rectangles[indexSelectedRectangle];
-                _currentRectangle = new Rectangle(_rectangles[indexSelectedRectangle]);
                 Length2TextBox.Text = _currentRectangle.Length.ToString();
                 Width2TextBox.Text = _currentRectangle.Width.ToString();
                 RectangleX2TextBox.Text = _currentRectangle.Center.X.ToString();
@@ -266,5 +250,5 @@ namespace Programming.View.Panels
             }
             Length2TextBox.BackColor = AppColors.CorrectColor;
         }
-    }   
+    }
 }

@@ -1,12 +1,7 @@
-﻿using Programming.Model;
+﻿using Programming.Model.Classes;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
-using System.Collections.Generic;
-using Movie = Programming.Model.Classes.Movie;
-using Programming.Model.Enums;
-using Programming.Model.Classes;
 
 
 namespace Programming.View.Panels
@@ -53,7 +48,7 @@ namespace Programming.View.Panels
             Rectangle[] rectangles = new Rectangle[ElementsCount];
             for (int i = 0; i < ElementsCount; i++)
             {
-                _currentRectangle = Model.Geometry.RectangleFactory.Randomize();
+                _currentRectangle = Model.Geometry.RectangleFactory.Randomize(300, 300);
                 rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             }

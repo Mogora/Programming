@@ -1,4 +1,4 @@
-﻿ namespace Programming.Model.Enums
+﻿namespace Programming.Model.Enums
 {
     public enum Seasons
     {

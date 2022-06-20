@@ -1,11 +1,4 @@
-﻿using Programming.Model;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Rectangle = Programming.Model.Geometry.Rectangle;
-using System.Collections.Generic;
-using Movie = Programming.Model.Classes.Movie;
-using Programming.Model.Enums;
+﻿using System.Drawing;
 namespace Programming.Model.Classes
 {
     /// <summary>
@@ -26,11 +19,11 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Цвет пересекающихся фигур.
         /// </summary>
-        public static Color InContact = Color.FromArgb(127, 255, 127, 127);
+        public static Color InCollisions = Color.FromArgb(127, 255, 127, 127);
 
         /// <summary>
         /// Цвет непересекающихся фигур.
         /// </summary>
-        public static Color UnContact = Color.FromArgb(127, 127, 255, 127);
+        public static Color UnCollisions = Color.FromArgb(127, 127, 255, 127);
     }
 }

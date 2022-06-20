@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Color = Programming.Model.Enums.Colors;
 
 namespace Programming.Model.Geometry
@@ -34,22 +32,6 @@ namespace Programming.Model.Geometry
             rectangle.Length = _random.Next(10, 110);
             rectangle.Center = new Point2D(_random.Next(Margin, widthCanvas - rectangle.Width),
                 _random.Next(Margin, lengthCanvas - rectangle.Length));
-            rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-
-            return rectangle;
-        }
-
-        /// <summary>
-        /// Создаёт прямоугольник со случайными значениями длины, ширины и координат.
-        /// </summary>
-        /// <returns> Возвращает объект <see cref="Rectangle". </returns>
-        public static Rectangle Randomize()
-        {
-            var colors = Enum.GetValues(typeof(Color));
-            Rectangle rectangle = new Rectangle();
-            rectangle.Center = new Point2D(_random.Next(Margin, 500), _random.Next(Margin, 500));
-            rectangle.Width = _random.Next(1, 1001);
-            rectangle.Length = _random.Next(1, 1001);
             rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
 
             return rectangle;

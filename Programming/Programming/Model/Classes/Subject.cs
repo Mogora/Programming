@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Programming.Model.Classes
 {
@@ -23,7 +21,7 @@ namespace Programming.Model.Classes
         /// Преподаватель данного предмета.
         /// </summary>
         private string _teacher;
-        
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Subject"/>.
         /// </summary>

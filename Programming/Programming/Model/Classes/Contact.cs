@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Programming.Model.Classes
@@ -83,7 +81,7 @@ namespace Programming.Model.Classes
         {
             get
             {
-                return _phoneNumber;                
+                return _phoneNumber;
             }
             set
             {
@@ -94,8 +92,8 @@ namespace Programming.Model.Classes
                 }
                 _phoneNumber = value;
             }
-        } 
-        
+        }
+
         public string AssertStringContainsOnlyLetters(string nameProperty, string value)
         {
             if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))

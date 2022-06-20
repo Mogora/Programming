@@ -34,10 +34,10 @@
             this.enumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.ClassestabPage = new System.Windows.Forms.TabPage();
+            this.moviesControl1 = new Programming.View.Panels.MoviesControl();
             this.rectangleControl1 = new Programming.View.Panels.RectangleControl();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
             this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
-            this.moviesControl1 = new Programming.View.Panels.MoviesControl();
             this.EnumsTabPage.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.ClassestabPage.SuspendLayout();
@@ -101,6 +101,13 @@
             this.ClassestabPage.Text = "Classes";
             this.ClassestabPage.UseVisualStyleBackColor = true;
             // 
+            // moviesControl1
+            // 
+            this.moviesControl1.Location = new System.Drawing.Point(435, 11);
+            this.moviesControl1.Name = "moviesControl1";
+            this.moviesControl1.Size = new System.Drawing.Size(425, 551);
+            this.moviesControl1.TabIndex = 1;
+            // 
             // rectangleControl1
             // 
             this.rectangleControl1.Location = new System.Drawing.Point(5, 11);
@@ -127,20 +134,12 @@
             this.rectanglesCollisionControl1.Size = new System.Drawing.Size(870, 586);
             this.rectanglesCollisionControl1.TabIndex = 0;
             // 
-            // moviesControl1
-            // 
-            this.moviesControl1.Location = new System.Drawing.Point(435, 11);
-            this.moviesControl1.Name = "moviesControl1";
-            this.moviesControl1.Size = new System.Drawing.Size(425, 551);
-            this.moviesControl1.TabIndex = 1;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 619);
             this.Controls.Add(this.TabControl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimumSize = new System.Drawing.Size(893, 655);
             this.Name = "MainForm";
             this.ShowIcon = false;

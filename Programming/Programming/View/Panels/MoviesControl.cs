@@ -1,12 +1,8 @@
-﻿using Programming.Model;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Rectangle = Programming.Model.Geometry.Rectangle;
-using System.Collections.Generic;
-using Movie = Programming.Model.Classes.Movie;
+﻿using Programming.Model.Classes;
 using Programming.Model.Enums;
-using Programming.Model.Classes;
+using System;
+using System.Windows.Forms;
+using Movie = Programming.Model.Classes.Movie;
 
 
 namespace Programming.View.Panels

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Programming.Model.Geometry
+﻿namespace Programming.Model.Geometry
 {
     /// <summary>
     /// Хранит данные о прямоугольнике.
@@ -20,29 +16,16 @@ namespace Programming.Model.Geometry
         private int _width;
 
         /// <summary>
-        /// Количество прямоугольников.
+        /// Количество прямоугольников. 
         /// </summary>
         private static int _allRectanglesCount;
 
         /// <summary>
-        /// Уникальный идентификатор для всех объектов данного класса.
+        ///  Уникальный идентификатор для всех объектов данного класса.
         /// </summary>
-        private int _id;
+        private readonly int _id;
 
-        /// <summary>
-        /// Создает экземпляр класса <see cref="Rectangle"/>.
-        /// </summary>
-        /// <param name="rectangle"> Прямоугольник. </param>
-        public Rectangle(Rectangle rectangle)
-        {
-            Id = rectangle.Id;
-            Length = rectangle.Length;
-            Width = rectangle.Width;
-            Color = rectangle.Color;
-            Center = new Point2D(rectangle.Center.X, rectangle.Center.Y);           
-        }
-
-        public Rectangle (int length, int width, string color, Point2D center)
+        public Rectangle(int length, int width, string color, Point2D center)
         {
             Length = length;
             Width = width;
@@ -62,6 +45,11 @@ namespace Programming.Model.Geometry
         }
 
         /// <summary>
+        /// Возвращает уникальный идентификатор прямоугольника.
+        /// </summary>
+        public int Id => _id;
+
+        /// <summary>
         /// Возвращает и создает цвет прямоугольника. 
         /// </summary>
         public string Color { get; set; }
@@ -71,33 +59,6 @@ namespace Programming.Model.Geometry
         /// </summary>
         public Point2D Center { get; set; }
 
-        /// <summary>
-        /// Возвращает и задаёт уникальный идентификатор прямоугольника.
-        /// </summary>
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и создает количество всех прямоугольников.
-        /// </summary>
-        public static int AllRectanglesCount
-        {
-            get
-            {
-                return _allRectanglesCount;
-            }
-            set { }
-        }
-        
         /// <summary>
         /// Возвращает и создает длину прямоугольника. Должна быть положительной.
         /// </summary>

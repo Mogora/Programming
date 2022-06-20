@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Programming.Model.Geometry
 {
@@ -27,7 +25,7 @@ namespace Programming.Model.Geometry
         /// Должен быть больше внутреннего радиуса. </param>
         /// <param name="innerRadius"> Внутренний радиус окружности. Должен быть положительным числом.
         /// Должен быть меньше внешнего радиуса. </param>
-        public Ring (Point2D center, double outerRadius, double innerRadius)
+        public Ring(Point2D center, double outerRadius, double innerRadius)
         {
             Center = center;
             OuterRadius = outerRadius;
