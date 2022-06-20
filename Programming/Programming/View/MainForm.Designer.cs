@@ -159,11 +159,11 @@
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage ClassestabPage;
         private System.Windows.Forms.TabPage RectanglesTabPage;
-        private Panels.RectanglesCollisionControl rectanglesCollisionControl1;
         private Panels.EnumerationsControl enumerationsControl1;
         private Panels.WeekdayParsingControl weekdayParsingControl1;
         private Panels.SeasonsHandleControl seasonsHandleControl1;
         private Panels.RectangleControl rectangleControl1;
         private Panels.MoviesControl moviesControl1;
+        private Panels.RectanglesCollisionControl rectanglesCollisionControl1;
     }
 }
