@@ -94,6 +94,14 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Проверяет, что строка состоит только из букв английского алфавита.
+        /// </summary>
+        /// <param name="nameProperty"> Имя свойства, откуда был вызван метод. </param>
+        /// <param name="value"> Строка. </param>
+        /// <exception cref="System.ArgumentException"> Выбрасывается, если строка состоит не только из 
+        /// букв английского алфавита
+        /// </exception> 
         public string AssertStringContainsOnlyLetters(string nameProperty, string value)
         {
             if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
