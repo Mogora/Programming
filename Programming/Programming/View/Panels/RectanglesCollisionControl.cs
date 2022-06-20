@@ -133,18 +133,21 @@ namespace Programming.View.Panels
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
         {
-            int index = Rectangles2ListBox.SelectedIndex;
-            if (index == -1) return;
-            _rectangles.RemoveAt(index);
-            CanvasPanel.Controls.RemoveAt(index);
+            int indexSelectedRectangle = Rectangles2ListBox.SelectedIndex;
+
+            if (indexSelectedRectangle == -1) return;
+
+            _rectanglePanels.RemoveAt(indexSelectedRectangle);
+            _rectangles.RemoveAt(indexSelectedRectangle);
             ClearRectangleInfo();
 
             foreach (var rectangle in _rectangles)
             {
-                Rectangles2ListBox.Items.Add($"Rectangle {rectangle.Id}");
+                Rectangles2ListBox.Items.Add(RectangleParameters(rectangle));
                 Rectangles2ListBox.SelectedIndex = 0;
             }
 
+            CanvasPanel.Controls.RemoveAt(indexSelectedRectangle);
             FindCollisions();
         }
 
