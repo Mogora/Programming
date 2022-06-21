@@ -255,22 +255,22 @@ namespace Programming.View.Panels
 
         private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
         {
-            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24;
+            AddRectangleButton.BackgroundImage = Properties.Resources.rectangle_add_24x24;
         }
 
         private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
         {
-            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24_uncolor;
+            AddRectangleButton.BackgroundImage = Properties.Resources.rectangle_add_24x24_uncolor;
         }
 
         private void RemoveButton_MouseEnter(object sender, EventArgs e)
         {
-            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24;
+            RemoveRectangleButton.BackgroundImage = Properties.Resources.rectangle_remove_24x24;
         }
 
         private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
-            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
+            RemoveRectangleButton.BackgroundImage = Properties.Resources.rectangle_remove_24x24_uncolor;
         }
     }
 }
