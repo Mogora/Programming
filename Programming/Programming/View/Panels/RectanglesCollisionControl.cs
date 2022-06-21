@@ -128,6 +128,8 @@ namespace Programming.View.Panels
             Panel rectanglePanel = CreatePanel();
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
+            RectanglesListBox.SelectedIndex = _rectangles.Count - 1;
+
             FindCollisions();
         }
 
