@@ -118,13 +118,16 @@ namespace Programming.View.Panels
             // 
             // AddRectangleButton
             // 
+            this.AddRectangleButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
+            this.AddRectangleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddRectangleButton.Location = new System.Drawing.Point(51, 246);
             this.AddRectangleButton.Name = "AddRectangleButton";
             this.AddRectangleButton.Size = new System.Drawing.Size(94, 29);
             this.AddRectangleButton.TabIndex = 3;
-            this.AddRectangleButton.Text = "Add";
             this.AddRectangleButton.UseVisualStyleBackColor = true;
             this.AddRectangleButton.Click += new System.EventHandler(this.AddRectangleButton_Click);
+            this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddRectangleButton_MouseEnter);
+            this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
             // 
             // WidthLabel
             // 
@@ -137,13 +140,16 @@ namespace Programming.View.Panels
             // 
             // RemoveRectangleButton
             // 
+            this.RemoveRectangleButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
+            this.RemoveRectangleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RemoveRectangleButton.Location = new System.Drawing.Point(192, 246);
             this.RemoveRectangleButton.Name = "RemoveRectangleButton";
             this.RemoveRectangleButton.Size = new System.Drawing.Size(94, 29);
             this.RemoveRectangleButton.TabIndex = 4;
-            this.RemoveRectangleButton.Text = "Remove";
             this.RemoveRectangleButton.UseVisualStyleBackColor = true;
             this.RemoveRectangleButton.Click += new System.EventHandler(this.RemoveRectangleButton_Click);
+            this.RemoveRectangleButton.MouseEnter += new System.EventHandler(this.RemoveButton_MouseEnter);
+            this.RemoveRectangleButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
             // 
             // RectangleYLabel
             // 
