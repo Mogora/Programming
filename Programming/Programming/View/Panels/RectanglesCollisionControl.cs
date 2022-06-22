@@ -83,10 +83,8 @@ namespace Programming.View.Panels
         /// <param name="rectangle">Прямоугольник.</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
-            int index = RectanglesListBox.FindString(rectangle.Id.ToString());
-
+            int index = _rectangles.IndexOf(rectangle);
             if (index == -1) return;
-
             RectanglesListBox.Items[index] = RectangleDescription(rectangle);
         }
 
