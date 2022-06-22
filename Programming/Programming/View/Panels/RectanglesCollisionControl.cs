@@ -111,10 +111,11 @@ namespace Programming.View.Panels
         private Panel CreatePanel()
         {
             Panel panel = new Panel();
-            panel.Width = _currentRectangle.Width;
-            panel.Height = _currentRectangle.Length;
-            panel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            panel.Height = _currentRectangle.Width;
+            panel.Width = _currentRectangle.Length;
+            panel.Location = new Point(_currentRectangle.Center.Y, _currentRectangle.Center.X);
             panel.BackColor = AppColors.UnCollisions;
+
 
             return panel;
         }

@@ -39,7 +39,18 @@ namespace IndividualTask.Model
         /// <summary>
         /// Возвращает и задает название заведения
         /// </summary>
-        public string Title 
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                Validator.AssertOnPositiveValue(nameof(Title), value);
+                _title = value;
+            }
+        }
         
     }
 }

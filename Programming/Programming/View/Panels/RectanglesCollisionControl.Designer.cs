@@ -50,9 +50,6 @@ namespace Programming.View.Panels
             // 
             // Rectangles2GroupBox
             // 
-            this.Rectangles2GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Rectangles2GroupBox.Controls.Add(this.RectanglesListBox);
             this.Rectangles2GroupBox.Controls.Add(this.CanvasPanel);
             this.Rectangles2GroupBox.Controls.Add(this.LengthTextBox);
@@ -68,7 +65,8 @@ namespace Programming.View.Panels
             this.Rectangles2GroupBox.Controls.Add(this.IdRectangleLabel);
             this.Rectangles2GroupBox.Controls.Add(this.RectangleXTextBox);
             this.Rectangles2GroupBox.Controls.Add(this.RectangleYTextBox);
-            this.Rectangles2GroupBox.Location = new System.Drawing.Point(5, 11);
+            this.Rectangles2GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Rectangles2GroupBox.Location = new System.Drawing.Point(0, 0);
             this.Rectangles2GroupBox.Name = "Rectangles2GroupBox";
             this.Rectangles2GroupBox.Size = new System.Drawing.Size(870, 586);
             this.Rectangles2GroupBox.TabIndex = 17;
@@ -95,7 +93,7 @@ namespace Programming.View.Panels
             this.CanvasPanel.Location = new System.Drawing.Point(432, 22);
             this.CanvasPanel.Margin = new System.Windows.Forms.Padding(15);
             this.CanvasPanel.Name = "CanvasPanel";
-            this.CanvasPanel.Size = new System.Drawing.Size(423, 546);
+            this.CanvasPanel.Size = new System.Drawing.Size(429, 546);
             this.CanvasPanel.TabIndex = 2;
             // 
             // LengthTextBox
