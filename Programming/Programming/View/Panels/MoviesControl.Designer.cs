@@ -73,9 +73,9 @@ namespace Programming.View.Panels
             this.MovieTimeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MovieTimeLabel.Location = new System.Drawing.Point(216, 291);
             this.MovieTimeLabel.Name = "MovieTimeLabel";
-            this.MovieTimeLabel.Size = new System.Drawing.Size(90, 20);
+            this.MovieTimeLabel.Size = new System.Drawing.Size(70, 20);
             this.MovieTimeLabel.TabIndex = 11;
-            this.MovieTimeLabel.Text = "Movie Time:";
+            this.MovieTimeLabel.Text = "Duration:";
             // 
             // MovieTimeTextBox
             // 

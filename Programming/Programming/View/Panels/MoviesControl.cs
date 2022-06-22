@@ -59,7 +59,7 @@ namespace Programming.View.Panels
                 _currentMovie.Rating = _random.Next(101) / 10;
                 _currentMovie.ReleaseYear = _random.Next(1900, 2022);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
-                _currentMovie.MovieTime = _random.Next(40, 200);
+                _currentMovie.Duration = _random.Next(40, 200);
                 _currentMovie.Name = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
@@ -95,7 +95,7 @@ namespace Programming.View.Panels
             ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
             GenreTextBox.Text = _currentMovie.Genre;
             NameTextBox.Text = _currentMovie.Name;
-            MovieTimeTextBox.Text = _currentMovie.MovieTime.ToString();
+            MovieTimeTextBox.Text = _currentMovie.Duration.ToString();
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace Programming.View.Panels
             {
                 string currentMovieTime = MovieTimeTextBox.Text;
                 int movieTimeValue = int.Parse(currentMovieTime);
-                _currentMovie.MovieTime = movieTimeValue;
+                _currentMovie.Duration = movieTimeValue;
             }
             catch
             {

@@ -15,7 +15,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Продолжительность фильма в минутах.
         /// </summary>
-        private int _movietime;
+        private int _duration;
 
         /// <summary>
         /// Год выпуска фильма. Должен быть в промежутке от 1900 до 2022.
@@ -48,10 +48,10 @@ namespace Programming.Model.Classes
         /// <param name="releaseYear"> Год выпуска фильма. Должен быть в промежутке от 1900 до 2022. </param>
         /// <param name="genre"> Жанр фильма. </param>
         /// <param name="rating"> Рейтинг фильма. Должен быть в промежутке от 0 до 10. </param>
-        public Movie(string name, int movietime, int releaseYear, string genre, float rating)
+        public Movie(string name, int duration, int releaseYear, string genre, float rating)
         {
             Name = name;
-            MovieTime = movietime;
+            Duration = duration;
             ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
@@ -70,16 +70,16 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Возвращает и задает время фильма в минутах.  Должно быть положительным числом.
         /// </summary>
-        public int MovieTime
+        public int Duration
         {
             get
             {
-                return _movietime;
+                return _duration;
             }
             set
             {
-                Validator.AssertOnPositiveValue(nameof(MovieTime), value);
-                _movietime = value;
+                Validator.AssertOnPositiveValue(nameof(Duration), value);
+                _duration = value;
             }
         }
 
