@@ -68,7 +68,7 @@ namespace Programming.View.Panels
         /// </summary>
         /// <param name="rectangle"> Прямоугольник. </param>
         /// <returns> Возвращает форматированный текс. </returns>
-        private string RectangleParameters(Rectangle rectangle)
+        private string RectangleDescription(Rectangle rectangle)
         {
             return $"{rectangle.Id}: " +
                    $"(X: {rectangle.Center.X};" +
@@ -87,7 +87,7 @@ namespace Programming.View.Panels
 
             if (index == -1) return;
 
-            RectanglesListBox.Items[index] = RectangleParameters(rectangle);
+            RectanglesListBox.Items[index] = RectangleDescription(rectangle);
         }
 
         /// <summary>
@@ -111,8 +111,8 @@ namespace Programming.View.Panels
         private Panel CreatePanel()
         {
             Panel panel = new Panel();
-            panel.Height = _currentRectangle.Width;
-            panel.Width = _currentRectangle.Length;
+            panel.Height = _currentRectangle.Length;
+            panel.Width = _currentRectangle.Width;
             panel.Location = new Point(_currentRectangle.Center.Y, _currentRectangle.Center.X);
             panel.BackColor = AppColors.UnCollisions;
 
@@ -124,7 +124,7 @@ namespace Programming.View.Panels
         {
             _currentRectangle = Model.Geometry.RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(_currentRectangle);
-            RectanglesListBox.Items.Add(RectangleParameters(_currentRectangle));
+            RectanglesListBox.Items.Add(RectangleDescription(_currentRectangle));
 
             Panel rectanglePanel = CreatePanel();
             _rectanglePanels.Add(rectanglePanel);
@@ -146,7 +146,7 @@ namespace Programming.View.Panels
 
             foreach (var rectangle in _rectangles)
             {
-                RectanglesListBox.Items.Add(RectangleParameters(rectangle));
+                RectanglesListBox.Items.Add(RectangleDescription(rectangle));
                 RectanglesListBox.SelectedIndex = 0;
             }
 
@@ -175,14 +175,13 @@ namespace Programming.View.Panels
 
             try
             {
-                string xRectangleAsString = RectangleXTextBox.Text;
-                int rectangleX = int.Parse(xRectangleAsString);
+                int rectangleX = int.Parse(RectangleXTextBox.Text);
                 _currentRectangle.Center.X = rectangleX;
-                UpdateRectangleInfo(_currentRectangle);
-                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
-                RectanglesListBox.Items[index] = RectangleParameters(_currentRectangle);
                 CanvasPanel.Controls[RectanglesListBox.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+
+                FindCollisions();
+                UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
@@ -197,14 +196,13 @@ namespace Programming.View.Panels
             if (RectanglesListBox.SelectedIndex == -1) return;
             try
             {
-                string yRectangleAsString = RectangleYTextBox.Text;
-                int rectangleY = int.Parse(yRectangleAsString);
-                _currentRectangle.Center.Y = rectangleY;
-                UpdateRectangleInfo(_currentRectangle);
-                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
-                RectanglesListBox.Items[index] = RectangleParameters(_currentRectangle);
+                int rectangleY = int.Parse(RectangleYTextBox.Text);
+                _currentRectangle.Center.Y = rectangleY;                
                 CanvasPanel.Controls[RectanglesListBox.SelectedIndex].Location =
                      new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+
+                FindCollisions();
+                UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
@@ -219,13 +217,13 @@ namespace Programming.View.Panels
             if (RectanglesListBox.SelectedIndex == -1) return;
             try
             {
-                string widthRectangleAsString = WidthTextBox.Text;
-                int rectangleWidth = int.Parse(widthRectangleAsString);
+                int rectangleWidth = int.Parse(WidthTextBox.Text);
                 _currentRectangle.Width = rectangleWidth;
-                UpdateRectangleInfo(_currentRectangle);
-                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
-                RectanglesListBox.Items[index] = RectangleParameters(_currentRectangle);
+                RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = RectangleDescription(_currentRectangle);
                 CanvasPanel.Controls[RectanglesListBox.SelectedIndex].Width = _currentRectangle.Width;
+
+                UpdateRectangleInfo(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
@@ -240,13 +238,13 @@ namespace Programming.View.Panels
             if (RectanglesListBox.SelectedIndex == -1) return;
             try
             {
-                string lengthRectangleAsString = LengthTextBox.Text;
-                int rectangleLength = int.Parse(lengthRectangleAsString);
-                _currentRectangle.Length = rectangleLength;
-                UpdateRectangleInfo(_currentRectangle);
-                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
-                RectanglesListBox.Items[index] = RectangleParameters(_currentRectangle);
+                int rectangleLength = int.Parse(LengthTextBox.Text);
+                _currentRectangle.Length = rectangleLength;              
+                RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = RectangleDescription(_currentRectangle);
                 CanvasPanel.Controls[RectanglesListBox.SelectedIndex].Height = _currentRectangle.Length;
+
+                UpdateRectangleInfo(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
