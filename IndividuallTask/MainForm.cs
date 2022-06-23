@@ -16,5 +16,25 @@ namespace IndividuallTask
         {
             InitializeComponent();
         }
+
+        private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_color_green_;
+        }
+
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_grey;
+        }
+
+        private void RemoveButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_color_red_;
+        }
+
+        private void RemoveBuildingButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
+        }
     }
 }
