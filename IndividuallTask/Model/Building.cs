@@ -48,6 +48,9 @@ namespace IndividuallTask.Model
             Rating = rating;
         }
 
+        /// <summary>
+        /// Возвращает и задает название здания. Кол-во символов не должно быть больше 200.
+        /// </summary>
         public string Title
         {
             get
@@ -62,6 +65,9 @@ namespace IndividuallTask.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает адрес здания. Кол-во символов не должно быть больше 100.
+        /// </summary>
         public string Address
         {
             get
@@ -76,6 +82,9 @@ namespace IndividuallTask.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает категорию здания.
+        /// </summary>
         public string Category
         {
             get
@@ -89,6 +98,9 @@ namespace IndividuallTask.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает рейтинг здания. Должен быть от 0 до 5.
+        /// </summary>
         public double Rating
         {
             get
