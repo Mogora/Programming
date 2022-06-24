@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IndividuallTask
+namespace ListOfBuildings.View
 {
     public partial class MainForm : Form
     {
@@ -32,7 +32,7 @@ namespace IndividuallTask
             RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_color_red_;
         }
 
-        private void RemoveBuildingButton_MouseLeave(object sender, EventArgs e)
+        private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
         }

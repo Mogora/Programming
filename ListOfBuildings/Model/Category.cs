@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndividuallTask.Model
+namespace ListOfBuildings.Model
 {
     public enum Category
     {
         Cafe,
         Shop,
         Municipal,
-        Museum,
-        Club,
-        Educational
+        Park,
+        Educational,
+        Hospital
     }
 }

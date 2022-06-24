@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("IndividuallTask")]
+[assembly: AssemblyTitle("ListOfBuildings")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IndividuallTask")]
+[assembly: AssemblyProduct("ListOfBuildings")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("dae594db-3ad6-451c-92dc-138654610954")]
+[assembly: Guid("348b0841-8d7e-4d39-ae7e-09b56ab8b8a4")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
