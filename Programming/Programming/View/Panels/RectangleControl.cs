@@ -107,7 +107,7 @@ namespace Programming.View.Panels
         }
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
-        {
+        {   
             try
             {
                 string currentWidth = WidthTextBox.Text;

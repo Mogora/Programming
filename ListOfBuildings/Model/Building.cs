@@ -9,6 +9,11 @@ namespace ListOfBuildings.Model
     public class Building
     {
         /// <summary>
+        ///  Уникальный идентификатор для всех объектов данного класса.
+        /// </summary>
+        private readonly int _id;
+
+        /// <summary>
         /// Название здания.
         /// </summary>
         private string _title = "None";
@@ -29,13 +34,24 @@ namespace ListOfBuildings.Model
         private string _category = "None";
 
         /// <summary>
+        /// Количество зданий. 
+        /// </summary>
+        private static int _allBuildingsCount;
+
+        public Building ()
+        {
+            _allBuildingsCount++;
+            _id = _allBuildingsCount;
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Building"/>.
         /// </summary>
         /// <param name="title"> Название здания. </param>
         /// <param name="address"> Адрес здания. </param>
         /// <param name="rating"> Рейтинг здания. </param>
         /// <param name="category"> Категория здания. </param>
-        public Building (string title, string address, double rating, string category)
+        public Building (string title, string address, double rating, Category category)
         {
             Title = title;
             Address = address;
@@ -101,6 +117,6 @@ namespace ListOfBuildings.Model
         /// <summary>
         /// Возвращает категорию здания.
         /// </summary>
-        public string Category { get; set; }
+        public Category Category { get; set; }
     }
 }

@@ -33,14 +33,14 @@ namespace ListOfBuildings.View
             this.RemoveBuildingButton = new System.Windows.Forms.Button();
             this.BuildingListBox = new System.Windows.Forms.ListBox();
             this.BuildingGroupBox = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.TitleBuildingLabel = new System.Windows.Forms.Label();
-            this.AddressLabel = new System.Windows.Forms.Label();
-            this.CategoryBuildingLabel = new System.Windows.Forms.Label();
+            this.AddressTextBox = new System.Windows.Forms.TextBox();
+            this.RatingBuildingTextBox = new System.Windows.Forms.TextBox();
+            this.TitleBuildingTextBox = new System.Windows.Forms.TextBox();
             this.RatingBuildingLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CategoryBuildingLabel = new System.Windows.Forms.Label();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.TitleBuildingLabel = new System.Windows.Forms.Label();
+            this.CategoryBuildingComboBox = new System.Windows.Forms.ComboBox();
             this.BuildingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@ namespace ListOfBuildings.View
             this.AddBuildingButton.Size = new System.Drawing.Size(103, 68);
             this.AddBuildingButton.TabIndex = 0;
             this.AddBuildingButton.UseVisualStyleBackColor = true;
+            this.AddBuildingButton.Click += new System.EventHandler(this.AddBuildingButton_Click);
             this.AddBuildingButton.MouseEnter += new System.EventHandler(this.AddBuildingButton_MouseEnter);
             this.AddBuildingButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
             // 
@@ -69,6 +70,7 @@ namespace ListOfBuildings.View
             this.RemoveBuildingButton.Size = new System.Drawing.Size(98, 68);
             this.RemoveBuildingButton.TabIndex = 1;
             this.RemoveBuildingButton.UseVisualStyleBackColor = true;
+            this.RemoveBuildingButton.Click += new System.EventHandler(this.RemoveBuildingButton_Click);
             this.RemoveBuildingButton.MouseEnter += new System.EventHandler(this.RemoveButton_MouseEnter);
             this.RemoveBuildingButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
             // 
@@ -80,17 +82,18 @@ namespace ListOfBuildings.View
             this.BuildingListBox.Name = "BuildingListBox";
             this.BuildingListBox.Size = new System.Drawing.Size(307, 532);
             this.BuildingListBox.TabIndex = 2;
+            this.BuildingListBox.SelectedIndexChanged += new System.EventHandler(this.BuildingListBox_SelectedIndexChanged);
             // 
             // BuildingGroupBox
             // 
-            this.BuildingGroupBox.Controls.Add(this.textBox3);
-            this.BuildingGroupBox.Controls.Add(this.textBox2);
-            this.BuildingGroupBox.Controls.Add(this.textBox1);
+            this.BuildingGroupBox.Controls.Add(this.AddressTextBox);
+            this.BuildingGroupBox.Controls.Add(this.RatingBuildingTextBox);
+            this.BuildingGroupBox.Controls.Add(this.TitleBuildingTextBox);
             this.BuildingGroupBox.Controls.Add(this.RatingBuildingLabel);
             this.BuildingGroupBox.Controls.Add(this.CategoryBuildingLabel);
             this.BuildingGroupBox.Controls.Add(this.AddressLabel);
             this.BuildingGroupBox.Controls.Add(this.TitleBuildingLabel);
-            this.BuildingGroupBox.Controls.Add(this.comboBox1);
+            this.BuildingGroupBox.Controls.Add(this.CategoryBuildingComboBox);
             this.BuildingGroupBox.Location = new System.Drawing.Point(327, 12);
             this.BuildingGroupBox.Name = "BuildingGroupBox";
             this.BuildingGroupBox.Size = new System.Drawing.Size(539, 251);
@@ -98,40 +101,29 @@ namespace ListOfBuildings.View
             this.BuildingGroupBox.TabStop = false;
             this.BuildingGroupBox.Text = "Selected Building:";
             // 
-            // comboBox1
+            // AddressTextBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(147, 143);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 0;
+            this.AddressTextBox.Location = new System.Drawing.Point(147, 70);
+            this.AddressTextBox.Name = "AddressTextBox";
+            this.AddressTextBox.Size = new System.Drawing.Size(244, 22);
+            this.AddressTextBox.TabIndex = 7;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
-            // TitleBuildingLabel
+            // RatingBuildingTextBox
             // 
-            this.TitleBuildingLabel.AutoSize = true;
-            this.TitleBuildingLabel.Location = new System.Drawing.Point(56, 37);
-            this.TitleBuildingLabel.Name = "TitleBuildingLabel";
-            this.TitleBuildingLabel.Size = new System.Drawing.Size(39, 17);
-            this.TitleBuildingLabel.TabIndex = 1;
-            this.TitleBuildingLabel.Text = "Title:";
+            this.RatingBuildingTextBox.Location = new System.Drawing.Point(147, 106);
+            this.RatingBuildingTextBox.Name = "RatingBuildingTextBox";
+            this.RatingBuildingTextBox.Size = new System.Drawing.Size(244, 22);
+            this.RatingBuildingTextBox.TabIndex = 6;
+            this.RatingBuildingTextBox.TextChanged += new System.EventHandler(this.RatingBuildingTextBox_TextChanged);
             // 
-            // AddressLabel
+            // TitleBuildingTextBox
             // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(56, 70);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
-            this.AddressLabel.TabIndex = 2;
-            this.AddressLabel.Text = "Address:";
-            // 
-            // CategoryBuildingLabel
-            // 
-            this.CategoryBuildingLabel.AutoSize = true;
-            this.CategoryBuildingLabel.Location = new System.Drawing.Point(56, 143);
-            this.CategoryBuildingLabel.Name = "CategoryBuildingLabel";
-            this.CategoryBuildingLabel.Size = new System.Drawing.Size(69, 17);
-            this.CategoryBuildingLabel.TabIndex = 3;
-            this.CategoryBuildingLabel.Text = "Category:";
+            this.TitleBuildingTextBox.Location = new System.Drawing.Point(147, 37);
+            this.TitleBuildingTextBox.Name = "TitleBuildingTextBox";
+            this.TitleBuildingTextBox.Size = new System.Drawing.Size(244, 22);
+            this.TitleBuildingTextBox.TabIndex = 5;
+            this.TitleBuildingTextBox.TextChanged += new System.EventHandler(this.TitleBuildingTextBox_TextChanged);
             // 
             // RatingBuildingLabel
             // 
@@ -142,26 +134,41 @@ namespace ListOfBuildings.View
             this.RatingBuildingLabel.TabIndex = 4;
             this.RatingBuildingLabel.Text = "Rating:";
             // 
-            // textBox1
+            // CategoryBuildingLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 22);
-            this.textBox1.TabIndex = 5;
+            this.CategoryBuildingLabel.AutoSize = true;
+            this.CategoryBuildingLabel.Location = new System.Drawing.Point(56, 143);
+            this.CategoryBuildingLabel.Name = "CategoryBuildingLabel";
+            this.CategoryBuildingLabel.Size = new System.Drawing.Size(69, 17);
+            this.CategoryBuildingLabel.TabIndex = 3;
+            this.CategoryBuildingLabel.Text = "Category:";
             // 
-            // textBox2
+            // AddressLabel
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(244, 22);
-            this.textBox2.TabIndex = 6;
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Location = new System.Drawing.Point(56, 70);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
+            this.AddressLabel.TabIndex = 2;
+            this.AddressLabel.Text = "Address:";
             // 
-            // textBox3
+            // TitleBuildingLabel
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 22);
-            this.textBox3.TabIndex = 7;
+            this.TitleBuildingLabel.AutoSize = true;
+            this.TitleBuildingLabel.Location = new System.Drawing.Point(56, 37);
+            this.TitleBuildingLabel.Name = "TitleBuildingLabel";
+            this.TitleBuildingLabel.Size = new System.Drawing.Size(39, 17);
+            this.TitleBuildingLabel.TabIndex = 1;
+            this.TitleBuildingLabel.Text = "Title:";
+            // 
+            // CategoryBuildingComboBox
+            // 
+            this.CategoryBuildingComboBox.FormattingEnabled = true;
+            this.CategoryBuildingComboBox.Location = new System.Drawing.Point(147, 143);
+            this.CategoryBuildingComboBox.Name = "CategoryBuildingComboBox";
+            this.CategoryBuildingComboBox.Size = new System.Drawing.Size(121, 24);
+            this.CategoryBuildingComboBox.TabIndex = 0;
+            this.CategoryBuildingComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBuildingComboBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -187,14 +194,14 @@ namespace ListOfBuildings.View
         private System.Windows.Forms.Button RemoveBuildingButton;
         private System.Windows.Forms.ListBox BuildingListBox;
         private System.Windows.Forms.GroupBox BuildingGroupBox;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox AddressTextBox;
+        private System.Windows.Forms.TextBox RatingBuildingTextBox;
+        private System.Windows.Forms.TextBox TitleBuildingTextBox;
         private System.Windows.Forms.Label RatingBuildingLabel;
         private System.Windows.Forms.Label CategoryBuildingLabel;
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label TitleBuildingLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CategoryBuildingComboBox;
     }
 }
 
