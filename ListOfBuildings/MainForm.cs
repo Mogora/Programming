@@ -33,14 +33,42 @@ namespace ListOfBuildings.View
         {
             InitializeComponent();
 
+            _buildings = new List<Building>();
             Array typeValues = Enum.GetValues(typeof(Category));
             foreach (Category value in typeValues)
             {
                 CategoryBuildingComboBox.Items.Add(value);
             }
+            CategoryBuildingComboBox.SelectedIndex = 0;
+
             
+
+            //UpdateListBox(-1);
         }
 
+        /// <summary>
+        /// Обновляет данные в списке.
+        /// </summary>
+        /// <param name="index"></param>
+        private void UpdateListBox(int index)
+        {
+            List<Building> buildings = _buildings;
+            foreach (var building in buildings)
+            {
+                if (building.Title != null)
+                {
+                    BuildingListBox.Items.Add(building.Title);
+                }
+                else
+                {
+                    BuildingListBox.Items.Add($"Building {building.Id}");
+                }
+            }
+            if (-1 <= index && index < BuildingListBox.Items.Count)
+            {
+                BuildingListBox.SelectedIndex = index;
+            }
+        }
         private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
         {
             AddBuildingButton.BackgroundImage = Properties.Resources.add_building_color_green_;
@@ -134,7 +162,17 @@ namespace ListOfBuildings.View
 
         private void AddBuildingButton_Click(object sender, EventArgs e)
         {
+            var building = new Building();
+            _buildings.Add(building);
+            UpdateListBox(_buildings.IndexOf(building));
+            //_currentBuilding = new Building();
 
+            //_buildings.Add(_currentBuilding);
+            //BuildingListBox.Items.Add(_currentBuilding.BuildingDescription());
+
+            //BuildingListBox.SelectedIndex = _buildings.Count - 1;
+
+            //UpdateListBox(_buildings.IndexOf(_currentBuilding));
         }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)

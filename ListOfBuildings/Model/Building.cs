@@ -118,5 +118,25 @@ namespace ListOfBuildings.Model
         /// Возвращает категорию здания.
         /// </summary>
         public Category Category { get; set; }
+
+        /// <summary>
+        /// Возвращает уникальный индифекатор.
+        /// </summary>
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
+        /// <summary>
+        /// Создает строки из Id, Category и Title класса <see cref="Building"/>.
+        /// </summary>
+        /// <returns></returns>
+        public string BuildingDescription()
+        {
+            return $"{Id}: {Category} - {Title}";
+        }
     }
 }
