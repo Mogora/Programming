@@ -208,9 +208,10 @@ namespace ListOfBuildings.View
         {
             _currentBuilding = new Building();
             _buildings.Add(_currentBuilding);
-            BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
-            BuildingListBox.SelectedIndex = _buildings.Count - 1;
+            //BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
+            //BuildingListBox.SelectedIndex = _buildings.Count - 1;
             UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
+
 
         }
 
