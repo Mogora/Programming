@@ -29,8 +29,6 @@ namespace ListOfBuildings.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddBuildingButton = new System.Windows.Forms.Button();
-            this.RemoveBuildingButton = new System.Windows.Forms.Button();
             this.BuildingListBox = new System.Windows.Forms.ListBox();
             this.BuildingGroupBox = new System.Windows.Forms.GroupBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
@@ -41,38 +39,10 @@ namespace ListOfBuildings.View
             this.AddressLabel = new System.Windows.Forms.Label();
             this.TitleBuildingLabel = new System.Windows.Forms.Label();
             this.CategoryBuildingComboBox = new System.Windows.Forms.ComboBox();
+            this.RemoveBuildingButton = new System.Windows.Forms.Button();
+            this.AddBuildingButton = new System.Windows.Forms.Button();
             this.BuildingGroupBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // AddBuildingButton
-            // 
-            this.AddBuildingButton.BackgroundImage = global::ListOfBuildings.Properties.Resources.add_building_grey;
-            this.AddBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddBuildingButton.FlatAppearance.BorderSize = 0;
-            this.AddBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBuildingButton.Location = new System.Drawing.Point(386, 285);
-            this.AddBuildingButton.Name = "AddBuildingButton";
-            this.AddBuildingButton.Size = new System.Drawing.Size(103, 68);
-            this.AddBuildingButton.TabIndex = 0;
-            this.AddBuildingButton.UseVisualStyleBackColor = true;
-            this.AddBuildingButton.Click += new System.EventHandler(this.AddBuildingButton_Click);
-            this.AddBuildingButton.MouseEnter += new System.EventHandler(this.AddBuildingButton_MouseEnter);
-            this.AddBuildingButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
-            // 
-            // RemoveBuildingButton
-            // 
-            this.RemoveBuildingButton.BackgroundImage = global::ListOfBuildings.Properties.Resources.remove_building_grey;
-            this.RemoveBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.RemoveBuildingButton.FlatAppearance.BorderSize = 0;
-            this.RemoveBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveBuildingButton.Location = new System.Drawing.Point(554, 285);
-            this.RemoveBuildingButton.Name = "RemoveBuildingButton";
-            this.RemoveBuildingButton.Size = new System.Drawing.Size(98, 68);
-            this.RemoveBuildingButton.TabIndex = 1;
-            this.RemoveBuildingButton.UseVisualStyleBackColor = true;
-            this.RemoveBuildingButton.Click += new System.EventHandler(this.RemoveBuildingButton_Click);
-            this.RemoveBuildingButton.MouseEnter += new System.EventHandler(this.RemoveButton_MouseEnter);
-            this.RemoveBuildingButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
             // 
             // BuildingListBox
             // 
@@ -86,6 +56,8 @@ namespace ListOfBuildings.View
             // 
             // BuildingGroupBox
             // 
+            this.BuildingGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BuildingGroupBox.Controls.Add(this.AddressTextBox);
             this.BuildingGroupBox.Controls.Add(this.RatingBuildingTextBox);
             this.BuildingGroupBox.Controls.Add(this.TitleBuildingTextBox);
@@ -170,6 +142,36 @@ namespace ListOfBuildings.View
             this.CategoryBuildingComboBox.TabIndex = 0;
             this.CategoryBuildingComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBuildingComboBox_SelectedIndexChanged);
             // 
+            // RemoveBuildingButton
+            // 
+            this.RemoveBuildingButton.BackgroundImage = global::ListOfBuildings.Properties.Resources.remove_building_grey;
+            this.RemoveBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RemoveBuildingButton.FlatAppearance.BorderSize = 0;
+            this.RemoveBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveBuildingButton.Location = new System.Drawing.Point(523, 269);
+            this.RemoveBuildingButton.Name = "RemoveBuildingButton";
+            this.RemoveBuildingButton.Size = new System.Drawing.Size(72, 49);
+            this.RemoveBuildingButton.TabIndex = 1;
+            this.RemoveBuildingButton.UseVisualStyleBackColor = true;
+            this.RemoveBuildingButton.Click += new System.EventHandler(this.RemoveBuildingButton_Click);
+            this.RemoveBuildingButton.MouseEnter += new System.EventHandler(this.RemoveButton_MouseEnter);
+            this.RemoveBuildingButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
+            // 
+            // AddBuildingButton
+            // 
+            this.AddBuildingButton.BackgroundImage = global::ListOfBuildings.Properties.Resources.add_building_grey;
+            this.AddBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddBuildingButton.FlatAppearance.BorderSize = 0;
+            this.AddBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBuildingButton.Location = new System.Drawing.Point(418, 269);
+            this.AddBuildingButton.Name = "AddBuildingButton";
+            this.AddBuildingButton.Size = new System.Drawing.Size(72, 49);
+            this.AddBuildingButton.TabIndex = 0;
+            this.AddBuildingButton.UseVisualStyleBackColor = true;
+            this.AddBuildingButton.Click += new System.EventHandler(this.AddBuildingButton_Click);
+            this.AddBuildingButton.MouseEnter += new System.EventHandler(this.AddBuildingButton_MouseEnter);
+            this.AddBuildingButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,6 +181,7 @@ namespace ListOfBuildings.View
             this.Controls.Add(this.BuildingListBox);
             this.Controls.Add(this.RemoveBuildingButton);
             this.Controls.Add(this.AddBuildingButton);
+            this.MinimumSize = new System.Drawing.Size(896, 666);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Buildings";
