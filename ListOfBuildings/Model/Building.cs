@@ -16,12 +16,12 @@ namespace ListOfBuildings.Model
         /// <summary>
         /// Название здания.
         /// </summary>
-        private string _title = "None";
+        private string _title;
 
         /// <summary>
         /// Адрес здания.
         /// </summary>
-        private string _address = "None";
+        private string _address;
 
         /// <summary>
         /// Рейтинг здания.
@@ -33,10 +33,16 @@ namespace ListOfBuildings.Model
         /// </summary>
         private static int _allBuildingsCount;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Building"/>.
+        /// </summary>
         public Building ()
         {
             _allBuildingsCount++;
             _id = _allBuildingsCount;
+            Title = "Title";
+            Address = "Address";
+            Rating = 5;
         }
 
         /// <summary>

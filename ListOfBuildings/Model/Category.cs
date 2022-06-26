@@ -8,11 +8,12 @@ namespace ListOfBuildings.Model
 {
     public enum Category
     {
+        Other,
         Cafe,
         Shop,
         Municipal,
         Park,
         Educational,
-        Hospital
+        Hospital       
     }
 }

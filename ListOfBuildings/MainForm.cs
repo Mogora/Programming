@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ListOfBuildings.Model;
 using Building = ListOfBuildings.Model.Building;
-using System.Text.RegularExpressions;
 using Category = ListOfBuildings.Model.Category;
 
 namespace ListOfBuildings.View
@@ -49,6 +48,7 @@ namespace ListOfBuildings.View
         {
             TitleBuildingTextBox.Clear();
             AddressTextBox.Clear();
+            CategoryBuildingComboBox.SelectedIndex = -1;
             TitleBuildingTextBox.BackColor = AppColors.CorrectColor;
             AddressTextBox.BackColor = AppColors.CorrectColor;
             RatingBuildingTextBox.BackColor = AppColors.CorrectColor;
@@ -66,7 +66,10 @@ namespace ListOfBuildings.View
                    $"({building.Category} - {building.Title})";
         }
 
-
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="building"></param>
         private void UpdateBuildingInfo(Building building)
         {
             int index = _buildings.IndexOf(building);
@@ -75,7 +78,6 @@ namespace ListOfBuildings.View
 
             BuildingListBox.Items[index] = BuildingDescription(building);
         }
-
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -176,8 +178,6 @@ namespace ListOfBuildings.View
                 BuildingListBox.Items.Add(BuildingDescription(building));
                 BuildingListBox.SelectedIndex = 0;
             }
-
-
         }
 
         private void AddBuildingButton_MouseEnter(object sender, EventArgs e)

@@ -50,7 +50,7 @@ namespace ListOfBuildings.View
             this.BuildingListBox.ItemHeight = 16;
             this.BuildingListBox.Location = new System.Drawing.Point(5, 11);
             this.BuildingListBox.Name = "BuildingListBox";
-            this.BuildingListBox.Size = new System.Drawing.Size(307, 532);
+            this.BuildingListBox.Size = new System.Drawing.Size(307, 596);
             this.BuildingListBox.TabIndex = 2;
             this.BuildingListBox.SelectedIndexChanged += new System.EventHandler(this.BuildingListBox_SelectedIndexChanged);
             // 
@@ -68,7 +68,7 @@ namespace ListOfBuildings.View
             this.BuildingGroupBox.Controls.Add(this.CategoryBuildingComboBox);
             this.BuildingGroupBox.Location = new System.Drawing.Point(327, 12);
             this.BuildingGroupBox.Name = "BuildingGroupBox";
-            this.BuildingGroupBox.Size = new System.Drawing.Size(539, 251);
+            this.BuildingGroupBox.Size = new System.Drawing.Size(547, 251);
             this.BuildingGroupBox.TabIndex = 3;
             this.BuildingGroupBox.TabStop = false;
             this.BuildingGroupBox.Text = "Selected Building:";
@@ -148,9 +148,9 @@ namespace ListOfBuildings.View
             this.RemoveBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RemoveBuildingButton.FlatAppearance.BorderSize = 0;
             this.RemoveBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveBuildingButton.Location = new System.Drawing.Point(523, 269);
+            this.RemoveBuildingButton.Location = new System.Drawing.Point(510, 269);
             this.RemoveBuildingButton.Name = "RemoveBuildingButton";
-            this.RemoveBuildingButton.Size = new System.Drawing.Size(72, 49);
+            this.RemoveBuildingButton.Size = new System.Drawing.Size(85, 60);
             this.RemoveBuildingButton.TabIndex = 1;
             this.RemoveBuildingButton.UseVisualStyleBackColor = true;
             this.RemoveBuildingButton.Click += new System.EventHandler(this.RemoveBuildingButton_Click);
@@ -163,9 +163,9 @@ namespace ListOfBuildings.View
             this.AddBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddBuildingButton.FlatAppearance.BorderSize = 0;
             this.AddBuildingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBuildingButton.Location = new System.Drawing.Point(418, 269);
+            this.AddBuildingButton.Location = new System.Drawing.Point(386, 269);
             this.AddBuildingButton.Name = "AddBuildingButton";
-            this.AddBuildingButton.Size = new System.Drawing.Size(72, 49);
+            this.AddBuildingButton.Size = new System.Drawing.Size(85, 60);
             this.AddBuildingButton.TabIndex = 0;
             this.AddBuildingButton.UseVisualStyleBackColor = true;
             this.AddBuildingButton.Click += new System.EventHandler(this.AddBuildingButton_Click);
