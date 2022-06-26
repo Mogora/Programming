@@ -39,6 +39,8 @@ namespace ListOfBuildings.View
             {
                 CategoryBuildingComboBox.Items.Add(value);
             }
+
+            UpdateBuildingInfo(-1);
         }
 
         /// <summary>
@@ -64,21 +66,55 @@ namespace ListOfBuildings.View
             return $"{building.Id}:" + 
                    $"({building.Category} - {building.Title})";
         }
-
-        /// <summary>
-        /// Обновляет информацию в списке.
-        /// </summary>
-        /// <param name="building"></param>
-        private void UpdateBuildingInfo(Building building)
+        private void UpdateBuildingInfo(int index)
         {
-            int index = _buildings.IndexOf(building);
+            List<Building> building = _buildings;
+            BuildingListBox.Items.Clear();
 
-            if (index == -1) return;
+            foreach (var value in building)
+            {
+                if (value.Title != null)
+                {
+                    BuildingListBox.Items.Add(value.Title);
+                }
+                else
+                {
+                    BuildingListBox.Items.Add($"Building {value.Id}");
+                }
+            }
 
-            BuildingListBox.Items[index] = BuildingDescription(building);
-
-            _buildings = Sorting(_buildings);
+            if (-1 <= index && index < BuildingListBox.Items.Count)
+            {
+                BuildingListBox.SelectedIndex = index;
+            }
         }
+
+        //private void UpdateBuildingInfo(Building building)
+        //{
+        //    int index = _buildings.IndexOf(building);
+
+        //    if (index == -1) return;
+
+        //    BuildingListBox.Items[index] = BuildingDescription(building);
+
+        //    //_buildings = Sorting(_buildings);
+        //}
+
+        //private void UpdateBuildingInfo(int selectedindex)
+        //{
+        //    BuildingListBox.Items.Clear();
+        //    var orderedListSongs = from building in _buildings
+        //                           orderby building.Category, building.Title
+        //                           select building;
+        //    //BuildingListBox.Items[selectedindex] = BuildingDescription(_buildings);
+        //    foreach (Building building in _buildings)
+        //    {
+        //        BuildingListBox.Items.Add($"{building.Id}:" +
+        //        $"{building.Category} - {building.Title}");
+        //    }
+
+        //    BuildingListBox.SelectedIndex = selectedindex;
+        //}
 
         private List<Building> Sorting(List<Building> buildings)
         {
@@ -98,7 +134,7 @@ namespace ListOfBuildings.View
             {
                 _currentBuilding.Title = TitleBuildingTextBox.Text;
                 TitleBuildingTextBox.BackColor = AppColors.CorrectColor;
-                UpdateBuildingInfo(_currentBuilding);
+                UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
             }
             catch
             {
@@ -127,7 +163,8 @@ namespace ListOfBuildings.View
                 {
                     string currentAddres = AddressTextBox.Text;
                     _currentBuilding.Address = currentAddres;
-                    UpdateBuildingInfo(_currentBuilding);
+                    UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
+                    //UpdateBuildingInfo(_currentBuilding);
                 }
                 catch
                 {
@@ -147,7 +184,8 @@ namespace ListOfBuildings.View
                     string currentRating = RatingBuildingTextBox.Text;
                     double ratingBuildingValue = double.Parse(currentRating);
                     _currentBuilding.Rating = ratingBuildingValue;
-                    UpdateBuildingInfo(_currentBuilding);
+                    //UpdateBuildingInfo(_currentBuilding);
+                    UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
                 }
                 catch
                 {
@@ -162,7 +200,8 @@ namespace ListOfBuildings.View
         {
             if (BuildingListBox.SelectedItem == null) return;
             _currentBuilding.Category = (Category)CategoryBuildingComboBox.SelectedItem;
-            UpdateBuildingInfo(_currentBuilding);
+            //UpdateBuildingInfo(_currentBuilding);
+            UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
         }
 
         private void AddBuildingButton_Click(object sender, EventArgs e)
@@ -171,6 +210,8 @@ namespace ListOfBuildings.View
             _buildings.Add(_currentBuilding);
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
             BuildingListBox.SelectedIndex = _buildings.Count - 1;
+            UpdateBuildingInfo(_buildings.IndexOf(_currentBuilding));
+
         }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
@@ -182,6 +223,7 @@ namespace ListOfBuildings.View
             _buildings.RemoveAt(indexSelectedBuilding);
 
             ClearBuildingInfo();
+            UpdateBuildingInfo(-1);
 
 
             foreach (var building in _buildings)
