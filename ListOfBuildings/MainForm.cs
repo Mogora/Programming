@@ -13,8 +13,7 @@ using System.Text.RegularExpressions;
 using Category = ListOfBuildings.Model.Category;
 
 namespace ListOfBuildings.View
-{
-    
+{    
     public partial class MainForm : Form
     {
         /// <summary>
@@ -25,69 +24,58 @@ namespace ListOfBuildings.View
         /// <summary>
         /// Выбранное здание.
         /// </summary>
-        private Building _currentBuilding;
+        private Building _currentBuilding;      
 
-        
-
+        /// <summary>
+        /// Создает экземпляр класса <see cref="MainForm"/>.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
 
             _buildings = new List<Building>();
+
             Array typeValues = Enum.GetValues(typeof(Category));
             foreach (Category value in typeValues)
             {
                 CategoryBuildingComboBox.Items.Add(value);
             }
-            CategoryBuildingComboBox.SelectedIndex = 0;
-
-            
-
-            //UpdateListBox(-1);
         }
 
         /// <summary>
-        /// Обновляет данные в списке.
+        /// Очищает информациюю о зданиях из списка и текстовых полей.
         /// </summary>
-        /// <param name="index"></param>
-        private void UpdateListBox(int index)
+        private void ClearBuildingInfo()
         {
-            List<Building> buildings = _buildings;
-            foreach (var building in buildings)
-            {
-                if (building.Title != null)
-                {
-                    BuildingListBox.Items.Add(building.Title);
-                }
-                else
-                {
-                    BuildingListBox.Items.Add($"Building {building.Id}");
-                }
-            }
-            if (-1 <= index && index < BuildingListBox.Items.Count)
-            {
-                BuildingListBox.SelectedIndex = index;
-            }
+            TitleBuildingTextBox.Clear();
+            AddressTextBox.Clear();
+            TitleBuildingTextBox.BackColor = AppColors.CorrectColor;
+            AddressTextBox.BackColor = AppColors.CorrectColor;
+            RatingBuildingTextBox.BackColor = AppColors.CorrectColor;
+            BuildingListBox.Items.Clear();
         }
-        private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
+        
+        /// <summary>
+        /// На значения здания задаются параметры.
+        /// </summary>
+        /// <param name="building"> Здание. </param>
+        /// <returns> Возвращает форматированный текст. </returns>
+        private string BuildingDescription(Building building)
         {
-            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_color_green_;
+            return $"{building.Id}:" + 
+                   $"({building.Category} - {building.Title})";
         }
 
-        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+
+        private void UpdateBuildingInfo(Building building)
         {
-            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_grey;
+            int index = _buildings.IndexOf(building);
+
+            if (index == -1) return;
+
+            BuildingListBox.Items[index] = BuildingDescription(building);
         }
 
-        private void RemoveButton_MouseEnter(object sender, EventArgs e)
-        {
-            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_color_red_;
-        }
-
-        private void RemoveButton_MouseLeave(object sender, EventArgs e)
-        {
-            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
-        }
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -97,6 +85,7 @@ namespace ListOfBuildings.View
             {
                 _currentBuilding.Title = TitleBuildingTextBox.Text;
                 TitleBuildingTextBox.BackColor = AppColors.CorrectColor;
+                UpdateBuildingInfo(_currentBuilding);
             }
             catch
             {
@@ -125,6 +114,7 @@ namespace ListOfBuildings.View
                 {
                     string currentAddres = AddressTextBox.Text;
                     _currentBuilding.Address = currentAddres;
+                    UpdateBuildingInfo(_currentBuilding);
                 }
                 catch
                 {
@@ -144,6 +134,7 @@ namespace ListOfBuildings.View
                     string currentRating = RatingBuildingTextBox.Text;
                     double ratingBuildingValue = double.Parse(currentRating);
                     _currentBuilding.Rating = ratingBuildingValue;
+                    UpdateBuildingInfo(_currentBuilding);
                 }
                 catch
                 {
@@ -158,26 +149,55 @@ namespace ListOfBuildings.View
         {
             if (BuildingListBox.SelectedItem == null) return;
             _currentBuilding.Category = (Category)CategoryBuildingComboBox.SelectedItem;
+            UpdateBuildingInfo(_currentBuilding);
         }
 
         private void AddBuildingButton_Click(object sender, EventArgs e)
         {
-            var building = new Building();
-            _buildings.Add(building);
-            UpdateListBox(_buildings.IndexOf(building));
-            //_currentBuilding = new Building();
-
-            //_buildings.Add(_currentBuilding);
-            //BuildingListBox.Items.Add(_currentBuilding.BuildingDescription());
-
-            //BuildingListBox.SelectedIndex = _buildings.Count - 1;
-
-            //UpdateListBox(_buildings.IndexOf(_currentBuilding));
+            _currentBuilding = new Building();
+            _buildings.Add(_currentBuilding);
+            BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
+            BuildingListBox.SelectedIndex = _buildings.Count - 1;
         }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
         {
+            int indexSelectedBuilding = BuildingListBox.SelectedIndex;
 
+            if (indexSelectedBuilding == -1) return;
+
+            _buildings.RemoveAt(indexSelectedBuilding);
+
+            ClearBuildingInfo();
+
+
+            foreach (var building in _buildings)
+            {
+                BuildingListBox.Items.Add(BuildingDescription(building));
+                BuildingListBox.SelectedIndex = 0;
+            }
+
+
+        }
+
+        private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_color_green_;
+        }
+
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddBuildingButton.BackgroundImage = Properties.Resources.add_building_grey;
+        }
+
+        private void RemoveButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_color_red_;
+        }
+
+        private void RemoveButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
         }
     } 
 }

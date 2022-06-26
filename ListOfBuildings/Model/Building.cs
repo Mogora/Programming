@@ -29,11 +29,6 @@ namespace ListOfBuildings.Model
         private double _rating;
 
         /// <summary>
-        /// Категория здания.
-        /// </summary>
-        private string _category = "None";
-
-        /// <summary>
         /// Количество зданий. 
         /// </summary>
         private static int _allBuildingsCount;
@@ -122,21 +117,6 @@ namespace ListOfBuildings.Model
         /// <summary>
         /// Возвращает уникальный индифекатор.
         /// </summary>
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-        }
-
-        /// <summary>
-        /// Создает строки из Id, Category и Title класса <see cref="Building"/>.
-        /// </summary>
-        /// <returns></returns>
-        public string BuildingDescription()
-        {
-            return $"{Id}: {Category} - {Title}";
-        }
+        public int Id => _id;
     }
 }
