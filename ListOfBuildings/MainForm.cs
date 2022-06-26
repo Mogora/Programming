@@ -48,7 +48,6 @@ namespace ListOfBuildings.View
         {
             TitleBuildingTextBox.Clear();
             AddressTextBox.Clear();
-            CategoryBuildingComboBox.SelectedIndex = -1;
             TitleBuildingTextBox.BackColor = AppColors.CorrectColor;
             AddressTextBox.BackColor = AppColors.CorrectColor;
             RatingBuildingTextBox.BackColor = AppColors.CorrectColor;
@@ -77,6 +76,18 @@ namespace ListOfBuildings.View
             if (index == -1) return;
 
             BuildingListBox.Items[index] = BuildingDescription(building);
+
+            _buildings = Sorting(_buildings);
+        }
+
+        private List<Building> Sorting(List<Building> buildings)
+        {
+            var sortedBuilding = from value in buildings
+                                 orderby value.Category, value.Title
+                                 select value;
+            buildings = sortedBuilding.ToList();
+
+            return buildings;
         }
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
