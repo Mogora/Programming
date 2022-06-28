@@ -166,7 +166,7 @@ namespace ListOfBuildings.View
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
             BuildingListBox.SelectedIndex = _buildings.Count - 1;
             SortBuildings();
-        }
+        }   
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
         {
