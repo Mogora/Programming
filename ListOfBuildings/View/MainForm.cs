@@ -99,6 +99,10 @@ namespace ListOfBuildings.View
                    $"({building.Category} - {building.Title})";
         }
 
+        /// <summary>
+        /// Обновляет данные в списке BuildingListBox.
+        /// </summary>
+        /// <param name="building"></param>
         private void UpdateBuildingInfo(Building building)
         {
             int index = _buildings.IndexOf(building);
