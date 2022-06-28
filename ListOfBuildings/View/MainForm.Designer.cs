@@ -29,6 +29,7 @@ namespace ListOfBuildings.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.BuildingListBox = new System.Windows.Forms.ListBox();
             this.BuildingGroupBox = new System.Windows.Forms.GroupBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
@@ -181,6 +182,7 @@ namespace ListOfBuildings.View
             this.Controls.Add(this.BuildingListBox);
             this.Controls.Add(this.RemoveBuildingButton);
             this.Controls.Add(this.AddBuildingButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(896, 666);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
