@@ -54,6 +54,22 @@ namespace ListOfBuildings.View
             BuildingListBox.Items.Clear();
         }
 
+        /// <summary>
+        /// Ищет индекс элемента по уникальному индифекатору.
+        /// </summary>
+        /// <returns> Возвращает индекс, найденного элемента. </returns>
+        private int FindIndex()
+        {
+            for (int i = 0; i<_buildings.Count; i++)
+            {
+                return i;
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Сортировка по категории, а внутри по названию. 
+        /// </summary>
         private void SortBuildings()
         {
             var orderedBuildingsList = from building in _buildings
@@ -61,9 +77,19 @@ namespace ListOfBuildings.View
                                        select building;
 
             _buildings = orderedBuildingsList.ToList();
+
+            int index = FindIndex();
+            BuildingListBox.Items.Clear();
+            
+            foreach (var building in _buildings)
+            {
+                BuildingListBox.Items.Add(BuildingDescription(building));
+            }
+            BuildingListBox.SelectedIndex = index;
         }
+
         /// <summary>
-        /// На значения здания задаются параметры.
+        /// На значения здания задаются параметры.  
         /// </summary>
         /// <param name="building"> Здание. </param>
         /// <returns> Возвращает форматированный текст. </returns>
