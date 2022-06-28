@@ -57,7 +57,7 @@ namespace ListOfBuildings.View
         private void SortProducts()
         {
             _buildings = (from building in _buildings
-                         orderby building.Title
+                         orderby building.Category, building.Title
                          select building).ToList();
         }
 
@@ -71,28 +71,6 @@ namespace ListOfBuildings.View
             return $"{building.Id}:" + 
                    $"({building.Category} - {building.Title})";
         }
-        //private void UpdateBuildingInfo(int index)
-        //{
-        //    List<Building> building = _buildings;
-        //    BuildingListBox.Items.Clear();
-
-        //    foreach (var value in building)
-        //    {
-        //        if (value.Title != null)
-        //        {
-        //            BuildingListBox.Items.Add(value.Title);
-        //        }
-        //        else
-        //        {
-        //            BuildingListBox.Items.Add($"Building {value.Id}");
-        //        }
-        //    }
-
-        //    if (-1 <= index && index < BuildingListBox.Items.Count)
-        //    {
-        //        BuildingListBox.SelectedIndex = index;
-        //    }
-        //}
 
         private void UpdateBuildingInfo(Building building)
         {
@@ -102,34 +80,7 @@ namespace ListOfBuildings.View
 
             BuildingListBox.Items[index] = BuildingDescription(building);
 
-            //_buildings = Sorting(_buildings);
         }
-
-        //private void UpdateBuildingInfo(int selectedindex)
-        //{
-        //    BuildingListBox.Items.Clear();
-        //    var orderedListSongs = from building in _buildings
-        //                           orderby building.Category, building.Title
-        //                           select building;
-        //    //BuildingListBox.Items[selectedindex] = BuildingDescription(_buildings);
-        //    foreach (Building building in _buildings)
-        //    {
-        //        BuildingListBox.Items.Add($"{building.Id}:" +
-        //        $"{building.Category} - {building.Title}");
-        //    }
-
-        //    BuildingListBox.SelectedIndex = selectedindex;
-        //}
-
-        //private List<Building> Sorting(List<Building> buildings)
-        //{
-        //    var sortedBuilding = from value in buildings
-        //                         orderby value.Category, value.Title
-        //                         select value;
-        //    buildings = sortedBuilding.ToList();
-
-        //    return buildings;
-        //}
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
         {
