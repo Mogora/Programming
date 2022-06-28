@@ -54,7 +54,7 @@ namespace ListOfBuildings.View
             BuildingListBox.Items.Clear();
         }
 
-        private void SortProducts()
+        private void SortBuildings()
         {
             var orderedBuildingsList = from building in _buildings
                                        orderby building.Category, building.Title
@@ -80,6 +80,7 @@ namespace ListOfBuildings.View
             if (index == -1) return;
 
             BuildingListBox.Items[index] = BuildingDescription(building);
+            SortBuildings();
 
         }
 
@@ -164,7 +165,7 @@ namespace ListOfBuildings.View
             _buildings.Add(_currentBuilding);
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
             BuildingListBox.SelectedIndex = _buildings.Count - 1;
-            SortProducts();
+            SortBuildings();
         }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
