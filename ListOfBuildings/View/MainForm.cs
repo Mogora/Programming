@@ -113,6 +113,18 @@ namespace ListOfBuildings.View
             SortBuildings();
 
         }
+        private void BuildingListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (BuildingListBox.SelectedIndex != -1)
+            {
+                int indexSelectedBuilding = BuildingListBox.SelectedIndex;
+                _currentBuilding = _buildings[indexSelectedBuilding];
+                TitleBuildingTextBox.Text = _currentBuilding.Title;
+                AddressTextBox.Text = _currentBuilding.Address;
+                RatingBuildingTextBox.Text = _currentBuilding.Rating.ToString();
+                CategoryBuildingComboBox.Text = _currentBuilding.Category.ToString();
+            }
+        }
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -128,19 +140,6 @@ namespace ListOfBuildings.View
             {
                 TitleBuildingTextBox.BackColor = AppColors.ErrorColor;
             }
-        }
-
-        private void BuildingListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (BuildingListBox.SelectedIndex != -1)
-            {
-                int indexSelectedBuilding = BuildingListBox.SelectedIndex;
-                _currentBuilding = _buildings[indexSelectedBuilding];
-                TitleBuildingTextBox.Text = _currentBuilding.Title;
-                AddressTextBox.Text = _currentBuilding.Address;
-                RatingBuildingTextBox.Text = _currentBuilding.Rating.ToString();
-                CategoryBuildingComboBox.Text = _currentBuilding.Category.ToString();
-            }             
         }
 
         private void AddressTextBox_TextChanged(object sender, EventArgs e)
