@@ -64,7 +64,7 @@ namespace ListOfBuildings.View
             {
                 return i;
             }
-            return 0;
+            return -1;
         }
 
         /// <summary>
@@ -203,12 +203,8 @@ namespace ListOfBuildings.View
             _buildings.RemoveAt(indexSelectedBuilding);
 
             ClearBuildingInfo();
+            SortBuildings();
             
-            foreach (var building in _buildings)
-            {
-                BuildingListBox.Items.Add(BuildingDescription(building));
-                BuildingListBox.SelectedIndex = 0;
-            }
         }
 
         private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
