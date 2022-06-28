@@ -78,7 +78,7 @@ namespace ListOfBuildings.View
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(147, 70);
+            this.AddressTextBox.Location = new System.Drawing.Point(147, 74);
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(244, 22);
             this.AddressTextBox.TabIndex = 7;
@@ -86,7 +86,7 @@ namespace ListOfBuildings.View
             // 
             // RatingBuildingTextBox
             // 
-            this.RatingBuildingTextBox.Location = new System.Drawing.Point(147, 106);
+            this.RatingBuildingTextBox.Location = new System.Drawing.Point(147, 111);
             this.RatingBuildingTextBox.Name = "RatingBuildingTextBox";
             this.RatingBuildingTextBox.Size = new System.Drawing.Size(244, 22);
             this.RatingBuildingTextBox.TabIndex = 6;
@@ -103,7 +103,7 @@ namespace ListOfBuildings.View
             // RatingBuildingLabel
             // 
             this.RatingBuildingLabel.AutoSize = true;
-            this.RatingBuildingLabel.Location = new System.Drawing.Point(56, 106);
+            this.RatingBuildingLabel.Location = new System.Drawing.Point(56, 116);
             this.RatingBuildingLabel.Name = "RatingBuildingLabel";
             this.RatingBuildingLabel.Size = new System.Drawing.Size(53, 17);
             this.RatingBuildingLabel.TabIndex = 4;
@@ -112,7 +112,7 @@ namespace ListOfBuildings.View
             // CategoryBuildingLabel
             // 
             this.CategoryBuildingLabel.AutoSize = true;
-            this.CategoryBuildingLabel.Location = new System.Drawing.Point(56, 143);
+            this.CategoryBuildingLabel.Location = new System.Drawing.Point(56, 155);
             this.CategoryBuildingLabel.Name = "CategoryBuildingLabel";
             this.CategoryBuildingLabel.Size = new System.Drawing.Size(69, 17);
             this.CategoryBuildingLabel.TabIndex = 3;
@@ -121,7 +121,7 @@ namespace ListOfBuildings.View
             // AddressLabel
             // 
             this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(56, 70);
+            this.AddressLabel.Location = new System.Drawing.Point(56, 79);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(64, 17);
             this.AddressLabel.TabIndex = 2;
@@ -130,7 +130,7 @@ namespace ListOfBuildings.View
             // TitleBuildingLabel
             // 
             this.TitleBuildingLabel.AutoSize = true;
-            this.TitleBuildingLabel.Location = new System.Drawing.Point(56, 37);
+            this.TitleBuildingLabel.Location = new System.Drawing.Point(56, 42);
             this.TitleBuildingLabel.Name = "TitleBuildingLabel";
             this.TitleBuildingLabel.Size = new System.Drawing.Size(39, 17);
             this.TitleBuildingLabel.TabIndex = 1;
@@ -139,9 +139,9 @@ namespace ListOfBuildings.View
             // CategoryBuildingComboBox
             // 
             this.CategoryBuildingComboBox.FormattingEnabled = true;
-            this.CategoryBuildingComboBox.Location = new System.Drawing.Point(147, 140);
+            this.CategoryBuildingComboBox.Location = new System.Drawing.Point(147, 148);
             this.CategoryBuildingComboBox.Name = "CategoryBuildingComboBox";
-            this.CategoryBuildingComboBox.Size = new System.Drawing.Size(121, 24);
+            this.CategoryBuildingComboBox.Size = new System.Drawing.Size(122, 24);
             this.CategoryBuildingComboBox.TabIndex = 0;
             this.CategoryBuildingComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBuildingComboBox_SelectedIndexChanged);
             // 
@@ -162,8 +162,6 @@ namespace ListOfBuildings.View
             // 
             // AddBuildingButton
             // 
-            this.AddBuildingButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.AddBuildingButton.BackgroundImage = global::ListOfBuildings.Properties.Resources.add_building_grey;
             this.AddBuildingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddBuildingButton.FlatAppearance.BorderSize = 0;
