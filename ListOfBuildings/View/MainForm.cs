@@ -55,19 +55,6 @@ namespace ListOfBuildings.View
         }
 
         /// <summary>
-        /// Ищет индекс элемента по уникальному индифекатору.
-        /// </summary>
-        /// <returns> Возвращает индекс, найденного элемента. </returns>
-        private int FindIndex()
-        {
-            for (int i = 0; i<_buildings.Count; i++)
-            {
-                return i;
-            }
-            return -1;
-        }
-
-        /// <summary>
         /// Сортировка по категории, а внутри по названию. 
         /// </summary>
         private void SortBuildings()
@@ -78,7 +65,7 @@ namespace ListOfBuildings.View
 
             _buildings = orderedBuildingsList.ToList();
 
-            int index = FindIndex();
+            int index = _buildings.IndexOf(_currentBuilding);
             BuildingListBox.Items.Clear();
             
             foreach (var building in _buildings)
