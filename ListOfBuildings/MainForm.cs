@@ -56,11 +56,12 @@ namespace ListOfBuildings.View
 
         private void SortProducts()
         {
-            _buildings = (from building in _buildings
-                         orderby building.Category, building.Title
-                         select building).ToList();
-        }
+            var orderedBuildingsList = from building in _buildings
+                                       orderby building.Category, building.Title
+                                       select building;
 
+            _buildings = orderedBuildingsList.ToList();
+        }
         /// <summary>
         /// На значения здания задаются параметры.
         /// </summary>
