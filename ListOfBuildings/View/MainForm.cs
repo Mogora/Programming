@@ -183,7 +183,6 @@ namespace ListOfBuildings.View
             _currentBuilding = new Building();
             _buildings.Add(_currentBuilding);
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
-            BuildingListBox.SelectedIndex = _buildings.Count - 1;
             SortBuildings();
         }
 
@@ -222,7 +221,7 @@ namespace ListOfBuildings.View
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            ProjectSerializer.Serialize(_buildings);
         }
     } 
 }
