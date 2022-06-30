@@ -35,10 +35,13 @@ namespace ListOfBuildings.View
             _buildings = new List<Building>();
 
             Array typeValues = Enum.GetValues(typeof(Category));
+
             foreach (Category value in typeValues)
             {
                 CategoryBuildingComboBox.Items.Add(value);
             }
+
+            _buildings = ProjectSerializer.Deserialize();
         }
 
         /// <summary>
@@ -182,7 +185,7 @@ namespace ListOfBuildings.View
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
             BuildingListBox.SelectedIndex = _buildings.Count - 1;
             SortBuildings();
-        }   
+        }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
         {
@@ -215,6 +218,11 @@ namespace ListOfBuildings.View
         private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     } 
 }

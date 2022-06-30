@@ -189,6 +189,7 @@ namespace ListOfBuildings.View
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Buildings";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.BuildingGroupBox.ResumeLayout(false);
             this.BuildingGroupBox.PerformLayout();
             this.ResumeLayout(false);
