@@ -32,7 +32,7 @@ namespace ListOfBuildings.Model
         /// <param name="nameProperty"> Имя свойства, откуда был вызван метод .</param>
         /// <exception cref="ArgumentException"> Выбрасывается, когда строка превышает максимально
         /// возможную длину.</exception>
-        public static void NoMoreThan(string value, int maxLength, string nameProperty)
+        public static void AssertNoMoreThan(string value, int maxLength, string nameProperty)
         {
             if (value.Length > maxLength)
             {
