@@ -41,7 +41,7 @@ namespace ListOfBuildings.View
                 CategoryBuildingComboBox.Items.Add(value);
             }   
 
-            _buildings = ProjectSerializer.Deserialize();         
+            _buildings = ProjectSerializer.Deserialize();
         }
 
         /// <summary>
