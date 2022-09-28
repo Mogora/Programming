@@ -38,21 +38,21 @@ namespace ObjectOrientedPractics.View.Tabs
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ItemsPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
-            this.SelectedItemPanel = new System.Windows.Forms.Panel();
+            this.RemoveButtonPanel = new System.Windows.Forms.Panel();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.AddButtonPanel = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
+            this.SelectedItemPanel = new System.Windows.Forms.Panel();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.DescriptioLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.AddButtonPanel = new System.Windows.Forms.Panel();
-            this.RemoveButtonPanel = new System.Windows.Forms.Panel();
             this.ItemsGeneralPanel = new System.Windows.Forms.Panel();
             this.ItemsPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
-            this.SelectedItemPanel.SuspendLayout();
-            this.AddButtonPanel.SuspendLayout();
             this.RemoveButtonPanel.SuspendLayout();
+            this.AddButtonPanel.SuspendLayout();
+            this.SelectedItemPanel.SuspendLayout();
             this.ItemsGeneralPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsListBox.ItemHeight = 16;
             this.ItemsListBox.Location = new System.Drawing.Point(3, 29);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(499, 708);
+            this.ItemsListBox.Size = new System.Drawing.Size(331, 596);
             this.ItemsListBox.TabIndex = 0;
             // 
             // ItemsLabel
@@ -125,18 +125,51 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsPanel.Controls.Add(this.ItemsListBox);
             this.ItemsPanel.Location = new System.Drawing.Point(3, 3);
             this.ItemsPanel.Name = "ItemsPanel";
-            this.ItemsPanel.Size = new System.Drawing.Size(505, 804);
+            this.ItemsPanel.Size = new System.Drawing.Size(338, 695);
             this.ItemsPanel.TabIndex = 7;
             // 
             // ButtonsPanel
             // 
             this.ButtonsPanel.Controls.Add(this.RemoveButtonPanel);
             this.ButtonsPanel.Controls.Add(this.AddButtonPanel);
-            this.ButtonsPanel.Location = new System.Drawing.Point(3, 742);
+            this.ButtonsPanel.Location = new System.Drawing.Point(0, 631);
             this.ButtonsPanel.Name = "ButtonsPanel";
-            this.ButtonsPanel.Size = new System.Drawing.Size(499, 59);
+            this.ButtonsPanel.Size = new System.Drawing.Size(334, 59);
             this.ButtonsPanel.TabIndex = 14;
-            this.ButtonsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // RemoveButtonPanel
+            // 
+            this.RemoveButtonPanel.Controls.Add(this.RemoveButton);
+            this.RemoveButtonPanel.Location = new System.Drawing.Point(123, 0);
+            this.RemoveButtonPanel.Name = "RemoveButtonPanel";
+            this.RemoveButtonPanel.Size = new System.Drawing.Size(115, 59);
+            this.RemoveButtonPanel.TabIndex = 16;
+            // 
+            // RemoveButton
+            // 
+            this.RemoveButton.Location = new System.Drawing.Point(0, 4);
+            this.RemoveButton.Name = "RemoveButton";
+            this.RemoveButton.Size = new System.Drawing.Size(111, 52);
+            this.RemoveButton.TabIndex = 14;
+            this.RemoveButton.Text = "Remove";
+            this.RemoveButton.UseVisualStyleBackColor = true;
+            // 
+            // AddButtonPanel
+            // 
+            this.AddButtonPanel.Controls.Add(this.AddButton);
+            this.AddButtonPanel.Location = new System.Drawing.Point(3, 0);
+            this.AddButtonPanel.Name = "AddButtonPanel";
+            this.AddButtonPanel.Size = new System.Drawing.Size(118, 59);
+            this.AddButtonPanel.TabIndex = 15;
+            // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(3, 4);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(111, 52);
+            this.AddButton.TabIndex = 13;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
             // 
             // SelectedItemPanel
             // 
@@ -149,34 +182,16 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemPanel.Controls.Add(this.CostLabel);
             this.SelectedItemPanel.Controls.Add(this.textBox2);
             this.SelectedItemPanel.Controls.Add(this.textBox1);
-            this.SelectedItemPanel.Location = new System.Drawing.Point(514, 4);
+            this.SelectedItemPanel.Location = new System.Drawing.Point(347, 3);
             this.SelectedItemPanel.Name = "SelectedItemPanel";
-            this.SelectedItemPanel.Size = new System.Drawing.Size(686, 804);
+            this.SelectedItemPanel.Size = new System.Drawing.Size(473, 694);
             this.SelectedItemPanel.TabIndex = 8;
-            // 
-            // RemoveButton
-            // 
-            this.RemoveButton.Location = new System.Drawing.Point(4, 4);
-            this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(167, 52);
-            this.RemoveButton.TabIndex = 14;
-            this.RemoveButton.Text = "Remove";
-            this.RemoveButton.UseVisualStyleBackColor = true;
-            // 
-            // AddButton
-            // 
-            this.AddButton.Location = new System.Drawing.Point(3, 4);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(167, 52);
-            this.AddButton.TabIndex = 13;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = true;
             // 
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(6, 340);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(675, 262);
+            this.richTextBox2.Size = new System.Drawing.Size(453, 159);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
             // 
@@ -184,7 +199,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 173);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(675, 116);
+            this.richTextBox1.Size = new System.Drawing.Size(453, 116);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
             // 
@@ -206,45 +221,29 @@ namespace ObjectOrientedPractics.View.Tabs
             this.NameLabel.TabIndex = 9;
             this.NameLabel.Text = "Name:";
             // 
-            // AddButtonPanel
-            // 
-            this.AddButtonPanel.Controls.Add(this.AddButton);
-            this.AddButtonPanel.Location = new System.Drawing.Point(0, 0);
-            this.AddButtonPanel.Name = "AddButtonPanel";
-            this.AddButtonPanel.Size = new System.Drawing.Size(174, 59);
-            this.AddButtonPanel.TabIndex = 15;
-            // 
-            // RemoveButtonPanel
-            // 
-            this.RemoveButtonPanel.Controls.Add(this.RemoveButton);
-            this.RemoveButtonPanel.Location = new System.Drawing.Point(176, 0);
-            this.RemoveButtonPanel.Name = "RemoveButtonPanel";
-            this.RemoveButtonPanel.Size = new System.Drawing.Size(174, 59);
-            this.RemoveButtonPanel.TabIndex = 16;
-            // 
             // ItemsGeneralPanel
             // 
             this.ItemsGeneralPanel.Controls.Add(this.ItemsPanel);
             this.ItemsGeneralPanel.Controls.Add(this.SelectedItemPanel);
             this.ItemsGeneralPanel.Location = new System.Drawing.Point(3, 3);
             this.ItemsGeneralPanel.Name = "ItemsGeneralPanel";
-            this.ItemsGeneralPanel.Size = new System.Drawing.Size(1203, 811);
+            this.ItemsGeneralPanel.Size = new System.Drawing.Size(824, 703);
             this.ItemsGeneralPanel.TabIndex = 17;
             // 
-            // UserControl1
+            // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ItemsGeneralPanel);
-            this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1209, 817);
+            this.Name = "ItemsTab";
+            this.Size = new System.Drawing.Size(830, 709);
             this.ItemsPanel.ResumeLayout(false);
             this.ItemsPanel.PerformLayout();
             this.ButtonsPanel.ResumeLayout(false);
+            this.RemoveButtonPanel.ResumeLayout(false);
+            this.AddButtonPanel.ResumeLayout(false);
             this.SelectedItemPanel.ResumeLayout(false);
             this.SelectedItemPanel.PerformLayout();
-            this.AddButtonPanel.ResumeLayout(false);
-            this.RemoveButtonPanel.ResumeLayout(false);
             this.ItemsGeneralPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
