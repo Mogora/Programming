@@ -34,8 +34,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemLabel = new System.Windows.Forms.Label();
             this.IdLabel = new System.Windows.Forms.Label();
             this.CostLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.IdTextBox = new System.Windows.Forms.TextBox();
+            this.CostTextBox = new System.Windows.Forms.TextBox();
             this.ItemsPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.RemoveButtonPanel = new System.Windows.Forms.Panel();
@@ -43,8 +43,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButtonPanel = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.SelectedItemPanel = new System.Windows.Forms.Panel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.DescriptioLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.ItemsGeneralPanel = new System.Windows.Forms.Panel();
@@ -65,6 +65,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ItemsListBox.Name = "ItemsListBox";
             this.ItemsListBox.Size = new System.Drawing.Size(331, 596);
             this.ItemsListBox.TabIndex = 0;
+            this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
             // ItemsLabel
             // 
@@ -98,25 +99,26 @@ namespace ObjectOrientedPractics.View.Tabs
             // CostLabel
             // 
             this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(3, 92);
+            this.CostLabel.Location = new System.Drawing.Point(3, 73);
             this.CostLabel.Name = "CostLabel";
             this.CostLabel.Size = new System.Drawing.Size(40, 17);
             this.CostLabel.TabIndex = 4;
             this.CostLabel.Text = "Cost:";
             // 
-            // textBox1
+            // IdTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 22);
-            this.textBox1.TabIndex = 5;
+            this.IdTextBox.Location = new System.Drawing.Point(53, 45);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.Size = new System.Drawing.Size(173, 22);
+            this.IdTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // CostTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(53, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 22);
-            this.textBox2.TabIndex = 6;
+            this.CostTextBox.Location = new System.Drawing.Point(53, 73);
+            this.CostTextBox.Name = "CostTextBox";
+            this.CostTextBox.Size = new System.Drawing.Size(173, 22);
+            this.CostTextBox.TabIndex = 6;
+            this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // ItemsPanel
             // 
@@ -132,7 +134,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.ButtonsPanel.Controls.Add(this.RemoveButtonPanel);
             this.ButtonsPanel.Controls.Add(this.AddButtonPanel);
-            this.ButtonsPanel.Location = new System.Drawing.Point(0, 631);
+            this.ButtonsPanel.Location = new System.Drawing.Point(3, 631);
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.Size = new System.Drawing.Size(334, 59);
             this.ButtonsPanel.TabIndex = 14;
@@ -142,22 +144,23 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveButtonPanel.Controls.Add(this.RemoveButton);
             this.RemoveButtonPanel.Location = new System.Drawing.Point(123, 0);
             this.RemoveButtonPanel.Name = "RemoveButtonPanel";
-            this.RemoveButtonPanel.Size = new System.Drawing.Size(115, 59);
+            this.RemoveButtonPanel.Size = new System.Drawing.Size(118, 59);
             this.RemoveButtonPanel.TabIndex = 16;
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(0, 4);
+            this.RemoveButton.Location = new System.Drawing.Point(3, 4);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(111, 52);
             this.RemoveButton.TabIndex = 14;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // AddButtonPanel
             // 
             this.AddButtonPanel.Controls.Add(this.AddButton);
-            this.AddButtonPanel.Location = new System.Drawing.Point(3, 0);
+            this.AddButtonPanel.Location = new System.Drawing.Point(0, 0);
             this.AddButtonPanel.Name = "AddButtonPanel";
             this.AddButtonPanel.Size = new System.Drawing.Size(118, 59);
             this.AddButtonPanel.TabIndex = 15;
@@ -170,43 +173,46 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButton.TabIndex = 13;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SelectedItemPanel
             // 
-            this.SelectedItemPanel.Controls.Add(this.richTextBox2);
-            this.SelectedItemPanel.Controls.Add(this.richTextBox1);
+            this.SelectedItemPanel.Controls.Add(this.DescriptionTextBox);
+            this.SelectedItemPanel.Controls.Add(this.NameTextBox);
             this.SelectedItemPanel.Controls.Add(this.DescriptioLabel);
             this.SelectedItemPanel.Controls.Add(this.NameLabel);
             this.SelectedItemPanel.Controls.Add(this.SelectedItemLabel);
             this.SelectedItemPanel.Controls.Add(this.IdLabel);
             this.SelectedItemPanel.Controls.Add(this.CostLabel);
-            this.SelectedItemPanel.Controls.Add(this.textBox2);
-            this.SelectedItemPanel.Controls.Add(this.textBox1);
+            this.SelectedItemPanel.Controls.Add(this.CostTextBox);
+            this.SelectedItemPanel.Controls.Add(this.IdTextBox);
             this.SelectedItemPanel.Location = new System.Drawing.Point(347, 3);
             this.SelectedItemPanel.Name = "SelectedItemPanel";
             this.SelectedItemPanel.Size = new System.Drawing.Size(473, 694);
             this.SelectedItemPanel.TabIndex = 8;
             // 
-            // richTextBox2
+            // DescriptionTextBox
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(6, 340);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(453, 159);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
+            this.DescriptionTextBox.Location = new System.Drawing.Point(6, 334);
+            this.DescriptionTextBox.Multiline = true;
+            this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.Size = new System.Drawing.Size(464, 94);
+            this.DescriptionTextBox.TabIndex = 14;
+            this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
-            // richTextBox1
+            // NameTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 173);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(453, 116);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.NameTextBox.Location = new System.Drawing.Point(6, 159);
+            this.NameTextBox.Multiline = true;
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(464, 133);
+            this.NameTextBox.TabIndex = 13;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // DescriptioLabel
             // 
             this.DescriptioLabel.AutoSize = true;
-            this.DescriptioLabel.Location = new System.Drawing.Point(3, 320);
+            this.DescriptioLabel.Location = new System.Drawing.Point(3, 314);
             this.DescriptioLabel.Name = "DescriptioLabel";
             this.DescriptioLabel.Size = new System.Drawing.Size(83, 17);
             this.DescriptioLabel.TabIndex = 10;
@@ -215,7 +221,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(3, 153);
+            this.NameLabel.Location = new System.Drawing.Point(3, 139);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(49, 17);
             this.NameLabel.TabIndex = 9;
@@ -256,19 +262,19 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label SelectedItemLabel;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Label CostLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox IdTextBox;
+        private System.Windows.Forms.TextBox CostTextBox;
         private System.Windows.Forms.Panel ItemsPanel;
         private System.Windows.Forms.Panel SelectedItemPanel;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label DescriptioLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Panel ButtonsPanel;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Panel AddButtonPanel;
         private System.Windows.Forms.Panel RemoveButtonPanel;
         private System.Windows.Forms.Panel ItemsGeneralPanel;
+        private System.Windows.Forms.TextBox DescriptionTextBox;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }

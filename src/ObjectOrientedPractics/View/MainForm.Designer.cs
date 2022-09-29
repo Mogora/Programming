@@ -32,9 +32,7 @@ namespace ObjectOrientedPractics
             this.TabControl = new System.Windows.Forms.TabControl();
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.itemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.TabControl.SuspendLayout();
-            this.ItemsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -50,7 +48,6 @@ namespace ObjectOrientedPractics
             // 
             // ItemsTabPage
             // 
-            this.ItemsTabPage.Controls.Add(this.itemsTab);
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 25);
             this.ItemsTabPage.Name = "ItemsTabPage";
             this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -69,14 +66,6 @@ namespace ObjectOrientedPractics
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // itemsTab
-            // 
-            this.itemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab.Location = new System.Drawing.Point(3, 3);
-            this.itemsTab.Name = "itemsTab";
-            this.itemsTab.Size = new System.Drawing.Size(817, 693);
-            this.itemsTab.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -86,7 +75,6 @@ namespace ObjectOrientedPractics
             this.Name = "MainForm";
             this.Text = "Form1";
             this.TabControl.ResumeLayout(false);
-            this.ItemsTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -96,7 +84,6 @@ namespace ObjectOrientedPractics
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage ItemsTabPage;
         private System.Windows.Forms.TabPage tabPage2;
-        private View.Tabs.ItemsTab itemsTab;
     }
 }
 

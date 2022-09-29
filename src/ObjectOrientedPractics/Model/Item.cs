@@ -41,6 +41,9 @@ namespace ObjectOrientedPractics.Model
         {
             _allItemsCount++;
             _id = _allItemsCount;
+            Name = "Title";
+            Info = "Info";
+            Cost = 1000;
         }
 
         /// <summary>
