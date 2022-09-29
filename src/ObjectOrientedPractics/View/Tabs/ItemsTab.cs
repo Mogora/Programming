@@ -34,7 +34,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _items = new List<Item>();
 
-            InitializeComponent();
+            InitializeComponent();        
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <returns></returns>
         private string ItemDescription(Item item)
         {
-            return $"{item.Name}: + {item.Cost}"; 
+            return $"{item.Name}: - {item.Cost}";
         }
 
         /// <summary>
@@ -54,10 +54,11 @@ namespace ObjectOrientedPractics.View.Tabs
         private void UpdateItemInfo(Item item)
         {
             int index = _items.IndexOf(item);
-            if (index != 1)
-            {
-                ItemsListBox.Items[index] = ItemDescription(item);
-            }
+
+            if (index == -1) return;
+
+            ItemsListBox.Items[index] = ItemDescription(item);
+         
         }
 
         /// <summary>
@@ -69,6 +70,9 @@ namespace ObjectOrientedPractics.View.Tabs
             IdTextBox.Clear();
             CostTextBox.Clear();
             DescriptionTextBox.Clear();
+            NameTextBox.BackColor = AppColor.CorrectColor;
+            CostTextBox.BackColor = AppColor.CorrectColor;
+            ItemsListBox.Items.Clear();
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,17 +152,17 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = new Item();
             _items.Add(_currentItem);
             ItemsListBox.Items.Add(ItemDescription(_currentItem));
+            ItemsListBox.SelectedIndex = _items.Count - 1;
+            UpdateItemInfo(_currentItem);
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             int index = ItemsListBox.SelectedIndex;
 
-            if (index != -1)
-            {
-                _items.RemoveAt(index);
-            }
+            if (index == -1) return;
 
+            _items.RemoveAt(index);
             ClearItemInfo();
 
             foreach (var item in _items)
@@ -166,6 +170,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.Items.Add(ItemDescription(item));
                 ItemsListBox.SelectedIndex = 0;
             }
+
+            UpdateItemInfo(_currentItem);
         }
     }
 }
