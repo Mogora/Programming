@@ -43,7 +43,7 @@ namespace ObjectOrientedPractics
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(831, 728);
+            this.TabControl.Size = new System.Drawing.Size(844, 728);
             this.TabControl.TabIndex = 0;
             // 
             // ItemsTabPage
@@ -51,7 +51,7 @@ namespace ObjectOrientedPractics
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 25);
             this.ItemsTabPage.Name = "ItemsTabPage";
             this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ItemsTabPage.Size = new System.Drawing.Size(823, 699);
+            this.ItemsTabPage.Size = new System.Drawing.Size(836, 699);
             this.ItemsTabPage.TabIndex = 0;
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@ namespace ObjectOrientedPractics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 728);
+            this.ClientSize = new System.Drawing.Size(844, 728);
             this.Controls.Add(this.TabControl);
             this.Name = "MainForm";
             this.Text = "Form1";

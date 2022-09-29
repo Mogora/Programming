@@ -38,6 +38,29 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// На значения товара задаются параметры.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private string ItemDescription(Item item)
+        {
+            return $"{item.Name}: + {item.Cost}"; 
+        }
+
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="selectedIndex">Индекс выбранного элемента.</param>
+        private void UpdateItemInfo(Item item)
+        {
+            int index = _items.IndexOf(item);
+            if (index != 1)
+            {
+                ItemsListBox.Items[index] = ItemDescription(item);
+            }
+        }
+
+        /// <summary>
         /// Очищает информацию о зданиях из списка и текстовых полей.
         /// </summary>
         private void ClearItemInfo()
@@ -71,6 +94,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 int cost = Convert.ToInt32(CostTextBox.Text);
                 _currentItem.Cost = cost;
+                UpdateItemInfo(_currentItem);
             }
             catch
             {
@@ -90,6 +114,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 string name = Convert.ToString(NameTextBox.Text);
                 _currentItem.Name = name;
+                UpdateItemInfo(_currentItem);
             }
             catch
             {
@@ -109,6 +134,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 string info = DescriptionTextBox.Text;
                 _currentItem.Info = info;
+                UpdateItemInfo(_currentItem);
             }
             catch
             {
@@ -121,6 +147,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentItem = new Item();
             _items.Add(_currentItem);
+            ItemsListBox.Items.Add(ItemDescription(_currentItem));
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -133,6 +160,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             ClearItemInfo();
+
+            foreach (var item in _items)
+            {
+                ItemsListBox.Items.Add(ItemDescription(item));
+                ItemsListBox.SelectedIndex = 0;
+            }
         }
     }
 }

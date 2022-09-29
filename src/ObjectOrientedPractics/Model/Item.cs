@@ -72,7 +72,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Name
         {
-            get => _name;
+            get
+            {
+                return _name;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(Name), 200, value);
@@ -86,7 +89,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Info
         {
-            get => _info;
+            get
+            {
+                return _info;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(Info), 1000, value);
@@ -100,7 +106,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public double Cost
         {
-            get => _cost;
+            get
+            {
+                return _cost;
+            }
             set
             {
                 ValueValidator.AssertValueInRange(nameof(Cost), value, 0, 100000);

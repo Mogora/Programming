@@ -109,6 +109,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.IdTextBox.Location = new System.Drawing.Point(53, 45);
             this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(173, 22);
             this.IdTextBox.TabIndex = 5;
             // 
@@ -122,6 +123,8 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ItemsPanel
             // 
+            this.ItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsPanel.Controls.Add(this.ButtonsPanel);
             this.ItemsPanel.Controls.Add(this.ItemsLabel);
             this.ItemsPanel.Controls.Add(this.ItemsListBox);
@@ -177,6 +180,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemPanel
             // 
+            this.SelectedItemPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemPanel.Controls.Add(this.DescriptionTextBox);
             this.SelectedItemPanel.Controls.Add(this.NameTextBox);
             this.SelectedItemPanel.Controls.Add(this.DescriptioLabel);
