@@ -64,7 +64,13 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
-        public int Id => _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задаёт название товара. 
