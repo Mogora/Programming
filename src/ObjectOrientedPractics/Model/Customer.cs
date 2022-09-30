@@ -22,7 +22,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Общее количество покупателей.
         /// </summary>
-        private int _allCustomersCount;
+        private static int _allCustomersCount;
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
