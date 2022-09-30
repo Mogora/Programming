@@ -31,6 +31,8 @@ namespace ObjectOrientedPractics.Model
         {
             _allCustomersCount++;
             _id = _allCustomersCount;
+            FullName = "Buyer's full name";
+            Address = "Address";
         }
 
         /// <summary>
@@ -49,7 +51,13 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает уникальный идентификатор покупателя.
         /// </summary>
-        public int Id => _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
         
         /// <summary>
         /// Возвращает и задает полное имя покупателя.
@@ -57,7 +65,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string FullName
         {
-            get => _fullName;
+            get
+            {
+                return _fullName;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(FullName), 200, value);
@@ -71,10 +82,14 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Address
         {
-            get => _address;
+            get
+            {
+                return _address;
+            }
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(Address), 500, value);
+                _address = value;
             }
         }
     }   

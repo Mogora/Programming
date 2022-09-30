@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
@@ -96,7 +90,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                int cost = Convert.ToInt32(CostTextBox.Text);
+                double cost = Convert.ToDouble(CostTextBox.Text);
                 _currentItem.Cost = cost;
                 UpdateItemInfo(_currentItem);
             }
@@ -116,7 +110,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                string name = Convert.ToString(NameTextBox.Text);
+                string name = NameTextBox.Text;
                 _currentItem.Name = name;
                 UpdateItemInfo(_currentItem);
             }

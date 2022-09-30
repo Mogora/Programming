@@ -73,6 +73,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(331, 596);
             this.CustomersListBox.TabIndex = 1;
+            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
             // CustomersPanel
             // 
@@ -127,6 +128,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // RemoveButton
             // 
@@ -136,6 +138,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveButton.TabIndex = 1;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // SelectedCustomerPanel
             // 
@@ -183,6 +186,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.IdTextBox.Location = new System.Drawing.Point(84, 45);
             this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(173, 22);
             this.IdTextBox.TabIndex = 3;
             // 
@@ -192,6 +196,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(387, 22);
             this.FullNameTextBox.TabIndex = 4;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // AddressLabel
             // 
@@ -209,6 +214,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(387, 125);
             this.AddressTextBox.TabIndex = 6;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
             // panel4
             // 
