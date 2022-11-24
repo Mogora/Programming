@@ -38,8 +38,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.SelectedCustomerPanel = new System.Windows.Forms.Panel();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
@@ -47,6 +45,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CustomerGeneralPanel = new System.Windows.Forms.Panel();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.CustomersPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -157,27 +157,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerPanel.Size = new System.Drawing.Size(480, 229);
             this.SelectedCustomerPanel.TabIndex = 1;
             // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(84, 98);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(390, 125);
-            this.AddressTextBox.TabIndex = 6;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(3, 101);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
-            this.AddressLabel.TabIndex = 5;
-            this.AddressLabel.Text = "Address:";
-            // 
             // FullNameTextBox
             // 
             this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -243,6 +222,27 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomerGeneralPanel.Size = new System.Drawing.Size(830, 709);
             this.CustomerGeneralPanel.TabIndex = 0;
             // 
+            // AddressLabel
+            // 
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Location = new System.Drawing.Point(3, 101);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
+            this.AddressLabel.TabIndex = 5;
+            this.AddressLabel.Text = "Address:";
+            // 
+            // AddressTextBox
+            // 
+            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddressTextBox.Location = new System.Drawing.Point(84, 98);
+            this.AddressTextBox.Multiline = true;
+            this.AddressTextBox.Name = "AddressTextBox";
+            this.AddressTextBox.Size = new System.Drawing.Size(390, 125);
+            this.AddressTextBox.TabIndex = 6;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
+            // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -273,8 +273,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label CustomersLabel;
         private System.Windows.Forms.ListBox CustomersListBox;
         private System.Windows.Forms.Panel SelectedCustomerPanel;
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label FullNameLabel;
@@ -282,5 +280,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label SelectedCustomerLabel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel CustomerGeneralPanel;
+        private System.Windows.Forms.TextBox AddressTextBox;
+        private System.Windows.Forms.Label AddressLabel;
     }
 }
