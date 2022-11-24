@@ -30,27 +30,27 @@ namespace ObjectOrientedPractics.View.Tabs
         private void InitializeComponent()
         {
             this.CustomersPanel = new System.Windows.Forms.Panel();
-            this.CustomersListBox = new System.Windows.Forms.ListBox();
-            this.CustomersLabel = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
-            this.AddButtonPanel = new System.Windows.Forms.Panel();
-            this.AddButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.AddButtonPanel = new System.Windows.Forms.Panel();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.CustomersLabel = new System.Windows.Forms.Label();
+            this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.SelectedCustomerPanel = new System.Windows.Forms.Panel();
-            this.SelectedCustomerLabel = new System.Windows.Forms.Label();
-            this.IdLabel = new System.Windows.Forms.Label();
-            this.FullNameLabel = new System.Windows.Forms.Label();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.FullNameTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.FullNameTextBox = new System.Windows.Forms.TextBox();
+            this.IdTextBox = new System.Windows.Forms.TextBox();
+            this.FullNameLabel = new System.Windows.Forms.Label();
+            this.IdLabel = new System.Windows.Forms.Label();
+            this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CustomerGeneralPanel = new System.Windows.Forms.Panel();
             this.CustomersPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
-            this.AddButtonPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.AddButtonPanel.SuspendLayout();
             this.SelectedCustomerPanel.SuspendLayout();
             this.CustomerGeneralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -68,29 +68,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersPanel.Size = new System.Drawing.Size(338, 701);
             this.CustomersPanel.TabIndex = 0;
             // 
-            // CustomersListBox
-            // 
-            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomersListBox.FormattingEnabled = true;
-            this.CustomersListBox.ItemHeight = 16;
-            this.CustomersListBox.Location = new System.Drawing.Point(3, 29);
-            this.CustomersListBox.Name = "CustomersListBox";
-            this.CustomersListBox.Size = new System.Drawing.Size(331, 596);
-            this.CustomersListBox.TabIndex = 1;
-            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
-            // 
-            // CustomersLabel
-            // 
-            this.CustomersLabel.AutoSize = true;
-            this.CustomersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CustomersLabel.Location = new System.Drawing.Point(3, 9);
-            this.CustomersLabel.Name = "CustomersLabel";
-            this.CustomersLabel.Size = new System.Drawing.Size(84, 17);
-            this.CustomersLabel.TabIndex = 2;
-            this.CustomersLabel.Text = "Customers";
-            // 
             // ButtonsPanel
             // 
             this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -100,26 +77,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.Size = new System.Drawing.Size(334, 65);
             this.ButtonsPanel.TabIndex = 1;
-            // 
-            // AddButtonPanel
-            // 
-            this.AddButtonPanel.Controls.Add(this.AddButton);
-            this.AddButtonPanel.Location = new System.Drawing.Point(0, 0);
-            this.AddButtonPanel.Name = "AddButtonPanel";
-            this.AddButtonPanel.Size = new System.Drawing.Size(118, 59);
-            this.AddButtonPanel.TabIndex = 1;
-            // 
-            // AddButton
-            // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddButton.Location = new System.Drawing.Point(3, 4);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(111, 52);
-            this.AddButton.TabIndex = 2;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // panel2
             // 
@@ -141,6 +98,49 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // AddButtonPanel
+            // 
+            this.AddButtonPanel.Controls.Add(this.AddButton);
+            this.AddButtonPanel.Location = new System.Drawing.Point(0, 0);
+            this.AddButtonPanel.Name = "AddButtonPanel";
+            this.AddButtonPanel.Size = new System.Drawing.Size(118, 59);
+            this.AddButtonPanel.TabIndex = 1;
+            // 
+            // AddButton
+            // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddButton.Location = new System.Drawing.Point(3, 4);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(111, 52);
+            this.AddButton.TabIndex = 2;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // CustomersLabel
+            // 
+            this.CustomersLabel.AutoSize = true;
+            this.CustomersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CustomersLabel.Location = new System.Drawing.Point(3, 9);
+            this.CustomersLabel.Name = "CustomersLabel";
+            this.CustomersLabel.Size = new System.Drawing.Size(84, 17);
+            this.CustomersLabel.TabIndex = 2;
+            this.CustomersLabel.Text = "Customers";
+            // 
+            // CustomersListBox
+            // 
+            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomersListBox.FormattingEnabled = true;
+            this.CustomersListBox.ItemHeight = 16;
+            this.CustomersListBox.Location = new System.Drawing.Point(3, 29);
+            this.CustomersListBox.Name = "CustomersListBox";
+            this.CustomersListBox.Size = new System.Drawing.Size(331, 596);
+            this.CustomersListBox.TabIndex = 1;
+            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
+            // 
             // SelectedCustomerPanel
             // 
             this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -157,61 +157,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerPanel.Size = new System.Drawing.Size(480, 229);
             this.SelectedCustomerPanel.TabIndex = 1;
             // 
-            // SelectedCustomerLabel
-            // 
-            this.SelectedCustomerLabel.AutoSize = true;
-            this.SelectedCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectedCustomerLabel.Location = new System.Drawing.Point(3, 9);
-            this.SelectedCustomerLabel.Name = "SelectedCustomerLabel";
-            this.SelectedCustomerLabel.Size = new System.Drawing.Size(144, 17);
-            this.SelectedCustomerLabel.TabIndex = 0;
-            this.SelectedCustomerLabel.Text = "Selected Customer";
-            // 
-            // IdLabel
-            // 
-            this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(3, 45);
-            this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(25, 17);
-            this.IdLabel.TabIndex = 1;
-            this.IdLabel.Text = "ID:";
-            // 
-            // FullNameLabel
-            // 
-            this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.Location = new System.Drawing.Point(3, 73);
-            this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(75, 17);
-            this.FullNameLabel.TabIndex = 2;
-            this.FullNameLabel.Text = "Full Name:";
-            // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Location = new System.Drawing.Point(84, 45);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(179, 22);
-            this.IdTextBox.TabIndex = 3;
-            // 
-            // FullNameTextBox
-            // 
-            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FullNameTextBox.Location = new System.Drawing.Point(84, 73);
-            this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(390, 22);
-            this.FullNameTextBox.TabIndex = 4;
-            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(3, 101);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
-            this.AddressLabel.TabIndex = 5;
-            this.AddressLabel.Text = "Address:";
-            // 
             // AddressTextBox
             // 
             this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -223,6 +168,61 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddressTextBox.Size = new System.Drawing.Size(390, 125);
             this.AddressTextBox.TabIndex = 6;
             this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
+            // 
+            // AddressLabel
+            // 
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Location = new System.Drawing.Point(3, 101);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
+            this.AddressLabel.TabIndex = 5;
+            this.AddressLabel.Text = "Address:";
+            // 
+            // FullNameTextBox
+            // 
+            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameTextBox.Location = new System.Drawing.Point(84, 73);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.Size = new System.Drawing.Size(390, 22);
+            this.FullNameTextBox.TabIndex = 4;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
+            // 
+            // IdTextBox
+            // 
+            this.IdTextBox.Location = new System.Drawing.Point(84, 45);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
+            this.IdTextBox.Size = new System.Drawing.Size(179, 22);
+            this.IdTextBox.TabIndex = 3;
+            // 
+            // FullNameLabel
+            // 
+            this.FullNameLabel.AutoSize = true;
+            this.FullNameLabel.Location = new System.Drawing.Point(3, 73);
+            this.FullNameLabel.Name = "FullNameLabel";
+            this.FullNameLabel.Size = new System.Drawing.Size(75, 17);
+            this.FullNameLabel.TabIndex = 2;
+            this.FullNameLabel.Text = "Full Name:";
+            // 
+            // IdLabel
+            // 
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.Location = new System.Drawing.Point(3, 45);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(25, 17);
+            this.IdLabel.TabIndex = 1;
+            this.IdLabel.Text = "ID:";
+            // 
+            // SelectedCustomerLabel
+            // 
+            this.SelectedCustomerLabel.AutoSize = true;
+            this.SelectedCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SelectedCustomerLabel.Location = new System.Drawing.Point(3, 9);
+            this.SelectedCustomerLabel.Name = "SelectedCustomerLabel";
+            this.SelectedCustomerLabel.Size = new System.Drawing.Size(144, 17);
+            this.SelectedCustomerLabel.TabIndex = 0;
+            this.SelectedCustomerLabel.Text = "Selected Customer";
             // 
             // panel4
             // 
@@ -253,8 +253,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersPanel.ResumeLayout(false);
             this.CustomersPanel.PerformLayout();
             this.ButtonsPanel.ResumeLayout(false);
-            this.AddButtonPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.AddButtonPanel.ResumeLayout(false);
             this.SelectedCustomerPanel.ResumeLayout(false);
             this.SelectedCustomerPanel.PerformLayout();
             this.CustomerGeneralPanel.ResumeLayout(false);
