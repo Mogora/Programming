@@ -115,6 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch
             {
                 AddressTextBox.BackColor = AppColor.ErrorColor;
+                return;
             }
             AddressTextBox.BackColor = AppColor.CorrectColor;
         }

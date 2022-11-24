@@ -28,7 +28,13 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _items = new List<Item>();
 
-            InitializeComponent();        
+            InitializeComponent();
+
+            var category = Enum.GetValues(typeof(Category));
+            foreach (var value in category)
+            {
+                CategoryComboBox.Items.Add(value);
+            }
         }
 
         /// <summary>
@@ -79,6 +85,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
             }              
         }
 
@@ -90,7 +97,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                double cost = Convert.ToDouble(CostTextBox.Text);
+                int cost = Convert.ToInt32(CostTextBox.Text);
                 _currentItem.Cost = cost;
                 UpdateItemInfo(_currentItem);
             }
@@ -110,8 +117,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                string name = NameTextBox.Text;
-                _currentItem.Name = name;
+                _currentItem.Name = NameTextBox.Text;
                 UpdateItemInfo(_currentItem);
             }
             catch
@@ -137,6 +143,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch
             {
                 DescriptionTextBox.BackColor = AppColor.ErrorColor;
+                return;
             }
             DescriptionTextBox.BackColor = AppColor.CorrectColor;
         }
@@ -166,6 +173,19 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             UpdateItemInfo(_currentItem);
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexCategory = CategoryComboBox.SelectedIndex;
+            int indexListBox = ItemsListBox.SelectedIndex;
+
+            if((indexCategory == -1) || (indexListBox == -1))
+            {
+                return;
+            }
+
+            _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
         }
     }
 }

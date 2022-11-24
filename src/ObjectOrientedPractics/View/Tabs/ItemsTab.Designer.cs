@@ -43,6 +43,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButtonPanel = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.SelectedItemPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.DescriptioLabel = new System.Windows.Forms.Label();
@@ -58,8 +60,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // ItemsListBox
             // 
-            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.ItemHeight = 16;
@@ -109,38 +112,38 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.IdTextBox.Location = new System.Drawing.Point(53, 45);
+            this.IdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.IdTextBox.Location = new System.Drawing.Point(78, 45);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(173, 22);
+            this.IdTextBox.Size = new System.Drawing.Size(179, 22);
             this.IdTextBox.TabIndex = 5;
             // 
             // CostTextBox
             // 
-            this.CostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CostTextBox.Location = new System.Drawing.Point(53, 73);
+            this.CostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CostTextBox.Location = new System.Drawing.Point(78, 73);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(173, 22);
+            this.CostTextBox.Size = new System.Drawing.Size(179, 22);
             this.CostTextBox.TabIndex = 6;
             this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // ItemsPanel
             // 
-            this.ItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsPanel.Controls.Add(this.ButtonsPanel);
             this.ItemsPanel.Controls.Add(this.ItemsLabel);
             this.ItemsPanel.Controls.Add(this.ItemsListBox);
             this.ItemsPanel.Location = new System.Drawing.Point(3, 3);
             this.ItemsPanel.Name = "ItemsPanel";
-            this.ItemsPanel.Size = new System.Drawing.Size(338, 695);
+            this.ItemsPanel.Size = new System.Drawing.Size(338, 701);
             this.ItemsPanel.TabIndex = 7;
             // 
             // ButtonsPanel
             // 
+            this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonsPanel.Controls.Add(this.RemoveButtonPanel);
             this.ButtonsPanel.Controls.Add(this.AddButtonPanel);
             this.ButtonsPanel.Location = new System.Drawing.Point(3, 631);
@@ -186,9 +189,10 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedItemPanel
             // 
-            this.SelectedItemPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.SelectedItemPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectedItemPanel.Controls.Add(this.label1);
+            this.SelectedItemPanel.Controls.Add(this.CategoryComboBox);
             this.SelectedItemPanel.Controls.Add(this.DescriptionTextBox);
             this.SelectedItemPanel.Controls.Add(this.NameTextBox);
             this.SelectedItemPanel.Controls.Add(this.DescriptioLabel);
@@ -200,28 +204,44 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemPanel.Controls.Add(this.IdTextBox);
             this.SelectedItemPanel.Location = new System.Drawing.Point(347, 3);
             this.SelectedItemPanel.Name = "SelectedItemPanel";
-            this.SelectedItemPanel.Size = new System.Drawing.Size(473, 694);
+            this.SelectedItemPanel.Size = new System.Drawing.Size(479, 700);
             this.SelectedItemPanel.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Category:";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(78, 101);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(179, 24);
+            this.CategoryComboBox.TabIndex = 15;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // DescriptionTextBox
             // 
-            this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionTextBox.Location = new System.Drawing.Point(6, 334);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(464, 94);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(470, 94);
             this.DescriptionTextBox.TabIndex = 14;
             this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(6, 159);
             this.NameTextBox.Multiline = true;
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(464, 133);
+            this.NameTextBox.Size = new System.Drawing.Size(470, 133);
             this.NameTextBox.TabIndex = 13;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
@@ -247,9 +267,10 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.ItemsGeneralPanel.Controls.Add(this.ItemsPanel);
             this.ItemsGeneralPanel.Controls.Add(this.SelectedItemPanel);
-            this.ItemsGeneralPanel.Location = new System.Drawing.Point(3, 3);
+            this.ItemsGeneralPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsGeneralPanel.Location = new System.Drawing.Point(0, 0);
             this.ItemsGeneralPanel.Name = "ItemsGeneralPanel";
-            this.ItemsGeneralPanel.Size = new System.Drawing.Size(824, 703);
+            this.ItemsGeneralPanel.Size = new System.Drawing.Size(830, 709);
             this.ItemsGeneralPanel.TabIndex = 17;
             // 
             // ItemsTab
@@ -292,5 +313,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Panel ItemsGeneralPanel;
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }
