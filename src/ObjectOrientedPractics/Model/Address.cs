@@ -39,6 +39,23 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private string _apartment;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Address"/>.
+        /// </summary>
+        public Address()
+        {
+
+        }
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Address"/>.
+        /// </summary>
+        /// <param name="index">Почтовый индекс. Должен содержать 6 символов.</param>
+        /// <param name="country">Страна или регион доставки. Должно быть не более 50 символов.</param>
+        /// <param name="city">Город доставки.Должно быть не более 50 символов.</param>
+        /// <param name="street">Улица доставки. Должно быть не более 100 символов.</param>
+        /// <param name="building">Номер дома. Должно быть не более 10 символов.</param>
+        /// <param name="apartment">Номер квартиры. Должно быть не более 10 символов.</param>
         public Address(int index, string country, string city, string street, string building, string apartment)
         {
             Index = index;
