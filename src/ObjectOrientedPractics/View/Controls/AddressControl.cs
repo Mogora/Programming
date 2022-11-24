@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
@@ -14,7 +7,7 @@ namespace ObjectOrientedPractics.View.Controls
 {
     public partial class AddressControl : UserControl
     {
-        private Address _address;
+        private Model.Address _address;
 
         public AddressControl()
         {
@@ -23,7 +16,7 @@ namespace ObjectOrientedPractics.View.Controls
             _address = new Address();
         }
 
-        public Address Address
+        public Model.Address Address
         {
             get
             {
@@ -133,6 +126,20 @@ namespace ObjectOrientedPractics.View.Controls
                 return;
             }
             BuildingTextBox.BackColor = AppColor.CorrectColor;
+        }
+
+        private void ApartmentTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _address.Apartment = ApartmentTextBox.Text;
+            }
+            catch
+            {
+                ApartmentTextBox.BackColor = AppColor.ErrorColor;
+                return;
+            }
+            ApartmentTextBox.BackColor = AppColor.CorrectColor;
         }
     }
 }

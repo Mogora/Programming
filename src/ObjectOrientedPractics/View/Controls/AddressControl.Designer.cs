@@ -169,6 +169,7 @@ namespace ObjectOrientedPractics.View.Controls
             this.ApartmentTextBox.Name = "ApartmentTextBox";
             this.ApartmentTextBox.Size = new System.Drawing.Size(100, 22);
             this.ApartmentTextBox.TabIndex = 11;
+            this.ApartmentTextBox.TextChanged += new System.EventHandler(this.ApartmentTextBox_TextChanged);
             // 
             // CityTextBox
             // 

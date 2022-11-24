@@ -43,6 +43,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CustomersListBox.Items.Clear();
             FullNameTextBox.BackColor = AppColor.CorrectColor;
             AddressTextBox.BackColor = AppColor.CorrectColor;
+            addressControl1.BackColor = AppColor.CorrectColor;
         }
 
         /// <summary>
@@ -76,6 +77,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[index];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
+                Addre
+                addressControl1.Address = _currentCustomer.Address;
+                AddressControl.Address = _currentCustomer.Address;
                 AddressTextBox.Text = _currentCustomer.Address;
             }
         }
