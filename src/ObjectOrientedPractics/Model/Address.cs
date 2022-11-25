@@ -44,7 +44,12 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public Address()
         {
-
+            Index = 123456;
+            Country = "Country";
+            City = "City";
+            Street = "Streat";
+            Building = "Building";
+            Apartment = "Apartment";
         }
 
         /// <summary>

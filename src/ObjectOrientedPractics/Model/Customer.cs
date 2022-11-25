@@ -17,7 +17,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес доставки.
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Общее количество покупателей.
@@ -32,7 +32,6 @@ namespace ObjectOrientedPractics.Model
             _allCustomersCount++;
             _id = _allCustomersCount;
             FullName = "Buyer's full name";
-            Address = "Address";
         }
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullName"> Полное имя покупателя. </param>
         /// <param name="address"> Адрес доставки. </param>
-        public Customer(string fullName, string address)
+        public Customer(string fullName, Address address)
         {
             FullName = fullName;
             Address = address;
@@ -80,7 +79,7 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и задает адрес доставки.
         /// Должно быть не более 500 символов.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get
             {
@@ -88,7 +87,6 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
                 _address = value;
             }
         }

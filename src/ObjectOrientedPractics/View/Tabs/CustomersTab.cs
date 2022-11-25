@@ -38,12 +38,12 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ClearCustomerInfo()
         {
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
+            //AddressTextBox.Clear();
             IdTextBox.Clear();
             CustomersListBox.Items.Clear();
             FullNameTextBox.BackColor = AppColor.CorrectColor;
-            AddressTextBox.BackColor = AppColor.CorrectColor;
-            addressControl1.BackColor = AppColor.CorrectColor;
+            //AddressTextBox.BackColor = AppColor.CorrectColor;
+            //addressControl1.BackColor = AppColor.CorrectColor;
         }
 
         /// <summary>
@@ -77,10 +77,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[index];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                Addre
-                addressControl1.Address = _currentCustomer.Address;
-                AddressControl.Address = _currentCustomer.Address;
-                AddressTextBox.Text = _currentCustomer.Address;
+                //Addre
+                //addressControl1.Address = _currentCustomer.Address;
+                //AddressControl.Address = _currentCustomer.Address;
+                //AddressTextBox.Text = _currentCustomer.Address;
             }
         }
 
@@ -112,16 +112,16 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                string address = AddressTextBox.Text;
-                _currentCustomer.Address = address;
+                //string address = AddressTextBox.Text;
+                //_currentCustomer.Address = address;
                 UpdateCustomerInfo(_currentCustomer);
             }
             catch
             {
-                AddressTextBox.BackColor = AppColor.ErrorColor;
+                //AddressTextBox.BackColor = AppColor.ErrorColor;
                 return;
             }
-            AddressTextBox.BackColor = AppColor.CorrectColor;
+            //AddressTextBox.BackColor = AppColor.CorrectColor;
         }
 
         private void AddButton_Click(object sender, EventArgs e)

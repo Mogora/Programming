@@ -29,7 +29,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.CustomersPanel = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,20 +45,20 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CustomerGeneralPanel = new System.Windows.Forms.Panel();
-            this.addressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.CustomersPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.AddButtonPanel.SuspendLayout();
             this.SelectedCustomerPanel.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.CustomerGeneralPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CustomersPanel
             // 
-            this.CustomersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.CustomersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersPanel.Controls.Add(this.ButtonsPanel);
             this.CustomersPanel.Controls.Add(this.CustomersLabel);
@@ -89,7 +88,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveButton.Location = new System.Drawing.Point(3, 3);
             this.RemoveButton.Name = "RemoveButton";
@@ -109,7 +108,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AddButton
             // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.Location = new System.Drawing.Point(3, 4);
             this.AddButton.Name = "AddButton";
@@ -131,8 +130,8 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CustomersListBox
             // 
-            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersListBox.FormattingEnabled = true;
             this.CustomersListBox.ItemHeight = 16;
@@ -144,8 +143,10 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedCustomerPanel
             // 
-            this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectedCustomerPanel.Controls.Add(this.AddressTextBox);
+            this.SelectedCustomerPanel.Controls.Add(this.AddressLabel);
             this.SelectedCustomerPanel.Controls.Add(this.FullNameTextBox);
             this.SelectedCustomerPanel.Controls.Add(this.IdTextBox);
             this.SelectedCustomerPanel.Controls.Add(this.FullNameLabel);
@@ -153,12 +154,12 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedCustomerPanel.Controls.Add(this.SelectedCustomerLabel);
             this.SelectedCustomerPanel.Location = new System.Drawing.Point(347, 3);
             this.SelectedCustomerPanel.Name = "SelectedCustomerPanel";
-            this.SelectedCustomerPanel.Size = new System.Drawing.Size(480, 120);
+            this.SelectedCustomerPanel.Size = new System.Drawing.Size(480, 229);
             this.SelectedCustomerPanel.TabIndex = 1;
             // 
             // FullNameTextBox
             // 
-            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.Location = new System.Drawing.Point(84, 73);
             this.FullNameTextBox.Name = "FullNameTextBox";
@@ -205,10 +206,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.addressControl);
-            this.panel4.Location = new System.Drawing.Point(347, 129);
+            this.panel4.Location = new System.Drawing.Point(347, 238);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(480, 569);
+            this.panel4.Size = new System.Drawing.Size(474, 460);
             this.panel4.TabIndex = 2;
             // 
             // CustomerGeneralPanel
@@ -222,19 +222,26 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomerGeneralPanel.Size = new System.Drawing.Size(830, 709);
             this.CustomerGeneralPanel.TabIndex = 0;
             // 
-            // addressControl1
+            // AddressLabel
             // 
-            address1.Apartment = null;
-            address1.Building = null;
-            address1.City = null;
-            address1.Country = null;
-            address1.Index = 0;
-            address1.Street = null;
-            this.addressControl.Address = address1;
-            this.addressControl.Location = new System.Drawing.Point(6, 3);
-            this.addressControl.Name = "addressControl1";
-            this.addressControl.Size = new System.Drawing.Size(468, 445);
-            this.addressControl.TabIndex = 0;
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Location = new System.Drawing.Point(3, 101);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(64, 17);
+            this.AddressLabel.TabIndex = 5;
+            this.AddressLabel.Text = "Address:";
+            // 
+            // AddressTextBox
+            // 
+            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddressTextBox.Location = new System.Drawing.Point(84, 98);
+            this.AddressTextBox.Multiline = true;
+            this.AddressTextBox.Name = "AddressTextBox";
+            this.AddressTextBox.Size = new System.Drawing.Size(390, 125);
+            this.AddressTextBox.TabIndex = 6;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
             // CustomersTab
             // 
@@ -250,7 +257,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButtonPanel.ResumeLayout(false);
             this.SelectedCustomerPanel.ResumeLayout(false);
             this.SelectedCustomerPanel.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.CustomerGeneralPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -274,6 +280,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label SelectedCustomerLabel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel CustomerGeneralPanel;
-        private Controls.AddressControl addressControl;
+        private System.Windows.Forms.TextBox AddressTextBox;
+        private System.Windows.Forms.Label AddressLabel;
     }
 }
