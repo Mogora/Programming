@@ -38,6 +38,26 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+
+                if(_items != null)
+                {
+                    UpdateItemInfo(_currentItem);
+                }
+            }
+        }
+
+        /// <summary>
         /// На значения товара задаются параметры.
         /// </summary>
         /// <param name="item"></param>
