@@ -32,6 +32,7 @@ namespace ObjectOrientedPractics.Model
             _allCustomersCount++;
             _id = _allCustomersCount;
             FullName = "Buyer's full name";
+            Address = new Address();
         }
 
         /// <summary>

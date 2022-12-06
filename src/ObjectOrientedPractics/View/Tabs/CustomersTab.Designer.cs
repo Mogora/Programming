@@ -45,8 +45,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IdLabel = new System.Windows.Forms.Label();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.CustomerGeneralPanel = new System.Windows.Forms.Panel();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.CustomersPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -205,11 +205,25 @@ namespace ObjectOrientedPractics.View.Tabs
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.addressControl1);
+            this.panel4.Controls.Add(this.AddressControl);
             this.panel4.Location = new System.Drawing.Point(347, 114);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(480, 584);
             this.panel4.TabIndex = 2;
+            // 
+            // AddressControl
+            // 
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.AddressControl.Address = address1;
+            this.AddressControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddressControl.Location = new System.Drawing.Point(0, 0);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(480, 584);
+            this.AddressControl.TabIndex = 0;
             // 
             // CustomerGeneralPanel
             // 
@@ -221,15 +235,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomerGeneralPanel.Name = "CustomerGeneralPanel";
             this.CustomerGeneralPanel.Size = new System.Drawing.Size(830, 709);
             this.CustomerGeneralPanel.TabIndex = 0;
-            // 
-            // addressControl1
-            // 
-            this.addressControl1.Address = address1;
-            this.addressControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addressControl1.Location = new System.Drawing.Point(0, 0);
-            this.addressControl1.Name = "addressControl1";
-            this.addressControl1.Size = new System.Drawing.Size(480, 584);
-            this.addressControl1.TabIndex = 0;
             // 
             // CustomersTab
             // 
@@ -269,6 +274,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label SelectedCustomerLabel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel CustomerGeneralPanel;
-        private Controls.AddressControl addressControl1;
+        private Controls.AddressControl AddressControl;
     }
 }

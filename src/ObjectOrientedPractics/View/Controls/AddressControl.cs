@@ -7,7 +7,7 @@ namespace ObjectOrientedPractics.View.Controls
 {
     public partial class AddressControl : UserControl
     {
-        private Model.Address _address;
+        private Address _address;
 
         public AddressControl()
         {
@@ -16,7 +16,7 @@ namespace ObjectOrientedPractics.View.Controls
             _address = new Address();
         }
 
-        public Model.Address Address
+        public Address Address
         {
             get
             {
@@ -34,12 +34,12 @@ namespace ObjectOrientedPractics.View.Controls
         /// </summary>
         private void SetDeliveryParameters()
         {
-            PostIndexTextBox.Text = _address.Index.ToString();
-            CountryTextBox.Text = _address.Country;
-            CityTextBox.Text = _address.City;
-            StreetTextBox.Text = _address.Street;
-            BuildingTextBox.Text = _address.Building;
-            ApartmentTextBox.Text = _address.Apartment;
+            PostIndexTextBox.Text = Address.Index.ToString();
+            CountryTextBox.Text = Address.Country;
+            CityTextBox.Text = Address.City;
+            StreetTextBox.Text = Address.Street;
+            BuildingTextBox.Text = Address.Building;
+            ApartmentTextBox.Text = Address.Apartment;
         }
 
         /// <summary>

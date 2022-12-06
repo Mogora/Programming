@@ -145,6 +145,7 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
+                _apartment = value;
             }
         }
     }
