@@ -73,7 +73,7 @@ namespace ListOfBuildings.Model
             }
             set
             {
-                Validator.AssertNumberContainsNoMoreTwoHundredDigit(nameof(Title), value);
+                Validator.AssertNoMoreThan(value, 200, nameof(Title));
                 Validator.AssertStringContainsOnlyLetters(nameof(Title), value);
                 _title = value;
             }
@@ -109,7 +109,7 @@ namespace ListOfBuildings.Model
             }
             set
             {
-                Validator.AssertNumberContainsNoMoreOneHundredDigit(nameof(Address), value);
+                Validator.AssertNoMoreThan(value, 100, nameof(Address));
                 Validator.AssertStringContainsOnlyLetters(nameof(Address), value);
                 _address = value;
             }

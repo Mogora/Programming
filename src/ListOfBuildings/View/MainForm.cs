@@ -35,10 +35,13 @@ namespace ListOfBuildings.View
             _buildings = new List<Building>();
 
             Array typeValues = Enum.GetValues(typeof(Category));
+
             foreach (Category value in typeValues)
             {
                 CategoryBuildingComboBox.Items.Add(value);
-            }
+            }   
+
+            _buildings = ProjectSerializer.Deserialize();
         }
 
         /// <summary>
@@ -54,6 +57,9 @@ namespace ListOfBuildings.View
             BuildingListBox.Items.Clear();
         }
 
+        /// <summary>
+        /// Сортировка по категории, а внутри по названию. 
+        /// </summary>
         private void SortBuildings()
         {
             var orderedBuildingsList = from building in _buildings
@@ -61,9 +67,19 @@ namespace ListOfBuildings.View
                                        select building;
 
             _buildings = orderedBuildingsList.ToList();
+
+            int index = _buildings.IndexOf(_currentBuilding);
+            BuildingListBox.Items.Clear();
+            
+            foreach (var building in _buildings)
+            {
+                BuildingListBox.Items.Add(BuildingDescription(building));
+            }
+            BuildingListBox.SelectedIndex = index;
         }
+
         /// <summary>
-        /// На значения здания задаются параметры.
+        /// На значения здания задаются параметры.  
         /// </summary>
         /// <param name="building"> Здание. </param>
         /// <returns> Возвращает форматированный текст. </returns>
@@ -73,6 +89,10 @@ namespace ListOfBuildings.View
                    $"({building.Category} - {building.Title})";
         }
 
+        /// <summary>
+        /// Обновляет данные в списке BuildingListBox.
+        /// </summary>
+        /// <param name="building"></param>
         private void UpdateBuildingInfo(Building building)
         {
             int index = _buildings.IndexOf(building);
@@ -82,6 +102,18 @@ namespace ListOfBuildings.View
             BuildingListBox.Items[index] = BuildingDescription(building);
             SortBuildings();
 
+        }
+        private void BuildingListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (BuildingListBox.SelectedIndex != -1)
+            {
+                int indexSelectedBuilding = BuildingListBox.SelectedIndex;
+                _currentBuilding = _buildings[indexSelectedBuilding];
+                TitleBuildingTextBox.Text = _currentBuilding.Title;
+                AddressTextBox.Text = _currentBuilding.Address;
+                RatingBuildingTextBox.Text = _currentBuilding.Rating.ToString();
+                CategoryBuildingComboBox.Text = _currentBuilding.Category.ToString();
+            }
         }
 
         private void TitleBuildingTextBox_TextChanged(object sender, EventArgs e)
@@ -98,19 +130,6 @@ namespace ListOfBuildings.View
             {
                 TitleBuildingTextBox.BackColor = AppColors.ErrorColor;
             }
-        }
-
-        private void BuildingListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (BuildingListBox.SelectedIndex != -1)
-            {
-                int indexSelectedBuilding = BuildingListBox.SelectedIndex;
-                _currentBuilding = _buildings[indexSelectedBuilding];
-                TitleBuildingTextBox.Text = _currentBuilding.Title;
-                AddressTextBox.Text = _currentBuilding.Address;
-                RatingBuildingTextBox.Text = _currentBuilding.Rating.ToString();
-                CategoryBuildingComboBox.Text = _currentBuilding.Category.ToString();
-            }             
         }
 
         private void AddressTextBox_TextChanged(object sender, EventArgs e)
@@ -164,9 +183,8 @@ namespace ListOfBuildings.View
             _currentBuilding = new Building();
             _buildings.Add(_currentBuilding);
             BuildingListBox.Items.Add(BuildingDescription(_currentBuilding));
-            BuildingListBox.SelectedIndex = _buildings.Count - 1;
             SortBuildings();
-        }   
+        }
 
         private void RemoveBuildingButton_Click(object sender, EventArgs e)
         {
@@ -177,12 +195,8 @@ namespace ListOfBuildings.View
             _buildings.RemoveAt(indexSelectedBuilding);
 
             ClearBuildingInfo();
+            SortBuildings();
             
-            foreach (var building in _buildings)
-            {
-                BuildingListBox.Items.Add(BuildingDescription(building));
-                BuildingListBox.SelectedIndex = 0;
-            }
         }
 
         private void AddBuildingButton_MouseEnter(object sender, EventArgs e)
@@ -203,6 +217,11 @@ namespace ListOfBuildings.View
         private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveBuildingButton.BackgroundImage = Properties.Resources.remove_building_grey;
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ProjectSerializer.Serialize(_buildings);
         }
     } 
 }

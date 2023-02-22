@@ -25,30 +25,18 @@ namespace ListOfBuildings.Model
         }
 
         /// <summary>
-        /// Проверяет, что в строке не больше 200 символов.
+        /// Проверка на то, что строка по длине не больше, чем максимальная возможная длина.
         /// </summary>
-        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
-        /// <param name="value">Строка.</param>
-        /// <exception cref="System.ArgumentException">Выбрасывается, если в строке больше 200 символов.</exception>
-        public static void AssertNumberContainsNoMoreTwoHundredDigit(string nameProperty, string value)
+        /// <param name="value"> Строка. </param>
+        /// <param name="maxLength"> Максимальная длина. </param>
+        /// <param name="nameProperty"> Имя свойства, откуда был вызван метод .</param>
+        /// <exception cref="ArgumentException"> Выбрасывается, когда строка превышает максимально
+        /// возможную длину.</exception>
+        public static void AssertNoMoreThan(string value, int maxLength, string nameProperty)
         {
-            if (value.Length > 200)
+            if (value.Length > maxLength)
             {
-                throw new System.ArgumentException($"У значения {nameProperty} строка не должна превышать 200 символов.");
-            }
-        }
-
-        /// <summary>
-        /// Проверяет, что в строке не больше 100 символов.
-        /// </summary>
-        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
-        /// <param name="value">Строка.</param>
-        /// <exception cref="System.ArgumentException">Выбрасывается, если в строке больше 100 символов.</exception>
-        public static void AssertNumberContainsNoMoreOneHundredDigit(string nameProperty, string value)
-        {
-            if (value.Length > 100)
-            {
-                throw new System.ArgumentException($"У значения {nameProperty} строка не должна превышать 100 символов.");
+                throw new ArgumentException($"the value of the {nameProperty} more than {maxLength}");
             }
         }
 
