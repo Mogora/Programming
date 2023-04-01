@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
-    /// <summary>
-    /// Реализация представления товаров.
-    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -28,7 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _items = new List<Item>();
 
-            InitializeComponent();        
+            InitializeComponent();
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace ObjectOrientedPractics.View.Tabs
             if (index == -1) return;
 
             ItemsListBox.Items[index] = ItemDescription(item);
-         
+
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
-            }              
+            }
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
@@ -169,3 +170,5 @@ namespace ObjectOrientedPractics.View.Tabs
         }
     }
 }
+
+  

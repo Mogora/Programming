@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
-    /// <summary>
-    /// Реализация представления покупателей.
-    /// </summary>
     public partial class CustomersTab : UserControl
     {
         /// <summary>
@@ -148,3 +149,4 @@ namespace ObjectOrientedPractics.View.Tabs
         }
     }
 }
+   
