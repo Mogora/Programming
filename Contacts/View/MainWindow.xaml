@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="450" Width="500">
+    <Grid Margin="15px,15px,15px,15px">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="31"/>
+            </Grid.RowDefinitions>
+            <GroupBox x:Name="EditContactGroupBox" Header="Edit Contact" Margin="3,3,3,3">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="___Name_2" Text="Name:" TextWrapping="Wrap" Margin="3,3,3,3"/>
+                    <TextBox x:Name="___Name_" Text="Юрий Смирнов" TextWrapping="Wrap" Width="210" HorizontalAlignment="Left" Margin="3,3,3,3" Height="18"/>
+                    <TextBlock x:Name="___PhoneNumber_" Text="Phone Number:" TextWrapping="Wrap" Margin="3,3,3,3"/>
+                    <TextBox x:Name="___PhoneNumber_1" Text="+7-913-111-22-33" TextWrapping="Wrap" Width="210" HorizontalAlignment="Left" Margin="3,3,3,3" Height="18"/>
+                    <TextBlock x:Name="___Email_" Text="Email:" TextWrapping="Wrap" RenderTransformOrigin="-0.824,0.153" Margin="3,3,3,3"/>
+                    <TextBox x:Name="___Email_1" Text="yuri.smirnov@no.email" TextWrapping="Wrap" Width="210" HorizontalAlignment="Left" Margin="3,3,3,3" Height="18"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox x:Name="___ReadContactGroupBox_" Grid.Column="1" Header="Read Contact" Margin="3,3,3,3">
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock x:Name="___Name_1" Text="Name:" TextWrapping="Wrap" Margin="3,3,3,3"/>
+                    <TextBlock Text="Юрий Смирнов" TextWrapping="Wrap" FontWeight="Bold" Margin="3,3,3,3" Height="18"/>
+                    <TextBlock Text="Phone Number:" TextWrapping="Wrap" Margin="3,3,3,3"/>
+                    <TextBlock Text="+7-913-111-22-33" TextWrapping="Wrap" Margin="3,3,3,3" FontWeight="Bold" Height="18"/>
+                    <TextBlock Text="Email:" TextWrapping="Wrap" Margin="3,3,3,3" FontWeight="Normal"/>
+                    <TextBlock Text="yuri.smirnov@no.email" TextWrapping="Wrap" Margin="3,3,3,3" Height="18" FontWeight="Bold"/>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel x:Name="ButtonStackPanel" Grid.Column="1" Orientation="Horizontal" Margin="0,373,3,0" Grid.RowSpan="2">
+                <Button x:Name="SaveButton" Content="Save" Width="75" RenderTransformOrigin="1.035,0.639" Height="25" Margin="3,3,3,3"/>
+                <Button x:Name="LoadButton" Content="Load" Width="75" Height="25"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
