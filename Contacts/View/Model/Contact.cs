@@ -40,14 +40,5 @@ namespace View.Model
         /// Возвращает и задаёт номер телефона контакта.
         /// </summary>
         public string Phone { get; set; }
-
-        /// <summary>
-        /// Возвращает копию экземпляра класса <see cref="Contact"/>
-        /// </summary>
-        /// <returns></returns>
-        public object Clone()
-        {
-            return new Contact(Name, Email, Phone);
-        }
     }
 }
