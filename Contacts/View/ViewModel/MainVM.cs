@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.ComponentModel;
 using View.Model;
-using View.Model.Services;
 
 namespace View.ViewModel
 {
@@ -71,37 +72,6 @@ namespace View.ViewModel
             {
                 Contact.Phone = value;
                 OnPropertyChanged(nameof(PhoneNumber));
-            }
-        }
-
-        /// <summary>
-        /// Команда сериализации контакта.
-        /// </summary>
-        public ICommand SaveCommand
-        {
-            get
-            {
-                return new RelayCommand((obj) =>
-                {
-                    ContactSerializer.Serialize(Contact, Path);
-                });
-            }
-        }
-
-        /// <summary>
-        /// Команда десериализации контакта.
-        /// </summary>
-        public ICommand LoadCommand
-        {
-            get
-            {
-                return new RelayCommand((obj) =>
-                {
-                    var contact = ContactSerializer.Deserialize(Path);
-                    Name = contact.Name;
-                    Email = contact.Email;
-                    PhoneNumber = contact.Phone;
-                });
             }
         }
 
