@@ -13,7 +13,6 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-            InitializeComponent();
             MainVM vm = new MainVM();
             DataContext = vm;
         }
