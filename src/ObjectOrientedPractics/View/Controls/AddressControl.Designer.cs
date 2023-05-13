@@ -73,7 +73,7 @@ namespace ObjectOrientedPractics.View.Controls
             this.DeliveryAddressPanel.Controls.Add(this.DeliveryAddressLabel);
             this.DeliveryAddressPanel.Location = new System.Drawing.Point(3, 3);
             this.DeliveryAddressPanel.Name = "DeliveryAddressPanel";
-            this.DeliveryAddressPanel.Size = new System.Drawing.Size(562, 253);
+            this.DeliveryAddressPanel.Size = new System.Drawing.Size(559, 253);
             this.DeliveryAddressPanel.TabIndex = 1;
             // 
             // ApartmentLabel
@@ -132,7 +132,7 @@ namespace ObjectOrientedPractics.View.Controls
             // 
             this.CityTextBox.Location = new System.Drawing.Point(372, 72);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(180, 27);
+            this.CityTextBox.Size = new System.Drawing.Size(168, 27);
             this.CityTextBox.TabIndex = 6;
             this.CityTextBox.TextChanged += new System.EventHandler(this.CityTextBox_TextChanged);
             // 
@@ -140,7 +140,7 @@ namespace ObjectOrientedPractics.View.Controls
             // 
             this.StreetTextBox.Location = new System.Drawing.Point(99, 109);
             this.StreetTextBox.Name = "StreetTextBox";
-            this.StreetTextBox.Size = new System.Drawing.Size(453, 27);
+            this.StreetTextBox.Size = new System.Drawing.Size(441, 27);
             this.StreetTextBox.TabIndex = 5;
             this.StreetTextBox.TextChanged += new System.EventHandler(this.StreetTextBox_TextChanged);
             // 

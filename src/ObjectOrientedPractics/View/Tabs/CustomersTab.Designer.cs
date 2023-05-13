@@ -29,6 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.CustomersGeneralPanel = new System.Windows.Forms.Panel();
             this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
@@ -67,7 +68,14 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AddressControl
             // 
-            this.AddressControl.Location = new System.Drawing.Point(408, 119);
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.AddressControl.Address = address1;
+            this.AddressControl.Location = new System.Drawing.Point(411, 119);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(555, 321);
             this.AddressControl.TabIndex = 4;
@@ -131,18 +139,18 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // FullNameTextBox
             // 
-            this.FullNameTextBox.Location = new System.Drawing.Point(86, 72);
+            this.FullNameTextBox.Location = new System.Drawing.Point(101, 72);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(464, 27);
+            this.FullNameTextBox.Size = new System.Drawing.Size(441, 27);
             this.FullNameTextBox.TabIndex = 9;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Location = new System.Drawing.Point(86, 35);
+            this.IdTextBox.Location = new System.Drawing.Point(101, 35);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(156, 27);
+            this.IdTextBox.Size = new System.Drawing.Size(141, 27);
             this.IdTextBox.TabIndex = 8;
             // 
             // FullNameLabel
