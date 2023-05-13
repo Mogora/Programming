@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
-    /// <summary>
-    /// Реализация представления товаров.
-    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
 
             var category = Enum.GetValues(typeof(Category));
+
             foreach (var value in category)
             {
                 CategoryComboBox.Items.Add(value);
@@ -38,24 +40,9 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Возвращает и задает коллекцию товаров.
+        /// Возвращает и задаёт коллекцию товаров.
         /// </summary>
-        public List<Item> Items
-        {
-            get
-            {
-                return _items;
-            }
-            set
-            {
-                _items = value;
-
-                if(_items != null)
-                {
-                    UpdateItemInfo(_currentItem);
-                }
-            }
-        }
+        public List<Item> Items { get; set; }
 
         /// <summary>
         /// На значения товара задаются параметры.
@@ -73,12 +60,14 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <param name="selectedIndex">Индекс выбранного элемента.</param>
         private void UpdateItemInfo(Item item)
         {
+            List<Item> items = Items;
+
             int index = _items.IndexOf(item);
 
             if (index == -1) return;
 
             ItemsListBox.Items[index] = ItemDescription(item);
-         
+
         }
 
         /// <summary>
@@ -105,8 +94,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
-                CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
-            }              
+            }
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
@@ -117,7 +105,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                int cost = Convert.ToInt32(CostTextBox.Text);
+                double cost = Convert.ToDouble(CostTextBox.Text);
                 _currentItem.Cost = cost;
                 UpdateItemInfo(_currentItem);
             }
@@ -137,7 +125,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try
             {
-                _currentItem.Name = NameTextBox.Text;
+                string name = NameTextBox.Text;
+                _currentItem.Name = name;
                 UpdateItemInfo(_currentItem);
             }
             catch
@@ -163,7 +152,6 @@ namespace ObjectOrientedPractics.View.Tabs
             catch
             {
                 DescriptionTextBox.BackColor = AppColor.ErrorColor;
-                return;
             }
             DescriptionTextBox.BackColor = AppColor.CorrectColor;
         }
@@ -200,7 +188,7 @@ namespace ObjectOrientedPractics.View.Tabs
             int indexCategory = CategoryComboBox.SelectedIndex;
             int indexListBox = ItemsListBox.SelectedIndex;
 
-            if((indexCategory == -1) || (indexListBox == -1))
+            if ((indexCategory == -1) || (indexListBox == -1))
             {
                 return;
             }
@@ -209,3 +197,5 @@ namespace ObjectOrientedPractics.View.Tabs
         }
     }
 }
+
+  

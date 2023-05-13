@@ -1,43 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using ObjectOrientedPractics.Services;
+using static ObjectOrientedPractics.Services.ValueValidator;
 
 namespace ObjectOrientedPractics.Model
 {
+    /// <summary>
+    /// Хранит данные о адресе покупателя.
+    /// </summary>
     public class Address
     {
         /// <summary>
-        /// Почтовый индекс.
+        /// Почтовый индекс покупателя.
         /// </summary>
         private int _index;
 
         /// <summary>
-        /// Страна или регион доставки.
+        /// Страна покупателя.
         /// </summary>
         private string _country;
 
         /// <summary>
-        /// Город доставки.
+        /// Город покупателя.
         /// </summary>
         private string _city;
 
         /// <summary>
-        /// Улица доставки.
+        /// Улица покупателя.
         /// </summary>
         private string _street;
 
         /// <summary>
-        /// Номер дома.
+        /// Номер дома покупателя.
         /// </summary>
         private string _building;
 
         /// <summary>
-        /// Номер квартиры.
+        /// Номер квартиры покупателя.
         /// </summary>
         private string _apartment;
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Address"/>.
+        /// </summary>
+        /// <param name="index">Почтовый индекс покупателя. 
+        /// Должно находится в диапазоне от 100000 до 999999 (включительно).</param>
+        /// <param name="country">Возвращает и задает страну покупателя.
+        /// Должно содержать до 50 символов (включительно).</param>
+        /// <param name="city">Возвращает и задает город покупателя.
+        /// Должно содержать до 50 символов (включительно).</param>
+        /// <param name="street">Возвращает и задает улицу покупателя.
+        /// Должно содержать до 100 символов (включительно).</param>
+        /// <param name="building">Возвращает и задаёт номер дома покупателя.
+        /// Должно содержать до 10 символов (включительно).</param>
+        /// <param name="apartmennt">Возвращает и задаёт номер квартиры покупателя.
+        /// Должно содержать до 10 символов (включительно).</param>
+        public Address (int index, string country, string city, 
+            string street, string building, string apartmennt)
+        {
+            Index = index;
+            Country = country;
+            City = city;
+            Street = street;
+            Building = building;
+            Apartment = apartmennt;
+        }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Address"/>.
@@ -53,24 +80,9 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Address"/>.
+        /// Возвращает и задает почтовый индекс покупателя.
+        /// Должно находится в диапазоне от 100000 до 999999 (включительно).
         /// </summary>
-        /// <param name="index">Почтовый индекс. Должен содержать 6 символов.</param>
-        /// <param name="country">Страна или регион доставки. Должно быть не более 50 символов.</param>
-        /// <param name="city">Город доставки.Должно быть не более 50 символов.</param>
-        /// <param name="street">Улица доставки. Должно быть не более 100 символов.</param>
-        /// <param name="building">Номер дома. Должно быть не более 10 символов.</param>
-        /// <param name="apartment">Номер квартиры. Должно быть не более 10 символов.</param>
-        public Address(int index, string country, string city, string street, string building, string apartment)
-        {
-            Index = index;
-            Country = country;
-            City = city;
-            Street = street;
-            Building = building;
-            Apartment = apartment;
-        }
-
         public int Index
         {
             get
@@ -79,11 +91,15 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertSpecifiedNumberCharacters(nameof(Index), value, 6);
+                AssertValueInRange(nameof(Index), value, 100000, 999999);
                 _index = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает страну покупателя.
+        /// Должно содержать до 50 символов (включительно).
+        /// </summary>
         public string Country
         {
             get
@@ -92,11 +108,15 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
+                AssertStringOnLength(nameof(Country), value, 50);
                 _country = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает город покупателя.
+        /// Должно содержать до 50 символов (включительно).
+        /// </summary>
         public string City
         {
             get
@@ -105,11 +125,15 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 50, nameof(City));
+                AssertStringOnLength(nameof(City), value, 50);
                 _city = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает улицу покупателя.
+        /// Должно содержать до 100 символов (включительно).
+        /// </summary>
         public string Street
         {
             get
@@ -118,11 +142,15 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
+                AssertStringOnLength(nameof(Street), value, 100);
                 _street = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт номер дома покупателя.
+        /// Должно содержать до 10 символов (включительно).
+        /// </summary>
         public string Building
         {
             get
@@ -131,11 +159,15 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
+                AssertStringOnLength(nameof(Building), value, 10);
                 _building = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт номер квартиры покупателя.
+        /// Должно содержать до 10 символов (включительно).
+        /// </summary>
         public string Apartment
         {
             get
@@ -144,7 +176,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
+                AssertStringOnLength(nameof(Apartment), value, 10);
                 _apartment = value;
             }
         }

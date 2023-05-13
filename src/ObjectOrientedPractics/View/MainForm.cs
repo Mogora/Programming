@@ -7,31 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ObjectOrientedPractics.View.Tabs;
 using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics
 {
-    /// <summary>
-    /// Реализует представление главного окна.
-    /// </summary>
     public partial class MainForm : Form
     {
-        /// <summary>
-        /// Покупатели и товары.
-        /// </summary>
-        private Store _store;
+        private Store _store = new Store();
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="MainForm"/>.
+        /// Предоставляет реализацю расположения элементов на форме.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
-
-            _store = new Store();
-
             ItemsTab.Items = _store.Items;
-            CustomersTab.Customer = _store.Customers;
+            CustomersTab.Customers = _store.Customers;
         }
     }
 }

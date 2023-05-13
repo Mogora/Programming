@@ -1,11 +1,14 @@
-﻿using ObjectOrientedPractics.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
     public class Customer
     {
         /// <summary>
-        /// Уникальный идентификатор для всех объектов этого класса.
+        /// Уникальный идентификатор для всех объектов данного класса.
         /// </summary>
         private readonly int _id;
 
@@ -15,31 +18,29 @@ namespace ObjectOrientedPractics.Model
         private string _fullName;
 
         /// <summary>
-        /// Адрес доставки.
+        /// Адрес покупателя.
         /// </summary>
         private Address _address;
 
         /// <summary>
-        /// Общее количество покупателей.
+        /// Количество покупателей.
         /// </summary>
         private static int _allCustomersCount;
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Customer"/>.
+        /// Создаёт экземпляр класса <see cref="Customer"/>.
         /// </summary>
         public Customer()
         {
             _allCustomersCount++;
             _id = _allCustomersCount;
-            FullName = "Buyer's full name";
-            Address = new Address();
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Customer"/>.
+        /// Создаёт экземпляр класса <see cref="Customer"/>.
         /// </summary>
-        /// <param name="fullName"> Полное имя покупателя. </param>
-        /// <param name="address"> Адрес доставки. </param>
+        /// <param name="fullname">Полное имя. Должно быть не более 200 символов.</param>
+        /// <param name="address">Адрес. Должен быть не более 500 символов.</param>
         public Customer(string fullName, Address address)
         {
             FullName = fullName;
@@ -49,36 +50,25 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает уникальный идентификатор покупателя.
+        /// Возвращает уникальный идентификатор песни.
         /// </summary>
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-        }
-        
+        public int Id => _id;
+
         /// <summary>
-        /// Возвращает и задает полное имя покупателя.
-        /// Должно быть не более 200 символов.
+        /// Возвращает и задаёт полное имя покупателя. Должно быть не более 200 символов.
         /// </summary>
         public string FullName
         {
-            get
-            {
-                return _fullName;
-            }
+            get => _fullName;
             set
             {
-                ValueValidator.AssertStringOnLength(value, 200, nameof(FullName));
+                ValueValidator.AssertStringOnLength(nameof(FullName), value, 200);
                 _fullName = value;
             }
         }
 
         /// <summary>
-        /// Возвращает и задает адрес доставки.
-        /// Должно быть не более 500 символов.
+        /// Возвращает и задаёт адрес покупателя. Должно быть не более 500 символов.
         /// </summary>
         public Address Address
         {
@@ -91,5 +81,5 @@ namespace ObjectOrientedPractics.Model
                 _address = value;
             }
         }
-    }   
+    }
 }

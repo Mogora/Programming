@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
-    /// <summary>
-    /// Реализация представления покупателей.
-    /// </summary>
     public partial class CustomersTab : UserControl
     {
         /// <summary>
@@ -32,24 +33,9 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Возвращает и задает коллекцию товаров.
+        /// Возвращает и задает коллекцию покупателей.
         /// </summary>
-        public List <Customer> Customer
-        {
-            get
-            {
-                return _customers;
-            }
-            set
-            {
-                _customers = value;
-
-                if (_customers != null)
-                {
-                    UpdateCustomerInfo(_currentCustomer);
-                }
-            }
-        }
+        public List<Customer> Customers { get; set; }
 
         /// <summary>
         /// Очищает информацию о зданиях из списка и текстовых полей.
@@ -61,6 +47,7 @@ namespace ObjectOrientedPractics.View.Tabs
             IdTextBox.Clear();
             CustomersListBox.Items.Clear();
             FullNameTextBox.BackColor = AppColor.CorrectColor;
+            AddressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -70,7 +57,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <returns></returns>
         private string CustomerDescription(Customer customer)
         {
-            return $"{customer.FullName}";
+            return $"{customer.FullName}: - {customer.Id}";
         }
 
         /// <summary>
@@ -79,6 +66,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <param name="customer"></param>
         private void UpdateCustomerInfo(Customer customer)
         {
+            List<Customer> customers = Customers;
+
             int index = _customers.IndexOf(customer);
 
             if (index == -1) return;
@@ -94,7 +83,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[index];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressControl.Address = _currentCustomer.Address;
             }
         }
 
@@ -145,5 +133,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             UpdateCustomerInfo(_currentCustomer);
         }
+
+      
     }
 }
+   

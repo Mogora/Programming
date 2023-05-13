@@ -1,37 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Хранит колекцию покупателей и товаров.
+    /// Хранит данные о покупателях и магазинах.
     /// </summary>
     public class Store
     {
         /// <summary>
-        /// Покупатели.
-        /// </summary>
-        private List<Customer> _customers;
-
-        /// <summary>
-        /// Товары.
+        /// Товар.
         /// </summary>
         private List<Item> _items;
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Store"/>.
+        /// Покупатель.
         /// </summary>
+        private List<Customer> _customers;
+
+        public Store(List<Item> items, List<Customer> customers)
+        {
+            Items = items;
+            Customers = customers;
+        }
+
         public Store()
         {
-            _customers = new List<Customer>();
-            _items = new List<Item>();
+            Items = new List<Item>();
+            Customers = new List<Customer>();
         }
 
         /// <summary>
-        /// Возвращает и задает коллекцию покупателей.
+        /// Возвращает и задает товар.
+        /// </summary>
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает покупателя. 
         /// </summary>
         public List<Customer> Customers
         {
@@ -45,19 +61,5 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-        /// <summary>
-        /// Возвращает и задает коллекцию товаров.
-        /// </summary>
-        public List<Item> Items
-        {
-            get
-            {
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }     
     }
 }
