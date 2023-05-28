@@ -196,13 +196,5 @@ namespace View.ViewModel
             IsReadOnly = true;
             _serializer.Save(Contacts);
         }
-
-        /// <summary>
-        /// Сохраняет список контактов.
-        /// </summary>
-        public void SaveContacts()
-        {
-            _serializer.Save(Contacts);
-        }
     }
 }
