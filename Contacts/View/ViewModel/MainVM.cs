@@ -36,7 +36,7 @@ namespace View.ViewModel
             EditCommand = new RelayCommand(EditContact);
             RemoveCommand = new RelayCommand(RemoveContact);
             ApplyCommand = new RelayCommand(ApplyChangesContact);
-            IsReadOnly = true;
+        IsReadOnly = true;
             IsEdit = false;
         }
         
@@ -75,7 +75,7 @@ namespace View.ViewModel
             {
                 return Contact.Email;
             }
-            set
+        set
             {
                 Contact.Email = value;
                 OnPropertyChanged(nameof(Email));
