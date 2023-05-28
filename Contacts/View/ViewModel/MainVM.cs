@@ -31,6 +31,30 @@ namespace View.ViewModel
         /// </summary>
         public string Name
         {
+            Contacts = _serializer.Load();
+            AddCommand = new RelayCommand(AddContact);
+            EditCommand = new RelayCommand(EditContact);
+            RemoveCommand = new RelayCommand(RemoveContact);
+            ApplyCommand = new RelayCommand(ApplyChangesContact);
+            IsReadOnly = true;
+            IsEdit = false;
+        }
+        
+        /// <summary>
+        /// Возвращает и задает исходную версию редактируемого контакта.
+        /// </summary>
+        public ContactVM ContactClone { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию контактов.
+        /// </summary>
+        public ObservableCollection<ContactVM> Contacts { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает выбранный контакт.
+        /// </summary>
+        public ContactVM CurrentContact
+        {
             get
             {
                 return Contact.Name;
@@ -91,19 +115,23 @@ namespace View.ViewModel
         /// <summary>
         /// Команда десериализации контакта.
         /// </summary>
-        //public ICommand LoadCommand
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand((obj) =>
-        //        {
-        //            var contact = ContactSerializer.Deserialize(Path);
-        //            Name = contact.Name;
-        //            Email = contact.Email;
-        //            PhoneNumber = contact.Phone;
-        //        });
-        //    }
-        //}
+        private void RemoveContact()
+        {
+            if (Contacts.Count == 1)
+            {
+                Contacts.Remove(CurrentContact);
+            }
+            else if (CurrentIndex < Contacts.Count - 1)
+            {
+                Contacts.Remove(CurrentContact);
+                CurrentContact = Contacts[CurrentIndex];
+            }
+            else
+            {
+                Contacts.Remove(CurrentContact);
+                CurrentContact = Contacts[CurrentIndex - 1];
+            }
+        }
 
         /// <summary>
         /// При вызове зажигает событие <see cref="PropertyChanged"/>.
