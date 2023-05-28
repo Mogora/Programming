@@ -64,6 +64,6 @@ namespace View.Model.Services
             }
 
             return contacts;
-        }
+        } 
     }
 }
