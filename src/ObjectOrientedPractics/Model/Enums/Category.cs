@@ -15,6 +15,7 @@ namespace ObjectOrientedPractics.Model.Enums
         Technic,
         Car,
         Other,
-        Other2
+        Other2,
+        Other3
     }
 }
