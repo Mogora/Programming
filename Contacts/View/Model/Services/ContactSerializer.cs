@@ -1,69 +1,50 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
-using System.Collections.ObjectModel;
-using View.ViewModel;
-using System;
 
 namespace View.Model.Services
 {
-    /// <summary>
-    /// Представляет реализацию по сериализации данных.
-    /// </summary>
-    public class ContactSerializer
+    public static class ContactSerializer
     {
         /// <summary>
-        /// Создает экземпляр класса <see cref="ContactSerializer"/>.
+        /// Проводит сериализацию данных.
         /// </summary>
-        public ContactSerializer()
+        /// <param name="contact">Контакт.</param>
+        /// <param name="path">Путь сериализации.</param>
+        public static void Serialize(Contact contact, string path)
         {
-
-        }
-
-        /// <summary>
-        /// Возвращает и задает путь сохранения файла.
-        /// </summary>
-        public string Path { get; set; }
-            = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            + @"\contacts.json";
-
-
-        /// <summary>
-        /// Сохраняет список объектов в файл.
-        /// </summary>
-        /// <param name="contacts">Список контактов.</param>
-        public void Save(ObservableCollection<ContactVM> contacts)
-        {
-            if (!File.Exists(Path))
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            using (StreamWriter writer = new StreamWriter(path))
             {
-                File.Create(Path).Close();
-            }
-
-            using (StreamWriter wr = new StreamWriter(Path))
-            {
-                wr.Write(JsonConvert.SerializeObject(contacts));
+                writer.Write(JsonConvert.SerializeObject(contact));
             }
         }
 
         /// <summary>
-        /// Загружает данные из файла в приложение.
+        /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Список контактов.</returns>
-        public ObservableCollection<ContactVM> Load()
+        /// <param name="path">Путь десериализации.</param>
+        /// <returns>Возвращает экземпляр класса <see cref="Contact"/>.</returns>
+        public static Contact Deserialize(string path)
         {
-            var contacts = new ObservableCollection<ContactVM>();
-
-            if (File.Exists(Path))
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            var contact = new Contact();
+            try
             {
-                using (StreamReader sr = new StreamReader(Path))
+                using (StreamReader reader = new StreamReader(path))
                 {
-                    contacts
-                        = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>
-                        (sr.ReadToEnd());
+                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd());
                 }
+
+                if (contact == null) contact = new Contact();
+            }
+            catch (FileNotFoundException e)
+            {
+                return contact;
             }
 
-            return contacts;
-        } 
+            return contact;
+        }
     }
 }
