@@ -14,6 +14,7 @@ namespace ObjectOrientedPractics.Model.Enums
         Medicines,
         Technic,
         Car,
-        Other
+        Other,
+        Other2
     }
 }
