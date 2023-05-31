@@ -7,7 +7,8 @@
         xmlns:viewmodel="clr-namespace:View.ViewModel" 
         xmlns:services="clr-namespace:View.Model.Services" 
         xmlns:converters="clr-namespace:View.Converters"
-        d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
+        xmlns:controls="clr-namespace:View.Controls"
+        d:DataContext="{d:DesignInstance viewmodel:MainVM}"
         mc:Ignorable="d"
         Title="Contacts" 
         Height="550px"
@@ -18,26 +19,61 @@
     <Window.Resources>
         <ResourceDictionary>
             <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+            <DataTemplate x:Key="ContactTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image 
+                        Width="48"
+                        Height="48"
+                        Source="Resources/Images/photo_placeholder_100x100.png"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="3">
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="SemiBold" 
+                            Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock
+                            FontSize="12" 
+                            Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+            <Color x:Key="WhiteBackgroundColor">#ffffff</Color>
+            <Color x:Key="HasErrorBackgroundColor">#ffdddd</Color>
+            <Style x:Key="ValidationStyleTextBox" TargetType="TextBox">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                        <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColor}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#F8F8F8">
             <DockPanel Grid.Column="0" Margin="8" LastChildFill="True">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="True">
-                    <TextBlock Margin="3" VerticalAlignment="Center" DockPanel.Dock="Left" Text="Find:"/>
+                    <TextBlock 
+                            Margin="3" 
+                            VerticalAlignment="Center" 
+                            DockPanel.Dock="Left" 
+                            Text="Find:"/>
                     <TextBox Width="Auto" Margin="3"/>
                 </DockPanel>
                 <DockPanel LastChildFill="True">
                     <Grid DockPanel.Dock="Bottom">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Button Grid.Column="0" 
                                     Height="25" 
@@ -58,57 +94,32 @@
                                     Content="Remove" 
                                     IsEnabled="{Binding IsEdit}"/>
                     </Grid>
-                    <ListBox Margin="3" 
-                                 DisplayMemberPath="Name" 
-                                 DockPanel.Dock="Top" 
-                                 ItemsSource="{Binding Path=Contacts}"
-                                 SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}"/>
+                    <ListBox
+                         ItemTemplate="{StaticResource ContactTemplate}"
+                         ItemsSource="{Binding Contacts}"
+                         SelectedItem="{Binding CurrentContact, UpdateSourceTrigger=PropertyChanged}"
+                         Validation.ErrorTemplate="{x:Null}" />
                 </DockPanel>
             </DockPanel>
         </Grid>
-        <GridSplitter 
-                Grid.Column="1" 
-                Width="3" 
-                HorizontalAlignment="Center" 
-                ShowsPreview="False" 
-                Background="#FFFF"/>
-        <Grid Grid.Column="2" Margin="8" Background="#FFFF">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="1" 
-                       Grid.Column="0" 
-                       Width="100" 
-                       Height="100" 
-                       Margin="3"
-                       VerticalAlignment="Top" 
-                       Source="/Person.png"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" Margin="3" Text="Name:"/>
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBox Margin="3" 
-                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                             Text="{Binding Path=CurrentContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="3" Text="Phone Number:"/>
-                <TextBox Margin="3" 
-                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                             Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="3" Text="Email:"/>
-                <TextBox Margin="3" 
-                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                             Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Width="75" 
-                            Height="25" 
-                            Margin="3 50 3 3" 
-                            HorizontalAlignment="Left" 
-                            Content="Apply"
-                            Command="{Binding ApplyCommand}" 
-                            Visibility="{Binding IsReadOnly, Converter={StaticResource VisibilityConverter}}"/>
-            </StackPanel>
-        </Grid>
+        <GridSplitter
+                Grid.Column="1"
+                Width="3px"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch" />
+        <StackPanel
+                Grid.Column="2"
+                Margin="3"
+                Orientation="Vertical">
+            <controls:ContactControl CurrentContact="{Binding CurrentContact}" Validation.ErrorTemplate="{x:Null}" />
+            <Button 
+                    Width="75" 
+                    Height="25" 
+                    Margin="109 10 3 3" 
+                    HorizontalAlignment="Left" 
+                    Content="Apply"
+                    Command="{Binding ApplyCommand}" 
+                    Visibility="{Binding IsReadOnly, Converter={StaticResource VisibilityConverter}}"/>
+        </StackPanel>
     </Grid>
 </Window>
