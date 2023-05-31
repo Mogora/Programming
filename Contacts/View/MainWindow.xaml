@@ -6,6 +6,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
         xmlns:viewmodel="clr-namespace:View.ViewModel" 
         xmlns:services="clr-namespace:View.Model.Services" 
+        xmlns:converters="clr-namespace:View.Converters"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
         mc:Ignorable="d"
         Title="Contacts" 
@@ -16,7 +17,7 @@
         Icon="/Contact.png">
     <Window.Resources>
         <ResourceDictionary>
-            <services:VisibilityConverter x:Key="VisibilityConverter"/>
+            <converters:VisibilityConverter x:Key="VisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
