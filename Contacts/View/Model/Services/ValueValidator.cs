@@ -6,7 +6,7 @@ namespace View.Model.Services
     /// <summary>
     /// Хранит реализацию методов, предназначенных для валидации.
     /// </summary>
-    class ValueValidator
+    public static class ValueValidator
     {
         /// <summary>
         /// Валидация номера телефона.
