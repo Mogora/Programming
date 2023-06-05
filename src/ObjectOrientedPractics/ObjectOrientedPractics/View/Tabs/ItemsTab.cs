@@ -33,11 +33,17 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
 
             var category = Enum.GetValues(typeof(Category));
+
             foreach (var value in category)
             {
                 CategoryComboBox.Items.Add(value);
             }
         }
+
+        /// <summary>
+        /// Возвращает и задаёт коллекцию товаров.
+        /// </summary>
+        public List<Item> Items { get; set; }
 
         /// <summary>
         /// На значения товара задаются параметры.
@@ -55,6 +61,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <param name="selectedIndex">Индекс выбранного элемента.</param>
         private void UpdateItemInfo(Item item)
         {
+            List<Item> items = Items;
+
             int index = _items.IndexOf(item);
 
             if (index == -1) return;

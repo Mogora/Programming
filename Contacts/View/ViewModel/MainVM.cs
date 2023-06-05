@@ -56,6 +56,7 @@ namespace View.ViewModel
         /// </summary>
         public ObservableCollection<ContactVM> Contacts { get; set; }
 
+
         /// <summary>
         /// Возвращает и задает выбранный контакт.
         /// </summary>

@@ -29,17 +29,17 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.CustomersGeneralPanel = new System.Windows.Forms.Panel();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.RemoveButtonPanel = new System.Windows.Forms.Panel();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButtonPanel = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.SelectedCustomerPanel = new System.Windows.Forms.Panel();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CustomersGeneralPanel
             // 
+            this.CustomersGeneralPanel.Controls.Add(this.AddressControl);
             this.CustomersGeneralPanel.Controls.Add(this.ButtonsPanel);
             this.CustomersGeneralPanel.Controls.Add(this.SelectedCustomerPanel);
             this.CustomersGeneralPanel.Controls.Add(this.CustomersLabel);
@@ -64,6 +65,20 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersGeneralPanel.Name = "CustomersGeneralPanel";
             this.CustomersGeneralPanel.Size = new System.Drawing.Size(969, 631);
             this.CustomersGeneralPanel.TabIndex = 0;
+            // 
+            // AddressControl
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.AddressControl.Address = address1;
+            this.AddressControl.Location = new System.Drawing.Point(411, 119);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(555, 321);
+            this.AddressControl.TabIndex = 4;
             // 
             // ButtonsPanel
             // 
@@ -112,51 +127,31 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SelectedCustomerPanel
             // 
-            this.SelectedCustomerPanel.Controls.Add(this.AddressTextBox);
             this.SelectedCustomerPanel.Controls.Add(this.FullNameTextBox);
             this.SelectedCustomerPanel.Controls.Add(this.IdTextBox);
-            this.SelectedCustomerPanel.Controls.Add(this.AddressLabel);
             this.SelectedCustomerPanel.Controls.Add(this.FullNameLabel);
             this.SelectedCustomerPanel.Controls.Add(this.IDLabel);
             this.SelectedCustomerPanel.Controls.Add(this.SelectedCustomerLabel);
             this.SelectedCustomerPanel.Location = new System.Drawing.Point(411, 3);
             this.SelectedCustomerPanel.Name = "SelectedCustomerPanel";
-            this.SelectedCustomerPanel.Size = new System.Drawing.Size(555, 253);
+            this.SelectedCustomerPanel.Size = new System.Drawing.Size(555, 110);
             this.SelectedCustomerPanel.TabIndex = 2;
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Location = new System.Drawing.Point(88, 115);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(464, 135);
-            this.AddressTextBox.TabIndex = 10;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
             // FullNameTextBox
             // 
-            this.FullNameTextBox.Location = new System.Drawing.Point(88, 70);
+            this.FullNameTextBox.Location = new System.Drawing.Point(101, 72);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(464, 27);
+            this.FullNameTextBox.Size = new System.Drawing.Size(441, 27);
             this.FullNameTextBox.TabIndex = 9;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Location = new System.Drawing.Point(88, 26);
+            this.IdTextBox.Location = new System.Drawing.Point(101, 35);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(156, 27);
+            this.IdTextBox.Size = new System.Drawing.Size(141, 27);
             this.IdTextBox.TabIndex = 8;
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(3, 118);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(65, 20);
-            this.AddressLabel.TabIndex = 7;
-            this.AddressLabel.Text = "Address:";
             // 
             // FullNameLabel
             // 
@@ -170,7 +165,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // IDLabel
             // 
             this.IDLabel.AutoSize = true;
-            this.IDLabel.Location = new System.Drawing.Point(3, 29);
+            this.IDLabel.Location = new System.Drawing.Point(3, 38);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(27, 20);
             this.IDLabel.TabIndex = 5;
@@ -248,9 +243,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label SelectedCustomerLabel;
         private System.Windows.Forms.TextBox IdTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label FullNameLabel;
-        private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.TextBox FullNameTextBox;
+        private Controls.AddressControl AddressControl;
     }
 }

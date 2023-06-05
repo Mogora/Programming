@@ -30,7 +30,7 @@ namespace View.Model.Services
                 + @"\contacts.json";
             }
         }
-            
+          
         /// <summary>
         /// Сохраняет список объектов в файл.
         /// </summary>

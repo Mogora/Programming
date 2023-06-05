@@ -33,17 +33,21 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
+        public List<Customer> Customers { get; set; }
+
+        /// <summary>
         /// Очищает информацию о зданиях из списка и текстовых полей.
         /// </summary>
         /// <param name="customer"></param>
         private void ClearCustomerInfo()
         {
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
             IdTextBox.Clear();
             CustomersListBox.Items.Clear();
             FullNameTextBox.BackColor = AppColor.CorrectColor;
-            AddressTextBox.BackColor = AppColor.CorrectColor;
+            AddressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -53,7 +57,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <returns></returns>
         private string CustomerDescription(Customer customer)
         {
-            return $"{customer.FullName}: - {customer.Address}";
+            return $"{customer.FullName}: - {customer.Id}";
         }
 
         /// <summary>
@@ -62,6 +66,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <param name="customer"></param>
         private void UpdateCustomerInfo(Customer customer)
         {
+            List<Customer> customers = Customers;
+
             int index = _customers.IndexOf(customer);
 
             if (index == -1) return;
@@ -77,7 +83,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[index];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
             }
         }
 
@@ -99,25 +104,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             FullNameTextBox.BackColor = AppColor.CorrectColor;
-        }
-
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            int index = CustomersListBox.SelectedIndex;
-
-            if (index == -1) return;
-
-            try
-            {
-                string address = AddressTextBox.Text;
-                _currentCustomer.Address = address;
-                UpdateCustomerInfo(_currentCustomer);
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColor.ErrorColor;
-            }
-            AddressTextBox.BackColor = AppColor.CorrectColor;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -147,6 +133,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             UpdateCustomerInfo(_currentCustomer);
         }
+
+      
     }
 }
    
