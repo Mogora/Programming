@@ -22,13 +22,10 @@ namespace View.Model.Services
         /// <summary>
         /// Возвращает и задает путь сохранения файла.
         /// </summary>
-        public string Path
-        {
-            get
-            {
-                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\contacts.json";
-            }
-        }
+        public string Path { get; set; }
+            = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            + @"\contacts.json";
+
 
         /// <summary>
         /// Сохраняет список объектов в файл.
