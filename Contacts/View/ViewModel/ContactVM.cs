@@ -31,15 +31,8 @@ namespace View.ViewModel
         [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateName))]
         public string Name
         {
-            get
-            {
-                return Contact.Name;
-            }
-            set
-            {
-                Contact.Name = value;
-                OnPropertyChanged(nameof(Name));
-            }
+            get => Contact.Name;
+            set => SetProperty(Contact.Name, value, Contact, (contact, name) => Contact.Name = name, true);
         }
 
         /// <summary>
@@ -48,15 +41,8 @@ namespace View.ViewModel
         [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateEmail))]
         public string Phone
         {
-            get
-            {
-                return Contact.Phone;
-            }
-            set
-            {
-                Contact.Phone = value;
-                OnPropertyChanged(nameof(Phone));
-            }
+            get => Contact.Phone;
+            set => SetProperty(Contact.Phone, value, Contact, (contact, phone) => Contact.Phone = phone, true);
         }
 
         /// <summary>
@@ -65,15 +51,8 @@ namespace View.ViewModel
         [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidatePhone))]
         public string Email
         {
-            get
-            {
-                return Contact.Email;
-            }
-            set
-            {
-                Contact.Email = value;
-                OnPropertyChanged(nameof(Email));
-            }
+            get => Contact.Email;
+            set => SetProperty(Contact.Email, value, Contact, (contact, email) => Contact.Email = email, true);
         }
 
         /// <summary>

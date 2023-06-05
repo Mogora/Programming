@@ -148,9 +148,6 @@ namespace View.ViewModel
         {
             CurrentContact = null;
             Buffer = new ContactVM(new Contact());
-            Buffer.Name = "";
-            Buffer.Phone = "";
-            Buffer.Email = "";
             CurrentContact = Buffer;
             IsReadOnly = false;
             IsEdit = false;

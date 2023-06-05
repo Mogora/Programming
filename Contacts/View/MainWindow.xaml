@@ -85,21 +85,21 @@
                             Margin="{StaticResource DefaultMargin}"
                             Command="{Binding AddCommand}"
                             Content="Add"
-                            IsEnabled="{Binding IsAddMode}"/>
+                            IsEnabled="{Binding IsReadOnly}"/>
                         <Button
                             Grid.Column="1"
                             Height="{StaticResource DefaultButtonHeightValue}"
                             Margin="{StaticResource DefaultMargin}"
                             Command="{Binding EditCommand}"
                             Content="Edit"
-                            IsEnabled="{Binding IsEditMode}"/>
+                            IsEnabled="{Binding IsEdit}"/>
                         <Button
                             Grid.Column="2"
                             Height="{StaticResource DefaultButtonHeightValue}"
                             Margin="{StaticResource DefaultMargin}"
                             Command="{Binding RemoveCommand}"
                             Content="Remove"
-                            IsEnabled="{Binding IsEditMode}"/>
+                            IsEnabled="{Binding IsEdit}"/>
                     </Grid>
                     <ListBox
                         x:Name="ContactsListBox"
@@ -107,7 +107,7 @@
                         Margin="{StaticResource DefaultMargin}"
                         ItemTemplate="{StaticResource ContactTemplate}"
                         ItemsSource="{Binding Contacts}"
-                        SelectedItem="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding CurrentContact, UpdateSourceTrigger=PropertyChanged}"
                         Validation.ErrorTemplate="{x:Null}"/>
                 </DockPanel>
             </DockPanel>
@@ -122,7 +122,7 @@
                 Grid.Column="2"
                 Margin="{StaticResource DefaultColumnMargin}"
                 Orientation="Vertical">
-            <controls:ContactControl CurrentContact="{Binding SelectedContact, Mode=TwoWay}" Validation.ErrorTemplate="{x:Null}"/>
+            <controls:ContactControl CurrentContact="{Binding CurrentContact, Mode=TwoWay}" Validation.ErrorTemplate="{x:Null}"/>
             <Button
                     Margin="109 50 3 3"
                     HorizontalAlignment="Left"
