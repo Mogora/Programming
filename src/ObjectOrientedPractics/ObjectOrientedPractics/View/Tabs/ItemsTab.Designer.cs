@@ -88,7 +88,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // CategoryComboBox
             // 
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(83, 137);
+            this.CategoryComboBox.Location = new System.Drawing.Point(83, 115);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(156, 28);
             this.CategoryComboBox.TabIndex = 10;
@@ -97,7 +97,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // CategoryLabel
             // 
             this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(5, 140);
+            this.CategoryLabel.Location = new System.Drawing.Point(5, 118);
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(72, 20);
             this.CategoryLabel.TabIndex = 9;
@@ -141,7 +141,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // CostTextBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(83, 87);
+            this.CostTextBox.Location = new System.Drawing.Point(83, 78);
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.Size = new System.Drawing.Size(156, 27);
             this.CostTextBox.TabIndex = 4;
@@ -158,7 +158,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // CostLabel
             // 
             this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(5, 90);
+            this.CostLabel.Location = new System.Drawing.Point(5, 81);
             this.CostLabel.Name = "CostLabel";
             this.CostLabel.Size = new System.Drawing.Size(41, 20);
             this.CostLabel.TabIndex = 2;

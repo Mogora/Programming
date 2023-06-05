@@ -71,6 +71,14 @@ namespace ObjectOrientedPractics
             this.ItemsTab.Size = new System.Drawing.Size(973, 625);
             this.ItemsTab.TabIndex = 0;
             // 
+            // ItemsTab
+            // 
+            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsTab.Location = new System.Drawing.Point(3, 3);
+            this.ItemsTab.Name = "ItemsTab";
+            this.ItemsTab.Size = new System.Drawing.Size(973, 625);
+            this.ItemsTab.TabIndex = 0;
+            // 
             // CustomersTabPage
             // 
             this.CustomersTabPage.Controls.Add(this.CustomersTab);
