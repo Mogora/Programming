@@ -56,10 +56,6 @@ namespace View.ViewModel
         /// </summary>
         public ObservableCollection<ContactVM> Contacts { get; set; }
 
-        /// <summary>
-        /// Возвращает и задает индекс текущего контакта.
-        /// </summary>
-        public int CurrentIndex { get; set; }
 
         /// <summary>
         /// Возвращает и задает выбранный контакт.
