@@ -167,20 +167,43 @@ namespace View.ViewModel
         /// </summary>
         private void RemoveContact()
         {
-            if (Contacts.Count == 1)
+            //if (Contacts.Count == 1)
+            //{
+            //    Contacts.Remove(CurrentContact);
+            //}
+            //else if (CurrentIndex < Contacts.Count - 1)
+            //{
+            //    Contacts.Remove(CurrentContact);
+            //    CurrentContact = Contacts[CurrentIndex];
+            //}
+            //else
+            //{
+            //    Contacts.Remove(CurrentContact);
+            //    CurrentContact = Contacts[CurrentIndex - 1];
+            //}
+
+            if (CurrentContact == null)
             {
-                Contacts.Remove(CurrentContact);
+                return;
             }
-            else if (CurrentIndex < Contacts.Count - 1)
+
+            int index = Contacts.IndexOf(CurrentContact);
+            Contacts.RemoveAt(index);
+
+            if (Contacts.Count == 0)
             {
-                Contacts.Remove(CurrentContact);
-                CurrentContact = Contacts[CurrentIndex];
+                CurrentContact = null;
+            }
+            else if (index == Contacts.Count)
+            {
+                CurrentContact = Contacts[index - 1];
             }
             else
             {
-                Contacts.Remove(CurrentContact);
-                CurrentContact = Contacts[CurrentIndex - 1];
+                CurrentContact = Contacts[index];
             }
+
+            _serializer.Save(Contacts);
         }
 
         /// <summary>
