@@ -31,8 +31,6 @@ namespace View.Model.Services
             }
         }
             
-
-
         /// <summary>
         /// Сохраняет список объектов в файл.
         /// </summary>
