@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using View.Model;
-using System.Windows.Input;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
     /// <summary>
     /// ViewModel, агрегирующий в себе класс <see cref="Model.Contact"/>.
     /// </summary>
-    public class ContactVM : ObservableObject, ICloneable
+    public class ContactVM : ObservableValidator, ICloneable
     {
         /// <summary>
         /// Создает экземпляр класса <see cref="ContactVM"/>.
@@ -31,6 +28,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и получает имя контакта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateName))]
         public string Name
         {
             get
@@ -47,6 +45,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и получает телефон контакта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateEmail))]
         public string Phone
         {
             get
@@ -63,6 +62,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и получает электронную почту контакта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidatePhone))]
         public string Email
         {
             get

@@ -56,6 +56,8 @@ namespace View.ViewModel
         /// </summary>
         public ObservableCollection<ContactVM> Contacts { get; set; }
 
+        public ContactVM Buffer { get; set; }
+
         /// <summary>
         /// Возвращает и задает индекс текущего контакта.
         /// </summary>
@@ -145,7 +147,11 @@ namespace View.ViewModel
         private void AddContact()
         {
             CurrentContact = null;
-            CurrentContact = new ContactVM(new Contact());
+            Buffer = new ContactVM(new Contact());
+            Buffer.Name = "";
+            Buffer.Phone = "";
+            Buffer.Email = "";
+            CurrentContact = Buffer;
             IsReadOnly = false;
             IsEdit = false;
         }
@@ -155,8 +161,8 @@ namespace View.ViewModel
         /// </summary>
         private void EditContact()
         {
-            ContactClone = (ContactVM)CurrentContact.Clone();
-
+            Buffer = CurrentContact;
+            CurrentContact = (ContactVM)CurrentContact.Clone();
             IsReadOnly = false;
             IsEdit = false;
         }

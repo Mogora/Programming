@@ -18,87 +18,97 @@
         Icon="/Contact.png">
     <Window.Resources>
         <ResourceDictionary>
-            <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/DefaultStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
             <DataTemplate x:Key="ContactTemplate">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Image 
-                        Width="48"
-                        Height="48"
-                        Source="Resources/Images/photo_placeholder_100x100.png"/>
-                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="3">
+                    <Rectangle
+                        Grid.Column="0"
+                        Width="{StaticResource DefaultPhotoPlaceholderListItemWidthValue}"
+                        Height="{StaticResource DefaultPhotoPlaceholderListItemHeightValue}"
+                        Margin="{StaticResource DefaultMargin}"
+                        RadiusX="{StaticResource DefaultRadiusXValue}"
+                        RadiusY="{StaticResource DefaultRadiusYValue}">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{StaticResource PhotoPlaceholder}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
                         <TextBlock
-                            FontSize="14"
-                            FontWeight="SemiBold" 
-                            Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                            Margin="{StaticResource DefaultMargin}"
+                            Style="{StaticResource ContactNameTextBlock}"
+                            Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            Validation.ErrorTemplate="{x:Null}"/>
                         <TextBlock
-                            FontSize="12" 
-                            Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                            Margin="{StaticResource DefaultMargin}"
+                            Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            Validation.ErrorTemplate="{x:Null}"/>
                     </StackPanel>
                 </Grid>
             </DataTemplate>
-            <Color x:Key="WhiteBackgroundColor">#ffffff</Color>
-            <Color x:Key="HasErrorBackgroundColor">#ffdddd</Color>
-            <Style x:Key="ValidationStyleTextBox" TargetType="TextBox">
-                <Style.Triggers>
-                    <Trigger Property="Validation.HasError" Value="True">
-                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
-                        <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColor}"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            <converters:BoolToVisibilityConverter x:Key="VisibilityConverter"/>
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+            <converters:CombiningVisibilityConverter
+                x:Key="CombiningVisibilityConverter"
+                InverseBooleanConverter="{StaticResource InverseBooleanConverter}"
+                VisibilityConverter="{StaticResource VisibilityConverter}"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="0.6*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="#F8F8F8">
+        <Grid Background="#f8f8f8">
             <DockPanel Grid.Column="0" Margin="8" LastChildFill="True">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="True">
-                    <TextBlock 
-                            Margin="3" 
-                            VerticalAlignment="Center" 
-                            DockPanel.Dock="Left" 
-                            Text="Find:"/>
-                    <TextBox Width="Auto" Margin="3"/>
+                    <TextBlock Margin="3" VerticalAlignment="Center" DockPanel.Dock="Left" Text="Find:"/>
+                    <TextBox Width="Auto" Margin="3"></TextBox>
                 </DockPanel>
                 <DockPanel LastChildFill="True">
                     <Grid DockPanel.Dock="Bottom">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" 
-                                    Height="25" 
-                                    Margin="3" 
-                                    Command="{Binding AddCommand}" 
-                                    Content="Add" 
-                                    IsEnabled="{Binding IsReadOnly}"/>
-                        <Button Grid.Column="1" 
-                                    Height="25" 
-                                    Margin="3" 
-                                    Command="{Binding EditCommand}" 
-                                    Content="Edit" 
-                                    IsEnabled="{Binding IsEdit}"/>
-                        <Button Grid.Column="2" 
-                                    Height="25" 
-                                    Margin="3" 
-                                    Command="{Binding RemoveCommand}" 
-                                    Content="Remove" 
-                                    IsEnabled="{Binding IsEdit}"/>
+                        <Button
+                            Grid.Column="0"
+                            Height="{StaticResource DefaultButtonHeightValue}"
+                            Margin="{StaticResource DefaultMargin}"
+                            Command="{Binding AddCommand}"
+                            Content="Add"
+                            IsEnabled="{Binding IsAddMode}"/>
+                        <Button
+                            Grid.Column="1"
+                            Height="{StaticResource DefaultButtonHeightValue}"
+                            Margin="{StaticResource DefaultMargin}"
+                            Command="{Binding EditCommand}"
+                            Content="Edit"
+                            IsEnabled="{Binding IsEditMode}"/>
+                        <Button
+                            Grid.Column="2"
+                            Height="{StaticResource DefaultButtonHeightValue}"
+                            Margin="{StaticResource DefaultMargin}"
+                            Command="{Binding RemoveCommand}"
+                            Content="Remove"
+                            IsEnabled="{Binding IsEditMode}"/>
                     </Grid>
                     <ListBox
-                         ItemTemplate="{StaticResource ContactTemplate}"
-                         ItemsSource="{Binding Contacts}"
-                         SelectedItem="{Binding CurrentContact, UpdateSourceTrigger=PropertyChanged}"
-                         Validation.ErrorTemplate="{x:Null}" />
+                        x:Name="ContactsListBox"
+                        Grid.Row="1"
+                        Margin="{StaticResource DefaultMargin}"
+                        ItemTemplate="{StaticResource ContactTemplate}"
+                        ItemsSource="{Binding Contacts}"
+                        SelectedItem="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged}"
+                        Validation.ErrorTemplate="{x:Null}"/>
                 </DockPanel>
             </DockPanel>
         </Grid>
@@ -106,20 +116,21 @@
                 Grid.Column="1"
                 Width="3px"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Stretch" />
+                VerticalAlignment="Stretch"
+                Background="{StaticResource WhiteBackgroundColorBrush}"/>
         <StackPanel
                 Grid.Column="2"
-                Margin="3"
+                Margin="{StaticResource DefaultColumnMargin}"
                 Orientation="Vertical">
-            <controls:ContactControl CurrentContact="{Binding CurrentContact}" Validation.ErrorTemplate="{x:Null}" />
-            <Button 
-                    Width="75" 
-                    Height="25" 
-                    Margin="109 10 3 3" 
-                    HorizontalAlignment="Left" 
+            <controls:ContactControl CurrentContact="{Binding SelectedContact, Mode=TwoWay}" Validation.ErrorTemplate="{x:Null}"/>
+            <Button
+                    Margin="109 50 3 3"
+                    HorizontalAlignment="Left"
+                    Command="{Binding ApplyCommand}"
                     Content="Apply"
-                    Command="{Binding ApplyCommand}" 
-                    Visibility="{Binding IsReadOnly, Converter={StaticResource VisibilityConverter}}"/>
+                    IsEnabled="{Binding CurrentContact.HasErrors, Converter={StaticResource InverseBooleanConverter}}"
+                    Style="{StaticResource DefaultButton}"
+                    Visibility="{Binding IsReadOnly, Converter={StaticResource CombiningVisibilityConverter}}"/>
         </StackPanel>
     </Grid>
 </Window>

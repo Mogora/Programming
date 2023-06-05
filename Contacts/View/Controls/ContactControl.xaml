@@ -9,59 +9,49 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
-            <Color x:Key="WhiteBackgroundColor">#ffffff</Color>
-            <Color x:Key="HasErrorBackgroundColor">#ffdddd</Color>
-            <SolidColorBrush x:Key="HasErrorBackgroundColorBrush" Color="{StaticResource HasErrorBackgroundColor}" />
-            <Style x:Key="ValidationStyleTextBox" TargetType="TextBox">
-                <Style.Triggers>
-                    <Trigger Property="Validation.HasError" Value="True">
-                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)/ErrorContent}" />
-                        <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColorBrush}" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/DefaultStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Grid Background="#FFFF">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="1" 
-                   Grid.Column="0" 
-                   Width="100" 
-                   Height="100" 
-                   Margin="3"
-                   VerticalAlignment="Top" 
-                   Source="\Resources\Person.png"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" Margin="3" Text="Name:"/>
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBox 
-                    Margin="3" 
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+            <StackPanel>
+                <TextBlock Margin="{StaticResource DefaultMargin}"/>
+                <Image
+                    Width="{StaticResource DefaultPhotoPlaceholderWidthValue}"
+                    Height="{StaticResource DefaultPhotoPlaceholderHeightValue}"
+                    Margin="{StaticResource DefaultMargin}"
+                    Source="{StaticResource PhotoPlaceholder}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Margin="{StaticResource DefaultMargin}" Text="Name: "/>
+                <TextBox
+                    Margin="{StaticResource DefaultMargin}"
+                    IsReadOnly="{Binding IsReadOnly}"
+                    Style="{StaticResource ValidationStyleTextBox}"
                     Text="{Binding Path=CurrentContact.Name, UpdateSourceTrigger=PropertyChanged}"
-                    Style="{StaticResource ValidationStyleTextBox}"
                     Validation.ErrorTemplate="{x:Null}"/>
-                <TextBlock Margin="3" Text="Phone Number:"/>
-                <TextBox 
-                    Margin="3" 
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
-                    PreviewTextInput="PhoneNumberTextBox_PreviewTextInput"
+                <TextBlock Margin="{StaticResource DefaultMargin}" Text="Phone: "/>
+                <TextBox
+                    x:Name="PhoneNumberTextBox"
+                    Margin="{StaticResource DefaultMargin}"
                     DataObject.Pasting="PhoneNumberTextBox_Paste"
+                    IsReadOnly="{Binding IsReadOnly}"
+                    PreviewTextInput="PhoneNumberTextBox_PreviewTextInput"
                     Style="{StaticResource ValidationStyleTextBox}"
+                    Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
                     Validation.ErrorTemplate="{x:Null}"/>
-                <TextBlock Margin="3" Text="Email:"/>
-                <TextBox 
-                    Margin="3"                         
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"
+                <TextBlock Margin="{StaticResource DefaultMargin}" Text="Email: "/>
+                <TextBox
+                    Margin="{StaticResource DefaultMargin}"
+                    IsReadOnly="{Binding IsReadOnly}"
                     Style="{StaticResource ValidationStyleTextBox}"
+                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"
                     Validation.ErrorTemplate="{x:Null}"/>
             </StackPanel>
         </Grid>
