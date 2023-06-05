@@ -38,7 +38,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и получает телефон контакта.
         /// </summary>
-        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateEmail))]
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidatePhone))]
         public string Phone
         {
             get => Contact.Phone;
@@ -48,7 +48,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и получает электронную почту контакта.
         /// </summary>
-        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidatePhone))]
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateEmail))]
         public string Email
         {
             get => Contact.Email;

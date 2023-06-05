@@ -147,8 +147,7 @@ namespace View.ViewModel
         private void AddContact()
         {
             CurrentContact = null;
-            Buffer = new ContactVM(new Contact());
-            CurrentContact = Buffer;
+            CurrentContact = new ContactVM(new Contact());
             IsReadOnly = false;
             IsEdit = false;
         }
@@ -158,8 +157,7 @@ namespace View.ViewModel
         /// </summary>
         private void EditContact()
         {
-            Buffer = CurrentContact;
-            CurrentContact = (ContactVM)CurrentContact.Clone();
+            ContactClone = (ContactVM)CurrentContact.Clone();
             IsReadOnly = false;
             IsEdit = false;
         }
