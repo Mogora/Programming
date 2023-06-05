@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace View.Model
@@ -48,6 +49,11 @@ namespace View.Model
         public object Clone()
         {
             return new Contact(Name, Email, Phone);
+        }
+
+        public static implicit operator ObservableCollection<object>(Contact v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

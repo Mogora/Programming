@@ -44,15 +44,11 @@ namespace View.Model.Services
             }
         }
 
-        /// <summary>
-        /// Загружает данные из файла в приложение.
-        /// </summary>
-        /// <returns>Список контактов.</returns>
         public ObservableCollection<ContactVM> Load()
         {
             var contacts = new ObservableCollection<ContactVM>();
 
-            if (File.Exists(Path))
+            try
             {
                 using (StreamReader sr = new StreamReader(Path))
                 {
@@ -61,9 +57,14 @@ namespace View.Model.Services
                         DeserializeObject<ObservableCollection<ContactVM>>
                         (sr.ReadToEnd());
                 }
+                if (File.Exists(Path)) ;
+            }
+            catch (FileNotFoundException e)
+            {
+                return contacts;
             }
 
             return contacts;
-        } 
+        }
     }
 }

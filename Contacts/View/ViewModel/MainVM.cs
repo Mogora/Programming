@@ -166,22 +166,7 @@ namespace View.ViewModel
         /// Удаляет контакт.
         /// </summary>
         private void RemoveContact()
-        {
-            //if (Contacts.Count == 1)
-            //{
-            //    Contacts.Remove(CurrentContact);
-            //}
-            //else if (CurrentIndex < Contacts.Count - 1)
-            //{
-            //    Contacts.Remove(CurrentContact);
-            //    CurrentContact = Contacts[CurrentIndex];
-            //}
-            //else
-            //{
-            //    Contacts.Remove(CurrentContact);
-            //    CurrentContact = Contacts[CurrentIndex - 1];
-            //}
-
+        {           
             if (CurrentContact == null)
             {
                 return;
