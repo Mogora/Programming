@@ -26,10 +26,11 @@ namespace View.Model.Services
         {
             get
             {
-                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\contacts.json";
+                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                + @"\contacts.json";
             }
         }
-
+          
         /// <summary>
         /// Сохраняет список объектов в файл.
         /// </summary>
