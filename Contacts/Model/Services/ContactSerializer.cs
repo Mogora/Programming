@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using System.Collections.ObjectModel;
-using View.ViewModel;
 using System;
 
-namespace View.Model.Services
+namespace Model.Services
 {
     /// <summary>
     /// Представляет реализацию по сериализации данных.
