@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -28,16 +29,11 @@ namespace ViewModel
         private ContactVM _currentContact;
 
         /// <summary>
-        /// Сериализатор.
-        /// </summary>
-        private ContactSerializer _serializer = new ContactSerializer();
-
-        /// <summary>
         /// Создает экземпляр класса <see cref="MainVM"/>.
         /// </summary>
         public MainVM()
         {
-            Contacts = _serializer.Load();
+            Contacts = new ObservableCollection<ContactVM>(ContactSerializer.Load().Select(c => new ContactVM(c)));
             AddCommand = new RelayCommand(AddContact);
             EditCommand = new RelayCommand(EditContact);
             RemoveCommand = new RelayCommand(RemoveContact);
@@ -156,10 +152,10 @@ namespace ViewModel
         }
 
         /// <summary>
-        /// Удаляет контакт.
+        /// Удаляет выбранный контакт.
         /// </summary>
         private void RemoveContact()
-        {           
+        {
             if (CurrentContact == null)
             {
                 return;
@@ -181,7 +177,13 @@ namespace ViewModel
                 CurrentContact = Contacts[index];
             }
 
-            _serializer.Save(Contacts);
+            ContactSerializer.Save(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    Phone = c.Phone,
+                    Email = c.Email
+                })));
         }
 
         /// <summary>
@@ -196,7 +198,13 @@ namespace ViewModel
             ContactClone = null;
             IsEdit = true;
             IsReadOnly = true;
-            _serializer.Save(Contacts);
+            ContactSerializer.Save(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    Phone = c.Phone,
+                    Email = c.Email
+                })));
         }
     }
 }

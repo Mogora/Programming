@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using View.ViewModel;
+using ViewModel;
 
 namespace View
 {

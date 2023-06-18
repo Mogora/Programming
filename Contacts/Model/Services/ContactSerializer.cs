@@ -8,20 +8,14 @@ namespace Model.Services
     /// <summary>
     /// Представляет реализацию по сериализации данных.
     /// </summary>
-    public class ContactSerializer
+    public static class ContactSerializer
     {
-        /// <summary>
-        /// Создает экземпляр класса <see cref="ContactSerializer"/>.
-        /// </summary>
-        public ContactSerializer()
-        {
-
-        }
-
+        
+        
         /// <summary>
         /// Возвращает и задает путь сохранения файла.
         /// </summary>
-        public string Path
+        public static string Path
         {
             get
             {
@@ -34,7 +28,7 @@ namespace Model.Services
         /// Сохраняет список объектов в файл.
         /// </summary>
         /// <param name="contacts">Список контактов.</param>
-        public void Save(ObservableCollection<ContactVM> contacts)
+        public static void Save(ObservableCollection<Contact> contacts)
         {
             if (!File.Exists(Path))
             {
@@ -47,9 +41,9 @@ namespace Model.Services
             }
         }
 
-        public ObservableCollection<ContactVM> Load()
+        public static ObservableCollection<Contact> Load()
         {
-            var contacts = new ObservableCollection<ContactVM>();
+            var contacts = new ObservableCollection<Contact>();
 
             try
             {
@@ -57,7 +51,7 @@ namespace Model.Services
                 {
                     contacts
                         = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>
+                        DeserializeObject<ObservableCollection<Contact>>
                         (sr.ReadToEnd());
                 }
                 if (File.Exists(Path)) ;
